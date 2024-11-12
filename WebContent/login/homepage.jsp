@@ -3,9 +3,9 @@
 
 <c:import url="/common/base.jsp">
 	<c:param name="title">
-		システム
 	</c:param>
 
+	<a href = "../login\.\admin/AdminLogin.action">Login(組織)</a>
 
 	<c:param name="scripts">
 
