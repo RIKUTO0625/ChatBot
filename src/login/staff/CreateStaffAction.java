@@ -1,11 +1,11 @@
-package login;
+package login.staff;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class AdminLoginExecuteAction extends Action{
+public class CreateStaffAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -22,12 +22,6 @@ public class AdminLoginExecuteAction extends Action{
 		//レスポンス値をセット 6
 		//なし
 		//JSPへフォワード 7
-
-//		エラーがあった場合ログイン画面へ戻る
-//		if(){
-//			req.getRequestDispatcher("admin_login.jsp").forward(req, res);
-//		}
-
-		req.getRequestDispatcher("admin_mypage.jsp").forward(req, res);
+		req.getRequestDispatcher("staff_create.jsp").forward(req, res);
 	}
 }

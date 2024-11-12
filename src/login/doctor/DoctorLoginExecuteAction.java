@@ -1,11 +1,11 @@
-package login;
+package login.doctor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class AdminLoginAction extends Action{
+public class DoctorLoginExecuteAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -22,6 +22,12 @@ public class AdminLoginAction extends Action{
 		//レスポンス値をセット 6
 		//なし
 		//JSPへフォワード 7
-		req.getRequestDispatcher("admin_login.jsp").forward(req, res);
+
+//		エラーがあった場合ログイン画面へ戻る
+//		if(){
+//			req.getRequestDispatcher("doctor_login.jsp").forward(req, res);
+//		}
+
+		req.getRequestDispatcher("doctor_mypage.jsp").forward(req, res);
 	}
 }

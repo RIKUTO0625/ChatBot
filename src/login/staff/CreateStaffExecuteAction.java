@@ -1,11 +1,11 @@
-package login;
+package login.staff;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class StaffLoginExecuteAction extends Action{
+public class CreateStaffExecuteAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -23,11 +23,11 @@ public class StaffLoginExecuteAction extends Action{
 		//なし
 		//JSPへフォワード 7
 
-//		エラーがあった場合ログイン画面へ戻る
+//		エラーがあった場合、新規作成画面へ戻る
 //		if(){
-//			req.getRequestDispatcher("staff_login.jsp").forward(req, res);
+//			req.getRequestDispatcher("staff_create.jsp").forward(req, res);
 //		}
 
-		req.getRequestDispatcher("staff_mypage.jsp").forward(req, res);
+		req.getRequestDispatcher("staff_create_pf.jsp").forward(req, res);
 	}
 }

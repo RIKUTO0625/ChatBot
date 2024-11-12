@@ -1,11 +1,11 @@
-package login;
+package login.admin;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class CreateStaffExecuteAction extends Action{
+public class CreateAdminExecuteAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -25,9 +25,9 @@ public class CreateStaffExecuteAction extends Action{
 
 //		エラーがあった場合、新規作成画面へ戻る
 //		if(){
-//			req.getRequestDispatcher("staff_create.jsp").forward(req, res);
+//			req.getRequestDispatcher("admin_create.jsp").forward(req, res);
 //		}
 
-		req.getRequestDispatcher("staff_create_pf.jsp").forward(req, res);
+		req.getRequestDispatcher("admin_create_pf.jsp").forward(req, res);
 	}
 }
