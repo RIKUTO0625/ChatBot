@@ -1,5 +1,124 @@
 package bean;
 
-public class Staff {
+import java.io.Serializable;
+
+public class Staff extends Admin implements Serializable{
+
+
+	/**
+	 * 職員番号:String
+	 */
+	private String staff_id;
+
+
+	/**
+	 * 職員パスワード:String
+	 */
+	private String staff_pw;
+
+
+	/**
+	 * Adminデータ:Admin
+	 */
+	private Admin admin;
+
+
+	/**
+	 * 職員年齢:String
+	 */
+	private String staff_age;
+
+
+	/**
+	 * 職員名:String
+	 */
+	private String staff_name;
+
+
+	/**
+	 * 所属部署:String
+	 */
+	private String staff_belong;
+
+
+	/**
+	 * メールアドレス:String
+	 */
+	private String staff_mail;
+
+
+	/**
+	 * ゲッター、セッター
+	 */
+
+	public String getStaff_id() {
+		return staff_id;
+	}
+
+
+	public void setStaff_id(String staff_id) {
+		this.staff_id = staff_id;
+	}
+
+
+	public String getStaff_pw() {
+		return staff_pw;
+	}
+
+
+	public void setStaff_pw(String staff_pw) {
+		this.staff_pw = staff_pw;
+	}
+
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+
+	public String getStaff_age() {
+		return staff_age;
+	}
+
+
+	public void setStaff_age(String staff_age) {
+		this.staff_age = staff_age;
+	}
+
+
+	public String getStaff_name() {
+		return staff_name;
+	}
+
+
+	public void setStaff_name(String staff_name) {
+		this.staff_name = staff_name;
+	}
+
+
+	public String getStaff_belong() {
+		return staff_belong;
+	}
+
+
+	public void setStaff_belong(String staff_belong) {
+		this.staff_belong = staff_belong;
+	}
+
+
+	public String getStaff_mail() {
+		return staff_mail;
+	}
+
+
+	public void setStaff_mail(String staff_mail) {
+		this.staff_mail = staff_mail;
+	}
+
 
 }
