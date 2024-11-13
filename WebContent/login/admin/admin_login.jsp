@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
 <title>${param.title}</title>
 
 ${param.scripts}
@@ -16,7 +15,7 @@ ${param.scripts}
 	<div id="wrapper" class="container">
 		<header>
 			<h2>chatbot</h2>
-			<input type="button" onclick="#" value="HOME">
+			<a href="#"><input type="button"value="HOME"></a>
 			<a href="#">ログイン</a>
 		</header>
 
@@ -26,16 +25,17 @@ ${param.scripts}
 		<label>組織コード</label>
 		<input type="text" maxlength="6">
 
-
 		<label>パスワード</label>
 		<input type="text" maxlength="20">
 
-		<input type="button" onclick="#" value="ログイン">
+		<a href="../../login\.\admin/AdminLoginExecute.action">
+			<input type="button" value="ログイン">
+		</a>
 
 		<p>アカウントをお持ちでない場合<a href="#">こちら</a></p>
 
-		<input type="button" onclick="#" value="医者アカウントでログイン">
-		<input type="button" onclick="#" value="職員アカウントでログイン">
+		<a href="#"><input type="button" value="医者アカウントでログイン"></a>
+		<a href="#"><input type="button" value="職員アカウントでログイン"></a>
 
 
 		<footer>
