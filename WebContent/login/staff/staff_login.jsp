@@ -20,15 +20,15 @@ ${param.scripts}
 		</header>
 
 
-		<h2>組織ログイン</h2>
+		<h2>職員ログイン</h2>
 
-		<label>組織コード</label>
-		<input type="text" maxlength="6">
+		<label>メールアドレス</label>
+		<input type="text" maxlength="30">
 
 		<label>パスワード</label>
 		<input type="text" maxlength="20">
 
-		<a href="../../login\.\admin/AdminLoginExecute.action">
+		<a href="../../login\.\staff/StaffLoginExecute.action">
 			<input type="button" value="ログイン">
 		</a>
 
@@ -38,8 +38,8 @@ ${param.scripts}
 			<input type="button" value="医者アカウントでログイン">
 		</a>
 
-		<a href="../../login\.\staff/StaffLogin.action">
-			<input type="button" value="職員アカウントでログイン">
+		<a href="../../login\.\admin/AdminLogin.action">
+			<input type="button" value="組織アカウントでログイン">
 		</a>
 
 
