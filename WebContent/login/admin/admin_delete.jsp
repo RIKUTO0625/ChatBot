@@ -20,28 +20,29 @@ ${param.scripts}
 			<a href="#">ログアウト</a>
 			<nav>
 			<ul>
-				<li><a href="#">My Page</a></li>
-				<li><a href="#">Chatbot</a></li>
-				<li><a href="#">log</a></li>
+				<li><a href="#">職員アカウント管理</a></li>
+				<li><a href="#">医者アカウント管理</a></li>
+				<li><a href="#">通知用メールアドレス管理</a></li>
+				<li><a href="#">組織アカウント削除</a></li>
 			</ul>
 			<ul>
 				<li><a href="#">HOME</a></li>
 				<li><a href="#">Logout</a></li>
 			</ul>
-
 			</nav>
 		</header>
 
-		<p>{組織名}</p>
+		<h2>アカウント削除</h2>
 
-		<h2>組織メンバー一覧</h2>
-		<ul>
-		<li>{組織メンバー1}<a href="#"><input type="button" value="削除"></a></li>
-		</ul>
+		<p>本当にアカウントを削除しますか？</p>
 
-		<ul>
-		<li>{組織メンバー2}<a href="#"><input type="button" value="削除"></a></li>
-		</ul>
+		<a href="#">
+			<input type="button" value="戻る">
+		</a>
+
+		<a href="#">
+			<input type="button" value="はい">
+		</a>
 
 		<footer>
 		</footer>
