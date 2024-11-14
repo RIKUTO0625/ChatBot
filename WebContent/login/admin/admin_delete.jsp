@@ -13,18 +13,13 @@
 <body>
 	<form action="AdminDeleteExecute.action" method="post">
 		<h2>アカウント削除</h2>
-
 		<p>本当にアカウントを削除しますか？</p>
-
-
-		<a href="delete">
-			<input type="button" value="はい">
-		</a>
-
+		<input type="submit" value="はい">
 	</form>
 
-	<a href="#">
-			<input type="button" value="戻る">
+	<!-- 通知用メールアドレス一覧へ -->
+	<a href="AdminExecute.action">
+		<input type="button" value="戻る">
 	</a>
 
 </body>
