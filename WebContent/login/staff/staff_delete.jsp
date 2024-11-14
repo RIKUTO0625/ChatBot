@@ -32,16 +32,17 @@ ${param.scripts}
 			</nav>
 		</header>
 
-		<p>{組織名}</p>
+		<h2>アカウント削除</h2>
 
-		<h2>組織メンバー一覧</h2>
-		<ul>
-		<li>{組織メンバー1}<a href="#"><input type="button" value="削除"></a></li>
-		</ul>
+		<p>本当にアカウントを削除しますか？</p>
 
-		<ul>
-		<li>{組織メンバー2}<a href="#"><input type="button" value="削除"></a></li>
-		</ul>
+		<a href="#">
+			<input type="button" value="戻る">
+		</a>
+
+		<a href="#">
+			<input type="button" value="はい">
+		</a>
 
 		<footer>
 		</footer>

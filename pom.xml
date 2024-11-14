@@ -4,6 +4,61 @@
   <artifactId>chatbot</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+
+     <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Apache HTTP Client -->
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.5.13</version>
+    </dependency>
+
+    <dependency>
+        <groupId>jakarta.servlet.jsp.jstl</groupId>
+        <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+        <version>2.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+        <version>2.0.0</version>
+    </dependency>
+
+        <!-- AWS SDK for S3 -->
+    <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-s3</artifactId>
+        <version>1.12.590</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-lambda</artifactId>
+        <version>1.12.590</version>
+    </dependency>
+
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.12.3</version>
+	</dependency>
+
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.6.0</version>
+    </dependency>
+
+  </dependencies>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
