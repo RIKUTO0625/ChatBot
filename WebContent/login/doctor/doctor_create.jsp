@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
 <!-- 上記はJSPの基本設定です。ページの言語はJava、文字エンコーディングはUTF-8で設定し、
      JSTLのcoreライブラリ（cタグ）を使用できるようにしています -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% out.println("★★★★"); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<form action="StaffCreateExecute.action" method="post">
+	<form action="CreateDoctorExecute.action" method="post">
 		<!-- 学生情報を送信するフォーム。POSTメソッドで「StudentCreateExecute.action」へ送信 -->
 
 		<label>名前</label> <!-- 学生番号の入力欄のラベル -->
@@ -39,6 +39,6 @@
 		<input type="submit" value="登録"> <!-- 登録ボタン -->
 	</form>
 
-	<a href="DoctorExecute.action">戻る</a>
 </body>
 </html>
+<% out.println("☆☆☆☆"); %>
