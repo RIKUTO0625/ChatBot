@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<form action="StaffDeleteExecute.action" method="post">
+	<form action="DeleteStaffExecute.action" method="post">
 		<h2>アカウント削除</h2>
 		<p>本当にアカウントを削除しますか？</p>
 		<input type="submit" value="はい">
