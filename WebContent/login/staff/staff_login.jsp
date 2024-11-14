@@ -12,7 +12,10 @@
             <input type="password" name="password" placeholder="パスワード" required><br>
             <input type="submit" value="ログイン">
         </form>
-
+		<p>
+		アカウントをお持ちでない方は
+		<a href="CreateStaff.action" class="button-link">こちら</a>
+		</p>
         <hr>
 
         <a href="../admin/AdminLogin.action" class="button-link">組織ログイン画面</a>
