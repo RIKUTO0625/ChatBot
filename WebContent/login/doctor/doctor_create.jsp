@@ -4,14 +4,13 @@
      JSTLのcoreライブラリ（cタグ）を使用できるようにしています -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<% out.println("★★★★"); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>アカウント新規作成（医師）</title> <!-- ページのタイトルを「得点管理システム」としています -->
 </head>
 <body>
-
+<h2>アカウント新規作成（医師）</h2>
 	<form action="CreateDoctorExecute.action" method="post">
 		<!-- 学生情報を送信するフォーム。POSTメソッドで「StudentCreateExecute.action」へ送信 -->
 
@@ -41,4 +40,3 @@
 
 </body>
 </html>
-<% out.println("☆☆☆☆"); %>
