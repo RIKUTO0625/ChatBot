@@ -23,7 +23,7 @@ public class DeleteAdminCompAction extends Action{
 		//なし
 		//JSPへフォワード 7
 
-		req.getRequestDispatcher("homepage.jsp").forward(req, res);
+		req.getRequestDispatcher("admin_delete_comp.jsp").forward(req, res);
 	}
 }
 
