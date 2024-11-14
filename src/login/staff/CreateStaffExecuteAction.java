@@ -1,5 +1,8 @@
 package login;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,11 +21,13 @@ public class CreateStaffExecuteAction extends Action {
         String ad_cd = req.getParameter("ad_cd"); // 組織コード
         String staff_name = req.getParameter("staff_name"); // 職員名
         String staff_mail = req.getParameter("staff_mail"); // 職員メールアドレス
-        String ad_pw = req.getParameter("ad_pw"); // パスワード
+        String staff_pw = req.getParameter("staff_pw"); // パスワード
         String staff_belong = req.getParameter("staff_belong"); // 所属
+        Staff staff = null; //職員
+        Map<String, String> errors = new HashMap<>();// エラーメッセージ
 
         // DBへデータ保存
-        Staff staff = sDao.findByMail(staff_mail);
+        staff = sDao.get(staff_pw);// 主キーのパスワードから医者インスタンスを取得
         if (staff == null) { // 職員が未登録だった場合
             // スタッフインスタンスを初期化
             staff = new Staff();
@@ -30,14 +35,12 @@ public class CreateStaffExecuteAction extends Action {
             staff.setAd_cd(ad_cd); // 組織コード
             staff.setStaff_name(staff_name); // 職員名
             staff.setStaff_mail(staff_mail); // 職員メールアドレス
-            staff.setAd_pw(ad_pw); // パスワード
-            staff.setAd_pw(staff_belong); // 所属
-
+            staff.setAd_pw(staff_pw); // パスワード
+            staff.setStaff_belong(staff_belong); // 所属
             // 職員情報を保存
             sDao.save(staff);
         } else { // 入力されたメールアドレスがDBに保存されていた場合
-            req.setAttribute("error", "メールアドレスが重複しています");
-            req.getRequestDispatcher("staff_create.jsp").forward(req, res);
+        	errors.put("staff_pw", "パスワードが重複します");
             return;
         }
 
