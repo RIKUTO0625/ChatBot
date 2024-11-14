@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<!-- 上記はEclipseの警告を消すための記述です。 -->
+
+<Context reloadable="true">
+    <Resource name="jdbc/yajima"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="20"
+              maxIdle="10"
+              maxWaitMillis="-1"
+              username="yoshikawa0625"
+              password="test-password"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql:test-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com//:5432/test-database" />
+
+</Context>

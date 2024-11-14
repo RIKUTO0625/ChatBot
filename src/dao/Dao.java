@@ -1,21 +1,33 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class Dao {
-	/**
-	 * データソース:DataSource:クラスフィールド
-	 */
-	static DataSource ds;
-    private static final String URL = "jdbc:postgresql://test-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:5432/test-database";
-    private static final String USER = "Yoshikawa0625";
-    private static final String PASSWORD = "test_password";
+    /**
+     * データソース: DataSource: クラスフィールド
+     */
+    static DataSource ds;
 
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-	}
+    /**
+     * getConnectionメソッド データベースへのコネクションを返す
+     *
+     * @return データベースへのコネクション: Connection
+     * @throws Exception
+     */
+
+
+    public Connection getConnection() throws Exception {
+        // データソースがnullの場合
+        if (ds == null) {
+            // InitialContextを初期化
+            InitialContext ic = new InitialContext();
+            // Postgres用のデータソースを取得
+            ds = (DataSource) ic.lookup("java:/comp/env/jdbc/yajima");
+        }
+        // データベースへのコネクションを返却
+        return ds.getConnection();
+    }
 }
