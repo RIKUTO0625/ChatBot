@@ -32,7 +32,8 @@ public class CreateAdminExecuteAction extends Action{
             // インスタンスに値をセット
         	admin.setAd_cd(ad_cd); // 組織コード
         	admin.setAd_pw(ad_pw); // パスワード
-            // 組織情報を保存
+
+        	// 組織情報を保存
             aDao.save(admin);
         } else { // 入力されたメールアドレスがDBに保存されていた場合
         	errors.put("staff_cd", "組織コードが重複します");

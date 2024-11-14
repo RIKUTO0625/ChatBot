@@ -24,7 +24,6 @@
 			placeholder="パスワードを入力してください" maxlength="20" value="${ad_pw}" required />
 		<div>${errors.get("ad_pw")}</div> <!-- エラーメッセージ表示エリア：氏名のエラー -->
 
-
 		<input type="submit" value="登録"> <!-- 登録ボタン -->
 	</form>
 
