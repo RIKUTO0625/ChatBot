@@ -22,6 +22,6 @@ public class CreateDoctorAction extends Action{
 		//レスポンス値をセット 6
 		//なし
 		//JSPへフォワード 7
-		req.getRequestDispatcher("staff_create.jsp").forward(req, res);
+		req.getRequestDispatcher("doctor_create.jsp").forward(req, res);
 	}
 }
