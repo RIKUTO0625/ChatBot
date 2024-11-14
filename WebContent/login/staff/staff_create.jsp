@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
 <!-- 上記はJSPの基本設定です。ページの言語はJava、文字エンコーディングはUTF-8で設定し、
      JSTLのcoreライブラリ（cタグ）を使用できるようにしています -->
 
@@ -11,8 +10,8 @@
 <title>アカウント新規作成（職員）</title> <!-- ページのタイトルを「得点管理システム」としています -->
 </head>
 <body>
-
-	<form action="StaffCreateExecute.action" method="post">
+<h2>アカウント新規作成（職員）</h2>
+	<form action="CreateStaffExecute.action" method="post">
 		<!-- 学生情報を送信するフォーム。POSTメソッドで「StudentCreateExecute.action」へ送信 -->
 
 		<label>組織コード</label> <!-- 学生番号の入力欄のラベル -->
