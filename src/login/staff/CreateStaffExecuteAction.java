@@ -36,8 +36,7 @@ public class CreateStaffExecuteAction extends Action {
             staff.setStaff_name(staff_name); // 職員名
             staff.setStaff_mail(staff_mail); // 職員メールアドレス
             staff.setAd_pw(staff_pw); // パスワード
-            staff.setAd_pw(staff_belong); // 所属
-
+            staff.setStaff_belong(staff_belong); // 所属
             // 職員情報を保存
             sDao.save(staff);
         } else { // 入力されたメールアドレスがDBに保存されていた場合
