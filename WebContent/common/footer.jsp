@@ -3,5 +3,6 @@
 	pageEncoding="UTF-8"%>
 <div class = "footer">
 	<img src="chatbot_title.png" alt="チャットボットのタイトル">
-	<p>大原学園</p>
+	<p>あ</p>
+
 </div>
