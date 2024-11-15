@@ -25,9 +25,9 @@
 		<div>${errors.get("dc_belong")}</div> <!-- エラーメッセージ表示エリア：学生番号のエラー -->
 
 		<label>診療科</label> <!-- 氏名の入力欄のラベル -->
-		<input type="text" name="cd_dept"
-			placeholder="診療科を入力してください" maxlength="10" value="${cd_dept}" required />
-		<div>${errors.get("cd_dept")}</div> <!-- エラーメッセージ表示エリア：氏名のエラー -->
+		<input type="text" name="dc_dept"
+			placeholder="診療科を入力してください" maxlength="10" value="${dc_dept}" required />
+		<div>${errors.get("dc_dept")}</div> <!-- エラーメッセージ表示エリア：氏名のエラー -->
 
 		<label>パスワード</label> <!-- 氏名の入力欄のラベル -->
 		<input type="text" name="dc_pw"

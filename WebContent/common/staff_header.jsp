@@ -4,6 +4,7 @@
     <img src="../image/chatbotheader.png" alt="chatbot" style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
         <span>user:${staff_name}</span>
-        <a href="Logout.action" style="margin-left: 10px;">ログアウト</a>
+        	<a href="#"><img src="../image/HOME.drawio.png" alt="HOME"></a>
+        <a href="#"><img src="../image/logout.png" alt="ログアウト"></a>
     </div>
 </div>

@@ -3,7 +3,7 @@
 <div style="display: flex; align-items: center;">
     <img src="../image/chatbotheader.png" alt="chatbot" style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
-        <span>user:${doctor_name}</span>
-        <a href="Logout.action" style="margin-left: 10px;">ログアウト</a>
+	<a href="#"><img src="../image/HOME.drawio.png" alt="HOME"></a>
+        	<a href="#"><img src="../image/login.png" alt="ログイン"></a>
     </div>
 </div>
