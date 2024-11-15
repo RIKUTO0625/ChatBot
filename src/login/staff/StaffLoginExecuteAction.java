@@ -20,11 +20,11 @@ public class StaffLoginExecuteAction extends Action{
 		StaffDao sDao = new StaffDao();
 
 		//リクエストパラメータ―の取得 2
-		String mail = req.getParameter("staff_mail");
+		String id = req.getParameter("staff_id");
 		String password = req.getParameter("staff_pw");
 
 		//DBからデータ取得 3
-		staff = sDao.loginStaff(password,mail);
+		staff = sDao.loginStaff(password,id);
 
 		//ビジネスロジック 4
 
