@@ -13,12 +13,12 @@
 <body>
 	<form action="DeleteDoctorExecute.action" method="post">
 		<h2>アカウント削除</h2>
-		<p>本当にアカウントを削除しますか？</p>
+		<p>${cd_name}を削除しますか？</p>
 		<input type="submit" value="はい">
 	</form>
 
-	<!-- 医者ホームページ(?)へ -->
-	<a href="DoctorExecute.action">
+	<!-- 医者アカウント一覧へ -->
+	<a href="ViewDoctor.action">
 		<input type="button" value="戻る">
 	</a>
 
