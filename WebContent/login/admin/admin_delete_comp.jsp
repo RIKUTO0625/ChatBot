@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<form action="Home.action" method="get">
+	<form action="../Home.action" method="get">
 		<h2>組織アカウント削除完了</h2>
 		<p>${ad_name}を削除しました</p>
 		<input type="submit" value="ホームページへ">
