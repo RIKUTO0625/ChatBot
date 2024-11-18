@@ -18,7 +18,7 @@
 	</form>
 
 	<!-- 職員マイページへ -->
-	<a href="StaffExecute.action">
+	<a href="StaffMypage.action">
 		<input type="button" value="戻る">
 	</a>
 

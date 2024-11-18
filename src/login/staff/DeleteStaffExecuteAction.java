@@ -24,7 +24,7 @@ public class DeleteStaffExecuteAction extends Action{
 		//JSPへフォワード 7
 
 
-		req.getRequestDispatcher("homepage.jsp").forward(req, res);
+		req.getRequestDispatcher("staff_delete_comp.jsp").forward(req, res);
 	}
 
 }

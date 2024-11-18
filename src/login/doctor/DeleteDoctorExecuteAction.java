@@ -23,7 +23,6 @@ public class DeleteDoctorExecuteAction extends Action{
 		//なし
 		//JSPへフォワード 7
 
-
 		req.getRequestDispatcher("doctor_delete_comp.jsp").forward(req, res);
 	}
 
