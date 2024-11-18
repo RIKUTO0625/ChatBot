@@ -1,20 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="css/style.css" rel="stylesheet">
 <div style="display: flex; align-items: center;">
     <img src="../image/chatbotheader.png" alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
-        <h2><span>user:${doctor_name}</span></h2>
         <a href="#" class=image><img class=image src="../image/HOME.drawio.png" alt="HOME" width=150 height=30></a>
-        <a href="#"><img class=image src="../image/logout.png" alt="ログアウト" width=150 height=30></a>
         <nav id="nav">
             <ul>
-                <li><h4><a href="#">利用者一覧</a></h4></li>
-
-				<hr>
-                <li>
-                    <a href="#">HOME</a><a href="#">Logout</a>
-                </li>
+                <li><h2><a href="#">職員ログイン</a></h2></li>
+                <li><h2><a href="#">医者ログイン</a></h2></li>
+                <li><h2><a href="#">組織ログイン</a></h2></li>
             </ul>
         </nav>
         <div id="hamburger">
