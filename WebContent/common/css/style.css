@@ -119,27 +119,13 @@ body {
 }
 
 
-/* 横並びにする部分のスタイル */
-.horizontal-menu {
-    display: flex; /* 横並びにする */
-    justify-content: flex-start; /* 左揃え */
-    gap: 20px; /* 各リンク間のスペース */
-    padding: 10px 0; /* 上下の余白 */
-    border-top: 2px solid #000; /* 上に線を追加 */
-}
-
-.horizontal-menu a {
-    text-decoration: none; /* アンダーラインを消す */
-    font-size: 16px;
-    color: #333; /* リンクの色 */
-}
-
-.horizontal-menu a:hover {
-    color: #007BFF; /* ホバー時の色 */
-    text-decoration: underline; /* ホバー時に下線を追加 */
-}
-
 
 .image {
 	margin-left: 50%;
+}
+
+.footer {
+	color: #ffffff;
+	background-color: #000000; /* 背景を白に設定 */
+	text-align: center;
 }
