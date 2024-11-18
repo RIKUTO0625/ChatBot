@@ -19,6 +19,11 @@
 		</c:if>
 
 		<c:if data="${not empty staff_name}">
+
+			<form action="CreateAdmin.action" method="post">
+				<input type="submit" value="新規作成">
+			</form>
+
 			<form action="MemberDelete.action" method="post">
 
 			<c:forEach var="admin" items="${Admin}">

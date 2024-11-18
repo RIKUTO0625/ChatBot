@@ -3,15 +3,14 @@
 <!-- 上記はEclipseの警告を消すための記述です。 -->
 
 <Context reloadable="true">
-    <Resource name="jdbc/yajima"
+    <Resource name="jdbc/test"
               auth="Container"
               type="javax.sql.DataSource"
               maxTotal="20"
               maxIdle="10"
               maxWaitMillis="-1"
-              username="yoshikawa0625"
+              username="admin"
               password="test-password"
-              driverClassName="org.postgresql.Driver"
-              url="jdbc:postgresql:test-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com//:5432/test-database" />
-
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://mysql-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:3306/test-database" />
 </Context>
