@@ -22,6 +22,7 @@
 <h2>メリット</h2>
 <img src="../image/goodjob.png" alt="a" width="85" height="85" >
 <img src="../image/shosin.png" alt="a" width="80" height="96" >
+
 <img src="../image/akogare.png" alt="a" width="70" height="98" >
 <img src="../image/okane.png" alt="a" width="80" height="100" >
 <img src="../image/teian.png" alt="a" width="70" height="98" >
