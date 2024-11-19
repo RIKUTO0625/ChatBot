@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="css/style.css" rel="stylesheet">
+<link href="https//" rel="stylesheet">
 <div style="display: flex; align-items: center;">
     <img src="../image/chatbotheader.png" alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
