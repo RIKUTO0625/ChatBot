@@ -7,10 +7,10 @@
 </head>
 
 <body>
-
+<%@ include file="../../common/staff_header.jsp" %>
 	<h2>ログアウトしますか？</h2>
 	<a class="logout" href="StaffLogoutExecute.action">はい</a>
     <a class="logout" href="" onclick="history.back()">いいえ</a>
-
+<%@ include file="../../common/footer.jsp" %>
 </body>
 </html>
