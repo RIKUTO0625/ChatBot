@@ -20,35 +20,59 @@
     <h1>機能紹介</h1>
   </div>
 </div>
-<div class="Bot">
-<img src="../image/Bot.png" alt="a" width="150" height="75">
-</div>
-<div class="riaju">
-<img src="../image/riaju.png" alt="a" width="150" height="75">
-</div>
-<div class="sindan">
-<img src="../image/sindan.png" alt="a" width="180" height="90">
-</div>
-<div class="unti">
-<img src="../image/unti.png" alt="a" width="150" height="75">
-</div>
-<div class="buna">
-<p>チャットボットが<br>いつでも相談相手に</p>
-</div>
-<div class="bunb">
-<p>AWSを利用した<br>感情分析</p>
-</div>
-<div class="bunc">
-<p>チャット履歴を用いて<br>医師の面談を円滑</p>
-</div>
-<div class="bund">
-<p>いつでも医師面談の<br>申請が可能</p>
-</div>
 
+<ul class="blogList">
+<li>
+<a href="">
+<figure class="pic">
+<img src="../image/3.PNG">
+</figure>
+<div>
+
+<h1 class="title">チャットボットが<br>いつでも相談相手に</h1>
+</div>
+</a>
+</li>
+<li>
+<a href="">
+<figure class="pic">
+<img src="../image/1.PNG">
+</figure>
+<div>
+<h1 class="title">AWSを利用した<br>感情分析</h1>
+</div>
+</a>
+</li>
+<li>
+<a href="">
+<figure class="pic">
+<img src="../image/4.PNG">
+</figure>
+<div>
+
+<h1 class="title">チャット履歴を用いて<br>医師の面談を円滑</h1>
+</div>
+</a>
+</li>
+<li>
+<a href="">
+<figure class="pic">
+<img src="../image/2.PNG">
+</figure>
+<div>
+
+<h1 class="title">いつでも医師面談の<br>申請が可能</h1>
+</div>
+</a>
+</li>
+</ul>
+<div class="container">
 <h2>メリット</h2>
 <div class="good">
 <img src="../image/goodjob.png" alt="a" width="85" height="85" >
 </div>
+</div>
+
 <div class="dounyu1">
 <h3>導入費不要</h3>
 </div>
