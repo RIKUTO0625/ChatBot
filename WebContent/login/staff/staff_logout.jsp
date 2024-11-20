@@ -5,12 +5,13 @@
 	<link href="../../common/css/style.css" rel="stylesheet">
     <title>職員ログアウト</title>
 </head>
-
-<body>
 <%@ include file="../../common/staff_header.jsp" %>
-	<h2>ログアウトしますか？</h2>
+<body class="logout_body">
+
+	<h1>ログアウトしますか？</h1>
 	<a class="logout" href="StaffLogoutExecute.action">はい</a>
     <a class="logout" href="" onclick="history.back()">いいえ</a>
-<%@ include file="../../common/footer.jsp" %>
+
 </body>
+<%@ include file="../../common/footer.jsp" %>
 </html>

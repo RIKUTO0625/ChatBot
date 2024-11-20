@@ -24,7 +24,6 @@
 </div>
 
 <!-- Separator -->
-<br>
 <hr color="black">
 
 <!-- JavaScript -->

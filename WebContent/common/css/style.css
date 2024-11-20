@@ -184,8 +184,18 @@
     bottom: 0; /*下に固定*/
 }
 
+/*ログアウトJSPのCSS*/
+.logout_body {
+    justify-content: center;  /* 水平方向に中央揃え */
+    align-items: center;      /* 垂直方向に中央揃え */
+    gap: 20px;                /* アイテム間に20pxの間隔を設定 */
+    height: 100vh;            /* コンテナの高さを画面全体に設定 */
+    margin: 0 auto;         /* 水平方向に中央揃え */
+}
+
 .logout {
   display       : inline-block;
+  text-decoration: none;
   border-radius : 10%;          /* 角丸       */
   font-size     : 12pt;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
