@@ -1,0 +1,26 @@
+/* 背景色を白に設定 */
+body {
+   background-color: #ffffff; /* 背景を白に設定 */
+}
+
+.chatbot {
+text-align: center; /* テキストや画像を中央揃え */
+}
+
+
+
+.container {
+  display: flex;
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+  gap: 10px; /* アイコンと文字の間隔を調整 */
+}
+
+.gear img {
+  height: 50px; /* 必要に応じてサイズを調整 */
+  width: auto;
+}
+
+h1 {
+  margin: 0; /* デフォルトの余白を削除 */
+}
