@@ -6,12 +6,10 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>通知用メールアドレス削除</title>
-
 </head>
-<body>
 
+<body>
 	<div class="page">
 		<h2>通知用メールアドレス削除</h2>
 		<p>${send_mail}を削除しますか？</p>
@@ -29,4 +27,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
