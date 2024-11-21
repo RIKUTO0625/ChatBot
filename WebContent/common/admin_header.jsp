@@ -7,37 +7,30 @@
         <h2><span>user:${admin_name}</span></h2>
         <a href="#" class=image><img class=image src="../image/HOME.drawio.png" alt="HOME" width=150 height=30></a>
         <a href="#"><img class=image src="../image/logout.png" alt="ログアウト" width=150 height=30></a>
-        <nav id="nav">
-            <ul>
-                <li><h4><a href="#">職員アカウント管理</a></h4></li>
-                <li><h4><a href="#">医者アカウント管理</a></h4></li>
-                <li><h4><a href="#">通知用メールアドレス管理</a></h4></li>
-                <li><h4><a href="#">組織アカウント削除</a></h4></li>
-				<hr>
-                <li>
-                    <a href="#">HOME</a><a href="#">Logout</a>
-                </li>
-            </ul>
-        </nav>
-        <div id="hamburger">
-            <span class="inner_line" id="line1"></span>
-            <span class="inner_line" id="line2"></span>
-            <span class="inner_line" id="line3"></span>
-        </div>
-
-        <script>
-            function hamburger(){
-                document.getElementById('line1').classList.toggle('line_1');
-                document.getElementById('line2').classList.toggle('line_2');
-                document.getElementById('line3').classList.toggle('line_3');
-                document.getElementById('nav').classList.toggle('in');
-            };
-            document.getElementById('hamburger').addEventListener('click',function(){
-                hamburger();
-            });
-        </script>
-
+		<header>
+		  <nav class="nav">
+		    <ul>
+		      <li><a href="#">職員アカウント管理</a></li>
+		      <li><a href="#">医者アカウント管理</a></li>
+		      <li><a href="#">通知用メールアドレス管理</a></li>
+		      <li><a href="#">組織アカウント削除</a></li>
+		      <li class=footer-menu>
+		      <a href="#">HOME</a>
+		      <a href="#">Logout</a>
+		      </li>
+		    </ul>
+		  </nav>
+		  <button type="button" id="navbtn"></button>
+		</header>
     </div>
 </div>
-<br>
-<hr color=black>
+
+<!-- Separator -->
+<hr color="black">
+
+<!-- JavaScript -->
+<script>
+document.getElementById("navbtn").onclick = function(){
+	  document.querySelector('html').classList.toggle('open');
+	}
+</script>

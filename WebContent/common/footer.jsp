@@ -4,7 +4,9 @@
 <link href="css/style.css" rel="stylesheet">
 <div class = "footer">
 	<p>
-	<a href="../login/homepage.jsp"><img src="../image/chatbotfooter.png" alt="チャットボットのタイトル"></a>
+	<a href="http://localhost:8080/chatbot/login/homepage.jsp">
+	<img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotfooter.png?raw=true" alt="チャットボットのタイトル">
+	</a>
 	<br>Ⓒ2024 chatbot</p>
 
 </div>

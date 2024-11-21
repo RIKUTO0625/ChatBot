@@ -5,12 +5,14 @@
 	<link href="../../common/css/style.css" rel="stylesheet">
     <title>医者ログアウト完了</title>
 </head>
-<body>
+<%@ include file="../../common/staff_header.jsp" %>
+<body class="logout_body">
 
-    <div class="logout">
+    <div>
         <h2>ログアウトしました</h2>
-        <a href="DoctorLogin.action">ログイン</a>
-        <a href="../Home.action">HOME</a>
+        <a class="logout" href="DoctorLogin.action">ログイン</a>
+        <a class="logout" href="../Home.action">HOME</a>
     </div>
 </body>
+<%@ include file="../../common/footer.jsp" %>
 </html>
