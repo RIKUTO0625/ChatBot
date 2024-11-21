@@ -12,5 +12,5 @@
               username="admin"
               password="test-password"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://mysql-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:3306/test-database" />
+              url="jdbc:mysql://historypro.cnaowb34sret.us-east-1.rds.amazonaws.com:3306/history_pro?serverTimezone=America/Virgin" />
 </Context>
