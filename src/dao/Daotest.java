@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 public class Daotest {
 
     public static void main(String[] args) {
-        String jdbcUrl = "jdbc:mysql://mysql-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:3306/test";
-        String username = "admin";
-        String password = "test-password";
+//        String jdbcUrl = "jdbc:mysql://mysql-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:3306/test";
+//        String username = "admin";
+//        String password = "test-password";
 
 
 
@@ -71,7 +71,8 @@ public class Daotest {
                     + "dc_belong VARCHAR(20) NOT NULL, "
                     + "dc_dept VARCHAR(20), "
                     + "ad_cd CHAR(6) NOT NULL, "
-                    + "PRIMARY KEY (ad_cd, dc_pw))";
+                    + "PRIMARY KEY (ad_cd, dc_pw),"
+                    + "FOREIGN KEY (ad_cd) REFERENCES admin (ad_cd))";
             try (PreparedStatement stmt = conn.prepareStatement(createDoctorTableSql)) {
                 int result = stmt.executeUpdate();
                 System.out.println("doctorテーブル作成成功! 結果コード: " + result);

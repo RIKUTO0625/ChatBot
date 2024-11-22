@@ -26,7 +26,7 @@ public class Staff extends Admin implements Serializable{
 	/**
 	 * 職員年齢:String
 	 */
-	private String staff_age;
+	private Integer staff_age;
 
 
 	/**
@@ -126,12 +126,12 @@ public class Staff extends Admin implements Serializable{
 	}
 
 
-	public String getStaff_age() {
+	public Integer getStaff_age() {
 		return staff_age;
 	}
 
 
-	public void setStaff_age(String staff_age) {
+	public void setStaff_age(Integer staff_age) {
 		this.staff_age = staff_age;
 	}
 

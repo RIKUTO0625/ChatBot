@@ -18,6 +18,9 @@
 
 	<% out.println("★★★★"); %>
 
+	<h1>${staff.getStaff_id()}</h1>
+	<h1>${admin.getAd_cd()}</h1>
+
 
 	</c:param>
 
