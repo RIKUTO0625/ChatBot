@@ -4,13 +4,6 @@ import java.io.Serializable;
 
 public class Doctor extends Admin implements Serializable{
 
-
-	/**
-	 * 医者番号:String
-	 */
-	private String cd_id;
-
-
 	/**
 	 * Adminデータ:Admin
 	 */
@@ -44,15 +37,6 @@ public class Doctor extends Admin implements Serializable{
 	/**
 	 * ゲッター、セッター
 	 */
-
-	public String getCd_id() {
-		return cd_id;
-	}
-
-
-	public void setCd_id(String cd_id) {
-		this.cd_id = cd_id;
-	}
 
 
 	public Admin getAdmin() {

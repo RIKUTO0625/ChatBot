@@ -46,10 +46,55 @@ public class Staff extends Admin implements Serializable{
 	 */
 	private String staff_mail;
 
+	/**
+	 * 性別コード:String
+	 */
+	private String gender_cd;
+
+	/**
+	 * 趣味:String
+	 */
+	private String favorite;
+
+	/**
+	 * 備考:String
+	 */
+	private String detail;
+
+
 
 	/**
 	 * ゲッター、セッター
 	 */
+
+	public String getGender_cd() {
+		return gender_cd;
+	}
+
+
+	public void setGender_cd(String gender_cd) {
+		this.gender_cd = gender_cd;
+	}
+
+
+	public String getFavorite() {
+		return favorite;
+	}
+
+
+	public void setFavorite(String favorite) {
+		this.favorite = favorite;
+	}
+
+
+	public String getDetail() {
+		return detail;
+	}
+
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 	public String getStaff_id() {
 		return staff_id;
