@@ -22,7 +22,7 @@
 
 		<label>名前</label> <!-- 学生番号の入力欄のラベル -->
 		<input type="text" name="staff_name"
-			placeholder="名前を入力してください" maxlength="10" value="${staff_name}" required />
+			placeholder="名前を入力してください" maxlength="20" value="${staff_name}" required />
 		<div>${errors.get("staff_name")}</div> <!-- エラーメッセージ表示エリア：学生番号のエラー -->
 
 		<label>メールアドレス</label> <!-- 氏名の入力欄のラベル -->
@@ -38,7 +38,7 @@
 
 		<label>所属</label> <!-- 学生番号の入力欄のラベル -->
 		<input type="text" name="staff_belong"
-			placeholder="所属部署を入力してください" maxlength="15" value="${staff_belong}" required />
+			placeholder="所属部署を入力してください" maxlength="20" value="${staff_belong}" required />
 
 		<div>${errors.get("staff_belong")}</div> <!-- エラーメッセージ表示エリア：学生番号のエラー -->
 

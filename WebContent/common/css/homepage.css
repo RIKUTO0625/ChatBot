@@ -5,9 +5,13 @@ body {
 
 .chatbot {
 text-align: center; /* テキストや画像を中央揃え */
+  height: 120px; /* 必要に応じてサイズを調整 */
+  width: auto;
 }
 
-
+.chatbun{
+text-align: center; /* テキストや画像を中央揃え */
+}
 
 .container {
   display: flex;
@@ -18,8 +22,20 @@ text-align: center; /* テキストや画像を中央揃え */
 }
 
 .gear img {
-  height: 50px; /* 必要に応じてサイズを調整 */
+  height: 90px; /* 必要に応じてサイズを調整 */
   width: auto;
+
+
+}
+
+.kinou{
+	font-size: 50px;
+	margin-left: 10px; /*左に余白を追加 */
+}
+
+.meritto{
+	margin-left: 10px; /*左に余白を追加 */
+	font-size: 50px;
 }
 
 h1 {
@@ -86,6 +102,50 @@ h1 {
 text-align: center; /* テキストや画像を中央揃え */
 }
 
+
+
 .dounyu1{
 
+margin-left: 20px; /*左に余白を追加 */
+display:flex;
+flex-flow: column;
+}
+
+.dounyu2{
+
+margin-left: 20px; /*左に余白を追加 */
+flex-flow: column;
+}
+
+.dounyu3{
+
+margin-left: 20px; /*左に余白を追加 */
+flex-flow: column;
+}
+
+.box {
+    display: flex;
+    justify-content: flex-start; /* 左揃え text-alignはフレックスボックスでは効果がない*/
+    align-items: center; /* 垂直方向の中央揃え */
+}
+
+.box2 {
+    display: flex;
+    justify-content: flex-end; /* 右揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+
+.box3 {
+    display: flex;
+    justify-content: space-between;/* flexの要素を左右の端に配置 */
+    width: 100%; /* 親要素が画面いっぱいに広がるように */
+}
+
+.shosin{
+	margin-left: 30px;
+}
+
+.left-group, .right-group{
+	display: flex;
+	align-items: center; /* 垂直方向の中央揃え */
 }
