@@ -17,7 +17,7 @@ public class AddSendMailExecuteAction extends Action {
 
 		//ローカル変数の宣言
 		HttpSession session = req.getSession();
-		SendMailDao smDao = new SendMailDao();
+		SendmailDao smDao = new SendmailDao();
 
 		//リクエストパラメータ―の取得
 		String send_mail = req.getParameter("send_mail");
