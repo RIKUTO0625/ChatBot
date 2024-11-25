@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<div class="page">
+	<div>
 		<h2>通知用メールアドレス一覧</h2>
 
 		<!-- 1通もない(0通) -->
@@ -18,15 +18,15 @@
 		</c:if>
 
 		<!-- 登録されているメールアドレスがある -->
-		<c:if data="${not empty mail_id}">
+		<c:if data="${mail_id != null}">
 			<form action="AddSendMail.action" method="post">
-				<button type="submit" id="add_mail">新規作成</button>
+				<button type="submit">新規作成</button>
 			</form>
 
 			<form action="DeleteSendMail.action" method="post">
 				<c:forEach var="mail_id" items="${mail_id}">
 					<p>${mail_id.send_mail}</p>
-					<button type="submit" id="delete_mail">削除</button>
+					<button type="submit">削除</button>
 				</c:forEach>
 			</form>
 		</c:if>

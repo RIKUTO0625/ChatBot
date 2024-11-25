@@ -9,11 +9,11 @@
 </head>
 
 <body>
-	<div class="page">
+	<div>
 		<!-- メールアドレス一覧へ -->
 		<form action="./ViewSendMail.action" method="get">
 			<h2>メールアドレス削除完了</h2>
-			<button type="submit" id="return">一覧へ戻る</button>
+			<button type="submit">一覧へ戻る</button>
 		</form>
 	</div>
 </body>
