@@ -10,19 +10,19 @@
 </head>
 
 <body>
-	<div class="page">
+	<div>
 		<h2>通知用メールアドレス削除</h2>
 		<p>${send_mail}を削除しますか？</p>
 
-		<div class="button_area">
+		<div>
 			<!-- 通知用メールアドレス削除完了画面へ -->
 			<form action="DeleteSendMailExecute.action" method="post">
-				<button type="submit" id="delete">はい</button>
+				<button type="submit">はい</button>
 			</form>
 
 			<!-- 通知用メールアドレス一覧へ -->
 			<form action="ViewSendMail.action" method="get">
-				<button type="submit" id="cancel">戻る</button>
+				<button type="submit">戻る</button>
 			</form>
 		</div>
 	</div>
