@@ -14,9 +14,11 @@ public class ViewSendMailAction extends Action {
 		//リクエストパラメータ―の取得 2
 		//なし
 		//DBからデータ取得 3
-		//なし
+		while(smDao.next){
+		}
 		//ビジネスロジック 4
-		//なし
+
+
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6

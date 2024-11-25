@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<div class="page">
+	<div>
 		<!-- メールアドレス一覧へ -->
 		<form action="./ViewSendMail.action" method="get">
 			<h2>メールアドレス作成完了</h2>

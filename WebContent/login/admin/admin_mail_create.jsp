@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<div class="page">
+	<div>
 		<h2>通知用メールアドレス設定</h2>
 
 		<form action="AddSendMailExecute.action" method="post">
@@ -20,7 +20,7 @@
 				   maxlength="30"
 				   value="${send_mail}"
 				   required />
-			<button type="submit" id="new_mails">新規作成</button>
+			<button type="submit">新規作成</button>
 		</form>
 		<div>${errors.get(send_mail)}</div>
 
