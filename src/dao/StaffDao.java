@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import bean.Admin;
 import bean.Staff;
@@ -10,12 +11,12 @@ import bean.Staff;
 public class StaffDao extends Dao {
 
     // ログイン処理
-    public Staff login(String staff_id, String staff_pw) throws Exception{
+    public Staff loginStaff(String staff_id, String staff_pw) throws Exception{
 
     	Staff staff = null;
     	Admin admin = null;
 
-        String sql = "SELECT * FROM staff where staff_id = ? and staff_pw = ?";
+        String sql = "SELECT * FROM staff where staff_id = ? and staff_pw = ? and is_deleted = false";
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
@@ -36,6 +37,7 @@ public class StaffDao extends Dao {
             String gen_cd = rs.getString("gender_cd");
             String favorite = rs.getString("favorite");
             String detail = rs.getString("detail");
+            Boolean deleted = rs.getBoolean("is_deleted");
 
             staff = new Staff();
             admin = new Admin();
@@ -51,6 +53,7 @@ public class StaffDao extends Dao {
             staff.setGender_cd(gen_cd);
             staff.setFavorite(favorite);
             staff.setDetail(detail);
+            staff.setIs_deleted(deleted);
 
             // 認証済みフラグを設定
 //            staff.setAuthenticated(true);
@@ -63,6 +66,54 @@ public class StaffDao extends Dao {
 
 
     }
+
+
+	public boolean staff_delete (Staff staff) throws Exception {
+		//コネクションを確立
+		Connection connection = getConnection();
+		//プリペアードステートメント
+		PreparedStatement statement = null;
+		// 実行件数
+		Boolean success = false;
+
+		try {
+
+			//プリペアードステートメントにUPDATE文をセット
+			statement = connection
+			.prepareStatement ("update staff set is_deleted = ? where staff_id=? ");
+			// プリペアードステートメントに値をバインド
+			statement.setBoolean(1,true);
+			statement.setString(2,staff.getStaff_id());
+
+			statement.executeUpdate ();
+
+			success = true;
+
+		}catch(Exception e) {
+				throw e;
+
+		}finally {
+			// プリペアードステートメントを閉じる
+			if (statement != null) {
+				try {
+					statement. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (connection != null) {
+				try {
+					connection.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
+
+		return success;
+
+	}
 }
 
 

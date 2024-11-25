@@ -61,6 +61,11 @@ public class Staff extends Admin implements Serializable{
 	 */
 	private String detail;
 
+	/**
+	 * 備考:String
+	 */
+	private Boolean is_deleted;
+
 
 
 	/**
@@ -163,6 +168,15 @@ public class Staff extends Admin implements Serializable{
 
 	public void setStaff_mail(String staff_mail) {
 		this.staff_mail = staff_mail;
+	}
+
+	public Boolean getIs_deleted() {
+		return is_deleted;
+	}
+
+
+	public void setIs_deleted(Boolean is_deleted) {
+		this.is_deleted = is_deleted;
 	}
 
 

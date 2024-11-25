@@ -13,25 +13,30 @@ public class Doctor extends Admin implements Serializable{
 	/**
 	 * 医師パスワード:String
 	 */
-	private String cd_pw;
+	private String dc_pw;
 
 
 	/**
 	 * 医師名:String
 	 */
-	private String cd_name;
+	private String dc_name;
 
 
 	/**
 	 * 医師所属:String
 	 */
-	private String cd_belong;
+	private String dc_belong;
 
 
 	/**
 	 * 診療科:String
 	 */
-	private String cd_dept;
+	private String dc_dept;
+
+	/**
+	 * 備考:Boolean
+	 */
+	private Boolean is_deleted;
 
 
 	/**
@@ -49,48 +54,53 @@ public class Doctor extends Admin implements Serializable{
 	}
 
 
-	public String getCd_pw() {
-		return cd_pw;
+	public String getDc_pw() {
+		return dc_pw;
 	}
 
 
-	public void setCd_pw(String cd_pw) {
-		this.cd_pw = cd_pw;
+	public void setDc_pw(String dc_pw) {
+		this.dc_pw = dc_pw;
 	}
 
 
-	public String getCd_name() {
-		return cd_name;
+	public String getDc_name() {
+		return dc_name;
 	}
 
 
-	public void setCd_name(String cd_name) {
-		this.cd_name = cd_name;
+	public void setDc_name(String dc_name) {
+		this.dc_name = dc_name;
 	}
 
 
-	public String getCd_belong() {
-		return cd_belong;
+	public String getDc_belong() {
+		return dc_belong;
 	}
 
 
-	public void setCd_belong(String cd_belong) {
-		this.cd_belong = cd_belong;
+	public void setDc_belong(String dc_belong) {
+		this.dc_belong = dc_belong;
 	}
 
 
-	public String getCd_dept() {
-		return cd_dept;
+	public String getDc_dept() {
+		return dc_dept;
 	}
 
 
-	public void setCd_dept(String cd_dept) {
-		this.cd_dept = cd_dept;
+	public void setDc_dept(String dc_dept) {
+		this.dc_dept = dc_dept;
+	}
+
+	public Boolean getIs_deleted() {
+		return is_deleted;
 	}
 
 
-
-
+	public void setIs_deleted(Boolean is_deleted) {
+		this.is_deleted = is_deleted;
+	}
 
 
 }

@@ -99,6 +99,9 @@ public class Daotest {
 	                System.out.println("staffテーブル作成成功! 結果コード: " + result);
 	            }
 
+	            String createSendMailTableSql = "CREATE TABLE IF NOT EXISTS sendmail (mail_id SERIAL NOT NULL, mail_address VARCHAR(40) NOT NULL, ad_cd CHAR(6) NOT NULL,PRIMARY KEY (mail_id), FOREIGN KEY (ad_cd) REFERENCES admin (ad_cd))";
+	            String insertSendMailSql = "insert into sendmail (mail_address, ad_cd) values ('example@gmail.com', '000000')";
+
 	          // genderテーブルにデータ追加
 	          String insertGenderSql = "INSERT INTO gender (gender_cd, gender_name) VALUES (?, ?)";
 	          try (PreparedStatement insertStmt = conn.prepareStatement(insertGenderSql)) {

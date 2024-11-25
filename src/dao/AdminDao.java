@@ -14,7 +14,7 @@ public class AdminDao extends Dao {
     	Admin admin = null;
 
     	//school_cdによってJOIN SCHOOLさせて、SCHOOL_nameがゲットできるように
-        String sql = "SELECT * FROM admin where ad_cd = ? and ad_pw = ?";
+        String sql = "SELECT * FROM admin where ad_cd = ? and ad_pw = ? and is_deleted = false";
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
@@ -28,12 +28,14 @@ public class AdminDao extends Dao {
         	String cd = rs.getString("ad_cd");
             String name = rs.getString("ad_name");
             String pw = rs.getString("ad_pw");
+            Boolean deleted = rs.getBoolean("is_deleted");
 
 	        admin = new Admin();
 
 	        admin.setAd_cd(cd);
 	        admin.setAd_name(name);
 	        admin.setAd_pw(pw);
+	        admin.setIs_deleted(deleted);
         }
 
         return admin;

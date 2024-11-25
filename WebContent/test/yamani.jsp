@@ -20,6 +20,7 @@
 
 	<h1>${staff.getStaff_id()}</h1>
 	<h1>${admin.getAd_cd()}</h1>
+	<h1>${doctor.getIs_deleted()}</h1>
 
 
 	</c:param>

@@ -20,6 +20,12 @@ public class Admin implements Serializable {
 	private String ad_name;
 
 
+	/**
+	 * 備考:Boolean
+	 */
+	private Boolean is_deleted;
+
+
 
 	/**
 	 * ゲッター、セッター
@@ -47,6 +53,15 @@ public class Admin implements Serializable {
 
 	public void setAd_name(String ad_name) {
 		this.ad_name = ad_name;
+	}
+
+	public Boolean getIs_deleted() {
+		return is_deleted;
+	}
+
+
+	public void setIs_deleted(Boolean is_deleted) {
+		this.is_deleted = is_deleted;
 	}
 
 
