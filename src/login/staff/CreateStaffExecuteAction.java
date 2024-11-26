@@ -31,6 +31,7 @@ public class CreateStaffExecuteAction extends Action {
         Boolean success = sDao.createStaff(staff);// 主キーのパスワードから医者インスタンスを取得
         if (success == false) { // 職員が未登録だった場合
 
+
             // 職員情報を保存
             sDao.save(staff);
         } else { // DBに保存されていた場合
