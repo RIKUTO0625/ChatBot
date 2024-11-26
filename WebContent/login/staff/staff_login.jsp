@@ -14,7 +14,7 @@
         <h2>職員ログイン</h2>
         <form action="StaffLoginExecute.action" method="post">
             <input type="text" name="staff_id" placeholder="職員コード" required><br>
-            <input type="password" name="password" placeholder="パスワード" required><br>
+            <input type="password" name="staff_pw" placeholder="パスワード" required><br>
             <input type="submit" value="ログイン">
         </form>
 		<p>
