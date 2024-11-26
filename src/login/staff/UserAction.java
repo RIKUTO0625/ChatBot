@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.Staff;
 import dao.StaffDao;
@@ -14,25 +15,30 @@ public class UserAction extends Action{
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//ローカル変数の宣言 1
-		
+		HttpSession session = req.getSession();//セッション
 		StaffDao sDao = new StaffDao();
 		List<Staff> staffs = null;
 
 		//リクエストパラメータ―の取得 2
-
-		staff = req.getParameter("f1");
+		String name = req.getParameter("name");
 
 		//DBからデータ取得 3
 
-		//AWSとのデータの受け渡し処理★★★
+        if (name != null && !name.isEmpty()) {
+            // 名前で検索
+            staffs = sDao.search(name);
+        } else {
+            // 全リスト表示
+            staffs = sDao.view();
+        }
 
 		//ビジネスロジック 4
 		//なし
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6
-		//なし
+        request.setAttribute("staffs", staffs);
 		//JSPへフォワード 7
-		req.getRequestDispatcher(".jsp").forward(req, res);
+		req.getRequestDispatcher("user_list.jsp").forward(req, res);
 	}
 }
