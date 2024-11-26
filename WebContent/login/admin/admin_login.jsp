@@ -5,11 +5,16 @@
     <title>組織ログイン</title>
 </head>
 <body>
+	<div class = "erorrcd">
+		<c:if test="${errors.get('1') != null}">
+			<p>${errors.get("1")}</p>
+		</c:if>
+	</div>
     <div class="login-container">
         <h2>組織ログイン</h2>
         <form action="AdminLoginExecute.action" method="post">
             <input type="text" name="ad_cd" placeholder="組織コード" required><br>
-            <input type="password" name="password" placeholder="パスワード" required><br>
+            <input type="password" name="admin_pw" placeholder="パスワード" required><br>
             <input type="submit" value="ログイン">
         </form>
 		<p>

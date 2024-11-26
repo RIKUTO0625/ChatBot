@@ -24,7 +24,7 @@ public class AdminLoginExecuteAction extends Action{
 		String password = req.getParameter("admin_pw");
 
 		//DBからデータ取得 3
-		admin = aDao.loginAdmin(password,admin_cd);
+		admin = aDao.loginAdmin(admin_cd,password);
 
 		//ビジネスロジック 4
 
