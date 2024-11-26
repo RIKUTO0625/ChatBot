@@ -5,6 +5,11 @@
     <title>医者ログイン</title>
 </head>
 <body>
+	<div class = "erorrcd">
+		<c:if test="${errors.get('1') != null}">
+			<p>${errors.get("1")}</p>
+		</c:if>
+	</div>
     <div class="login-container">
         <h2>医者ログイン</h2>
         <form action="DoctorLoginExecute.action" method="post">

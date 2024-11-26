@@ -24,7 +24,7 @@ public class StaffLoginExecuteAction extends Action{
 		String password = req.getParameter("staff_pw");
 
 		//DBからデータ取得 3
-		staff = sDao.login(password,id);
+		staff = sDao.loginStaff(password,id);
 
 		//ビジネスロジック 4
 
