@@ -228,7 +228,7 @@ public class StaffDao extends Dao {
 
 
 	//フィルター
-	public List<Staff> viewStaff(Staff staff) throws Exception {
+	public List<Staff> viewStaff(String admin_cd) throws Exception {
 
 
 		//リストを作り、職員を
@@ -243,7 +243,7 @@ public class StaffDao extends Dao {
             	" where ad_cd = ? and is_deleted = false " +
 				" ORDER BY staff_belong ASC, staff_name ASC ");
 
-            statement.setString(1,staff.getAd_cd()) ;
+            statement.setString(1,admin_cd) ;
             rSet = statement.executeQuery();
             staff_list = changeList(rSet);
 
