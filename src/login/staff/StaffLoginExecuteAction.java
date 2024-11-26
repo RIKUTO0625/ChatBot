@@ -24,7 +24,7 @@ public class StaffLoginExecuteAction extends Action{
 		String password = req.getParameter("staff_pw");
 
 		//DBからデータ取得 3
-		staff = sDao.loginStaff(password,id);
+		staff = sDao.login(password,id);
 
 		//ビジネスロジック 4
 
@@ -40,7 +40,7 @@ public class StaffLoginExecuteAction extends Action{
 			res.sendRedirect("staff_mypage.jsp");
 		} else {
 			Map<String, String> errors = new HashMap<>();// エラーメッセージ
-			errors.put("1", "ログインに失敗しました。メールまたはパスワードが違います。");
+			errors.put("1", "ログインに失敗しました。職員コードまたはパスワードが違います。");
 			req.setAttribute("errors", errors);
 			req.getRequestDispatcher("staff_login.jsp").forward(req, res);
 		}
