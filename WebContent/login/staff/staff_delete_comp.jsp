@@ -12,10 +12,12 @@
 </head>
 
 <body>
-	<form action="../Home.action" method="get">
+	<div>
 		<h2>職員アカウント削除完了</h2>
-		<input type="submit" value="ホームページへ">
-	</form>
+		<form action="../Home.action" method="get">
+			<input type="submit" value="ホームページへ">
+		</form>
+	</div>
 </body>
 
 </html>

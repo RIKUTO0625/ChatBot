@@ -11,16 +11,17 @@
 
 </head>
 <body>
-	<form action="DeleteStaffExecute.action" method="post">
+	<div>
 		<h2>アカウント削除</h2>
 		<p>本当にアカウントを削除しますか？</p>
-		<input type="submit" value="はい">
-	</form>
+		<form action="DeleteStaffExecute.action" method="post">
+			<input type="submit" value="はい">
+		</form>
 
-	<!-- 職員マイページへ -->
-	<a href="StaffMypage.action">
-		<input type="button" value="戻る">
-	</a>
-
+		<!-- 職員マイページへ -->
+		<a href="StaffMypage.action">
+			<input type="button" value="戻る">
+		</a>
+	</div>
 </body>
 </html>
