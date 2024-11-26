@@ -8,12 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>アカウント新規作成（職員）</title> <!-- ページのタイトルを「得点管理システム」としています -->
+<link href="../common/css/create.css" rel="stylesheet">
 </head>
 <body>
 <h2>アカウント新規作成（職員）</h2>
 	<form action="CreateStaffExecute.action" method="post">
 		<!-- 学生情報を送信するフォーム。POSTメソッドで「StudentCreateExecute.action」へ送信 -->
 
+		<div class="">
 		<label>組織コード</label> <!-- 学生番号の入力欄のラベル -->
 		<input type="text" name="ad_cd"
 			placeholder="組織コードを入力してください" maxlength="6" value="${ad_cd}" required />

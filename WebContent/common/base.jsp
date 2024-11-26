@@ -14,10 +14,13 @@ ${param.scripts}
 </head>
 <body>
 	<div id="wrapper" class="container">
-		<header></header>
+		<header>
+		<c:import url="/common/staff_header.jsp" />
+		</header>
 
 
 		<footer>
+		<c:import url="/common/footer.jsp" />
 		</footer>
 
 	</div>
