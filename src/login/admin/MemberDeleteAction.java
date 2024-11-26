@@ -24,7 +24,7 @@ public class MemberDeleteAction  extends Action {
 		//DBからデータ取得
 
 			//クリックした職員名のみ出したい
-		staff = sDao.get(staff_name);
+		staff = sDao.loginStaff(staff_name);
 
 
 		//JSPへフォワード 7

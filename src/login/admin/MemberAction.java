@@ -1,29 +1,41 @@
 package login.admin;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.Staff;
+import dao.StaffDao;
 import tool.Action;
 
 public class MemberAction  extends Action {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		//ローカル変数の宣言 1
-		//なし
-		//リクエストパラメータ―の取得 2
-		//なし
-		//DBからデータ取得 3
-		//なし
-		//ビジネスロジック 4
-		//なし
-		//DBへデータ保存 5
-		//なし
-		//レスポンス値をセット 6
-		//なし
-		//JSPへフォワード 7
-		req.getRequestDispatcher("admin_member.jsp").forward(req, res);
-	}
+		// ローカル変数の宣言
+		HttpSession session = req.getSession();
+		StaffDao sDao = new StaffDao();
+		List<Staff> staff = null; // 職員
+	    Map<String, String> errors = new HashMap<>(); // エラーメッセージ
 
+	    String admin_cd = req.getParameter("ad_cd"); // admin_cdをリクエストから取得
+
+	    // Staffオブジェクトを生成し、ad_cdを設定
+	    Staff staffData = new Staff();
+	    staffData.setAd_cd(admin_cd); // admin_cdをStaffオブジェクトに設定
+
+	    // DBからデータ取得
+	    staff = sDao.viewStaff(staffData); // Staffオブジェクトを渡す
+
+	    // 取得した職員データをリクエスト属性に設定
+	    req.setAttribute("staffData", staff);
+
+	    // JSPへフォワード
+	    req.getRequestDispatcher("admin_member.jsp").forward(req, res);
+	}
 }
 
