@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Staff;
+import dao.StaffDao;
 import tool.Action;
 
 public class StaffProfileAction extends Action{
@@ -50,7 +51,7 @@ public class StaffProfileAction extends Action{
 			}
 
 		//JSPへフォワード 7
-		req.getRequestDispatcher("staffprofile.jsp").forward(req, res);
+		req.getRequestDispatcher("staff_profile.jsp").forward(req, res);
 	}
 
 }
