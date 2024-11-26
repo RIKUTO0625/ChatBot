@@ -37,9 +37,8 @@ public class UserAction extends Action{
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6
-        request.setAttribute("staffs", staffs);
+        req.setAttribute("staffs", staffs);
 		//JSPへフォワード 7
 		req.getRequestDispatcher("user_list.jsp").forward(req, res);
 	}
 }
-
