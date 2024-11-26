@@ -13,7 +13,7 @@
 <body>
 	<form action="DeleteDoctorExecute.action" method="post">
 		<h2>医者アカウント削除</h2>
-		<p>${cd_name}を削除しますか？</p>
+		<p>${dc_name}を削除しますか？</p>
 		<input type="submit" value="はい">
 	</form>
 
