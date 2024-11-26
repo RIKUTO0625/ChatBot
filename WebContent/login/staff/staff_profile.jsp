@@ -3,41 +3,53 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>プロフィール</title>
+<link href="../../common/css/profile.css" rel="stylesheet">
 </head>
 <body>
-<h2>アカウント新規作成（職員）</h2>
 	<form action="StaffProfileExecute.action" method="post">
-		<!-- 名前 -->
-	    <label for="staff_name">名前</label>
-	    <input type="text" id="staff_name" name="staff_name" value="${staff_name}">
+	<div class=profile>
+		<div class=pf-table>
+		<h1 class=midashi>プロフィール</h1>
 
-	    <!-- 年齢 -->
-	    <label for="staff_age">年齢</label>
-	    <input type="text" id="staff_age" name="staff_age" value="${staff_age}">
+			<div class=pflist >
+		        <p>名前</p>
+		        <p> "${staff_name}"</p>
+		    </div>
 
-	    <!-- 所属 -->
-	    <label for="staff_belong">所属</label>
-	    <input type="text" id="staff_belong" name="staff_belong" value="${staff_belong}">
+		    <div class=pflist >
+		        <p>年齢</p>
+		        <p>"${staff_age}"</p>
+		    </div>
 
-	    <!-- 連絡先 -->
-	    <label for="staff_mail">連絡先</label>
-	    <input type="text" id="staff_mail" name="staff_mail" value="${staff_mail}">
+			<div class=pflist >
+		        <p>所属</p>
+		        <p>"${staff_belong}"</p>
+		    </div>
 
-	    <!-- 性別 -->
-	    <label for="gender_cd">性別</label>
-	    <input type="text" id="gender_cd" name="gender_cd" value="${gender_cd}">
+		    <div class=pflist >
+		        <p>連絡先</p>
+		        <p>"${staff_mail}"</p>
+			</div>
 
-	    <!-- 趣味 -->
-	    <label for="favorite">趣味</label>
-	    <input type="text" id="favorite" name="favorite" value="${favorite}">
+			<div class=pflist >
+		        <p>性別</p>
+		        <p>"${gender_cd}"</p>
+		    </div>
 
-	    <!-- 備考 -->
-	    <label for="detail">備考</label>
-	    <input type="text" id="detail" name="detail" value="${detail}">
+		    <div class=pflist >
+		        <p>趣味</p>
+		        <p>"${favorite}"</p>
+		    </div>
 
-	    <input type="submit" value="プロフィール変更">
-
-	</form>
-	<a href="＃＃＃.action">戻る</a>
+		    <div class=pflist >
+		        <p>備考</p>
+		        <p>"${detail}"</p>
+		    </div>
+		</div>
+		<div class=button>
+		    <a href="StaffProfileExecute.action" class="up-button">編集</a>
+	    </div>
+</div>
+	    	</form>
 </body>
 </html>
