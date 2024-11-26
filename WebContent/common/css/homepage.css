@@ -5,12 +5,54 @@ body {
 
 .chatbot {
 text-align: center; /* テキストや画像を中央揃え */
-  height: 120px; /* 必要に応じてサイズを調整 */
+  height: 80px; /* 必要に応じてサイズを調整 */
   width: auto;
 }
 
 .chatbun{
 text-align: center; /* テキストや画像を中央揃え */
+font-size: 25px;
+
+}
+
+.tatecon {
+  display: flex;
+  flex-flow: column;
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+  height: 150px;
+}
+
+.tatecon2 {
+  display: flex;
+  flex-flow: column;
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+  gap: 10px; /* アイコンと文字の間隔を調整 */
+  height: 150px;
+  margin-left: 25px;
+  width: auto;
+  border:solid 2px #000000;
+  padding-left: 15px; /* 内側の余白を追加 */
+  padding-right: 15px;
+}
+
+.tatecon3 {
+  display: flex;
+  flex-flow: column;
+  height: 150px;
+  font-size: 40px;
+  margin : 30px;
+  width: auto;
+  border:solid 2px #000000;
+  padding-left: 25px; /* 内側の余白を追加 */
+  padding-right: 25px;
+  padding-bottom: 100px; /* 内側の余白を追加 */
+  border-radius: 50px; /*丸角*/
+}
+
+.sitasen{
+border-bottom: 2px solid #000000; /* 下に2pxの黒い線を追加 */
 }
 
 .container {
@@ -18,14 +60,11 @@ text-align: center; /* テキストや画像を中央揃え */
   align-items: center; /* 垂直方向の中央揃え */
   justify-content: center; /* 水平方向の中央揃え */
   gap: 10px; /* アイコンと文字の間隔を調整 */
-  height: 150px;
+  width: auto;
 }
-
 .gear img {
   height: 90px; /* 必要に応じてサイズを調整 */
   width: auto;
-
-
 }
 
 .kinou{
@@ -49,11 +88,6 @@ h1 {
 .unti{
 	margin-left: 20px; /*左に余白を追加 */
 }
-
-
-
-
-
 
 *{
   margin: 0;
@@ -102,50 +136,111 @@ h1 {
 text-align: center; /* テキストや画像を中央揃え */
 }
 
-
-
-.dounyu1{
-
-margin-left: 20px; /*左に余白を追加 */
-display:flex;
-flex-flow: column;
+.pic{
+   border:solid 2px #000000;
 }
 
-.dounyu2{
+.okane img {
+        width: 120px;
+        height: 180px;
+    }
 
-margin-left: 20px; /*左に余白を追加 */
-flex-flow: column;
-}
 
-.dounyu3{
+.dounyu{
 
 margin-left: 20px; /*左に余白を追加 */
 flex-flow: column;
 }
+
+
 
 .box {
+	margin-top: 100px;
     display: flex;
     justify-content: flex-start; /* 左揃え text-alignはフレックスボックスでは効果がない*/
     align-items: center; /* 垂直方向の中央揃え */
+    font-size: 25px;
+    height: 40px; /* 必要に応じてサイズを調整 */
+    width: auto;
 }
 
 .box2 {
     display: flex;
-    justify-content: flex-end; /* 右揃え */
+    justify-content: flex-end; /* 左揃え text-alignはフレックスボックスでは効果がない*/
     align-items: center; /* 垂直方向の中央揃え */
+    font-size: 25px;
+    margin-top: 100px;
+    width: auto;
 }
 
+.akogare img{
+    height: 140px; /* 高さを調整 */
+    width: 140px;  /* 幅を高さと同じに */
+    border-radius: 50%; /* 丸く表示 */
+    margin-left: 25px; /* 左側の余白 */
+    object-fit: contain; /* 全体が見えるように調整 */
+    background-color: #fff; /* 円の外側に白背景（任意） */
+    border: 3px solid black; /* 黒い枠線を付ける */
+}
 .box3 {
     display: flex;
     justify-content: space-between;/* flexの要素を左右の端に配置 */
-    width: 100%; /* 親要素が画面いっぱいに広がるように */
+    font-size: 25px;
+    margin-top: 100px;
+    width: auto;
+    align-items: center; /* 垂直方向の中央揃え */
+
 }
 
-.shosin{
-	margin-left: 30px;
+.shosin img{
+
+	height: 140px; /* 高さを調整 */
+    width: 140px;  /* 幅を高さと同じに */
+    border-radius: 50%; /* 丸く表示 */
+    margin-left: 30px;
+    object-fit: contain; /* 全体が見えるように調整 */
+    background-color: #fff; /* 円の外側に白背景（任意） */
+    border: 3px solid black; /* 黒い枠線を付ける */
 }
 
 .left-group, .right-group{
-	display: flex;
 	align-items: center; /* 垂直方向の中央揃え */
+	text-align : center;
+	display: flex;
+	height:180px
+}
+
+.teian img{
+	height:160px;
+	width :auto;
+	margin-left: 50px;
+}
+
+.bikkuri img{
+	height:135px;
+	width :auto;
+	margin-right: 50px;
+}
+
+.TEL img{
+	height:100px;
+	width :auto;
+	margin-top: 100px;
+}
+
+.anai{
+	margin-top:100px;
+	font-size: 20px;
+
+}
+
+.tatecon-next {
+  display: flex;
+  flex-flow: column;
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+  height: 150px;
+  border:solid 2px #000000;
+  padding-left: 15px; /* 内側の余白を追加 */
+  padding-right: 15px;
 }
