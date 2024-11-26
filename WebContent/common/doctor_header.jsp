@@ -36,6 +36,7 @@ document.getElementById("navbtn").onclick = function(){
 	}
 </script>
 
+
 <!-- JavaScript -->
 <script>
 document.getElementById("navbtn").onclick = function(){

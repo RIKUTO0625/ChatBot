@@ -42,3 +42,4 @@ public class UserAction extends Action{
 		req.getRequestDispatcher("user_list.jsp").forward(req, res);
 	}
 }
+
