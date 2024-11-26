@@ -2,6 +2,7 @@ package login.staff;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import tool.Action;
 
@@ -9,21 +10,14 @@ public class DeleteStaffExecuteAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		//ローカル変数の宣言 1
-		//なし
-		//リクエストパラメータ―の取得 2
-		//なし
-		//DBからデータ取得 3
-		//なし
-		//ビジネスロジック 4
-		//なし
-		//DBへデータ保存 5
-		//なし
-		//レスポンス値をセット 6
-		//なし
-		//JSPへフォワード 7
 
+		//ローカル変数の宣言
+		HttpSession session=req.getSession();
 
+		//ビジネスロジック
+		session.removeAttribute("staff_id");
+
+		//JSPへフォワード
 		req.getRequestDispatcher("staff_delete_comp.jsp").forward(req, res);
 	}
 
