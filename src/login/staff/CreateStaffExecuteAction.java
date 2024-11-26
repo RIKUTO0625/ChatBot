@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Staff;
+import dao.StaffDao;
 import tool.Action;
 
 public class CreateStaffExecuteAction extends Action {
@@ -27,19 +28,12 @@ public class CreateStaffExecuteAction extends Action {
         Map<String, String> errors = new HashMap<>();// エラーメッセージ
 
         // DBへデータ保存
-        staff = sDao.get(staff_pw);// 主キーのパスワードから医者インスタンスを取得
-        if (staff == null) { // 職員が未登録だった場合
-            // スタッフインスタンスを初期化
-            staff = new Staff();
-            // インスタンスに値をセット
-            staff.setAd_cd(ad_cd); // 組織コード
-            staff.setStaff_name(staff_name); // 職員名
-            staff.setStaff_mail(staff_mail); // 職員メールアドレス
-            staff.setAd_pw(staff_pw); // パスワード
-            staff.setStaff_belong(staff_belong); // 所属
+        Boolean success = sDao.createStaff(staff);// 主キーのパスワードから医者インスタンスを取得
+        if (success == false) { // 職員が未登録だった場合
+
             // 職員情報を保存
             sDao.save(staff);
-        } else { // 入力されたメールアドレスがDBに保存されていた場合
+        } else { // DBに保存されていた場合
         	errors.put("staff_pw", "パスワードが重複します");
             return;
         }
