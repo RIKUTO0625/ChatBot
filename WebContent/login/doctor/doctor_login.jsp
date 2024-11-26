@@ -14,7 +14,7 @@
         <h2>医者ログイン</h2>
         <form action="DoctorLoginExecute.action" method="post">
             <input type="text" name="ad_cd" placeholder="組織コード" required><br>
-            <input type="password" name="password" placeholder="パスワード" required><br>
+            <input type="password" name="doctor_pw" placeholder="パスワード" required><br>
             <input type="submit" value="ログイン">
         </form>
 		<p>

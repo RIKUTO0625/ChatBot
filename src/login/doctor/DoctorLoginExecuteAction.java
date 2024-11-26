@@ -24,7 +24,7 @@ public class DoctorLoginExecuteAction extends Action{
 		String password = req.getParameter("doctor_pw");
 
 		//DBからデータ取得 3
-		doctor = dDao.loginDoctor(password,admin_cd);
+		doctor = dDao.loginDoctor(admin_cd,password);
 
 		//ビジネスロジック 4
 
