@@ -15,7 +15,7 @@ public class MemberDeleteExecuteAction  extends Action {
 		HttpSession session = req.getSession();
 
 		//ビジネスロジック
-		session.removeAttribute("staff_name");
+		session.removeAttribute("staff_id");
 
 		//JSPへフォワード 7
 		req.getRequestDispatcher("admin_member_delete_comp.jsp").forward(req, res);

@@ -1,18 +1,14 @@
 <%-- 組織メンバー一覧画面 jsp --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>組織メンバー一覧</title>
-
 </head>
 <body>
 	<div>
-		<div>"${ad_name}"</div>
+		<div>${ad_name}</div>
 		<h2>組織メンバー一覧</h2>
 
 		<form action="CreateAdmin.action" method="post">
@@ -20,21 +16,21 @@
 		</form>
 
 		<!-- 組織メンバーが誰もいない(0人) -->
-		<c:if data="${Staff == null}">
+		<c:if test="${empty staff}">
 			<p>誰も登録されていません！</p>
 		</c:if>
 
 		<!-- 誰かしらの組織メンバーがいる(1人以上) -->
-		<c:if data="${not empty staff_name}">
+		<c:if test="${not empty adminList}">
 			<form action="MemberDelete.action" method="post">
-				<c:forEach var="admin" items="${Admin}">
-					<p>氏名：${Admin.staff_name}</p>
-					<p>所属：${Admin.staff_belong}</p>
+				<c:forEach var="staff" items="${adminList}">
+					<p>氏名：${staff.staff_name}</p>
+					<p>所属：${staff.staff_belong}</p>
+					<input type="hidden" name="staff_id" value="${staff.staff_id}"/>
 					<input type="submit" value="削除">
 				</c:forEach>
 			</form>
 		</c:if>
 	</div>
-
 </body>
 </html>
