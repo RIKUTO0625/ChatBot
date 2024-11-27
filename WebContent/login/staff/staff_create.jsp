@@ -54,7 +54,6 @@
 
 		<div>${errors.get("staff_belong")}</div> <!-- エラーメッセージ表示エリア：学生番号のエラー -->
 
-
 	<div class="button">
 		<a href="StaffCreateExecute.action">戻る</a>
 
@@ -64,7 +63,6 @@
 	</form>
 
 
-</div>
 </body>
 
 </html>
