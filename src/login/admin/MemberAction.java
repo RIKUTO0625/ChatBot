@@ -33,6 +33,8 @@ public class MemberAction  extends Action {
 //
 //	    // DBからデータ取得
 //	    staff = sDao.viewStaff(staffData); // Staffオブジェクトを渡す
+		
+		System.out.println(staff);
 
 	    // 取得した職員データをリクエスト属性に設定
 	    req.setAttribute("staffList", staff);

@@ -28,6 +28,7 @@ public class MemberDeleteAction  extends Action {
 		staff = sDao.loginStaff(staff_id,staff_pw);
 
 		//セッションに"staff"という変数名で値はstaff変数の中身
+		session.removeAttribute("staff"); //値のリセット
 		session.setAttribute("staff", staff);
 
 		//レスポンス値をセット

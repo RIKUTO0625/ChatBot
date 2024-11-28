@@ -37,7 +37,7 @@ public class AdminLoginExecuteAction extends Action{
 			//セッションに"user"という変数名で値はStaff変数の中身
 			session.setAttribute("user", admin);
 			//リダイレクト
-			res.sendRedirect("admin_mypage.jsp");
+			res.sendRedirect("Member.action");
 		} else {
 			Map<String, String> errors = new HashMap<>();// エラーメッセージ
 			errors.put("1", "ログインに失敗しました。組織コードまたはパスワードが違います。");

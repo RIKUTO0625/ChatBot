@@ -1,5 +1,6 @@
 <%-- 組織メンバー一覧画面 jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -22,15 +23,15 @@
 
 		<!-- 誰かしらの組織メンバーがいる(1人以上) -->
 		<c:if test="${not empty staffList}">
-			<form action="MemberDelete.action" method="post">
-				<c:forEach var="staff" items="${staffList}">
+			<c:forEach var="staff" items="${staffList}">
+				<form action="MemberDelete.action" method="post">
 					<p>氏名：${staff.staff_name}</p>
 					<p>所属：${staff.staff_belong}</p>
 					<input type="hidden" name="staff_id" value="${staff.staff_id}"/>
 					<input type="hidden" name="staff_pw" value="${staff.staff_pw}"/>
 					<input type="submit" value="削除">
-				</c:forEach>
-			</form>
+				</form>
+			</c:forEach>
 		</c:if>
 	</div>
 </body>
