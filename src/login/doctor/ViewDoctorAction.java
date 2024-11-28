@@ -1,26 +1,30 @@
 package login.doctor;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.Admin;
+import bean.Doctor;
+import dao.DoctorDao;
 import tool.Action;
 
 public class ViewDoctorAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		//ローカル変数の宣言 1
-		//なし
-		//リクエストパラメータ―の取得 2
-		//なし
-		//DBからデータ取得 3
-		//なし
-		//ビジネスロジック 4
-		//なし
-		//DBへデータ保存 5
-		//なし
-		//レスポンス値をセット 6
-		//なし
+		HttpSession session = req.getSession();
+		DoctorDao dDao = new DoctorDao();
+		List<Doctor> doctor = null; // 職員
+		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
+
+		doctor = dDao.viewDoctor(admin.getAd_cd());
+
+		req.setAttribute("doctorList", doctor);
+
+
 		//JSPへフォワード 7
 		req.getRequestDispatcher("doctor_member.jsp").forward(req, res);
 	}
