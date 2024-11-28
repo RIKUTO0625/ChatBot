@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.SendMail;
+import dao.SendMailDao;
 import tool.Action;
 
 public class AddSendMailExecuteAction extends Action {
@@ -17,7 +18,7 @@ public class AddSendMailExecuteAction extends Action {
 
 		//ローカル変数の宣言
 		HttpSession session = req.getSession();
-		SendmailDao smDao = new SendmailDao();
+		SendMailDao smDao = new SendMailDao();
 
 		//リクエストパラメータ―の取得
 		String send_mail = req.getParameter("send_mail");
@@ -25,7 +26,7 @@ public class AddSendMailExecuteAction extends Action {
 		Map<String, String> errors = new HashMap<>();// エラーメッセージ
 
 		//DBからデータ取得
-		mail = smDao.get(send_mail);
+
 
 		//新規のメールアドレス
 		if(mail == null){
@@ -33,7 +34,7 @@ public class AddSendMailExecuteAction extends Action {
 			mail.setSend_mail(send_mail); //メールアドレス
 
 			//メールアドレス情報の登録
-			smDao.save(mail);
+
 
 		//既存のメールアドレス
 		} else {

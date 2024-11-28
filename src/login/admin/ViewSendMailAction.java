@@ -3,6 +3,7 @@ package login.admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.SendMailDao;
 import tool.Action;
 
 public class ViewSendMailAction extends Action {
@@ -10,12 +11,11 @@ public class ViewSendMailAction extends Action {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//ローカル変数の宣言 1
-		SendmailDao smDao = new SendmailDao();
+		SendMailDao smDao = new SendMailDao();
 		//リクエストパラメータ―の取得 2
 		//なし
 		//DBからデータ取得 3
-		while(smDao.next){
-		}
+
 		//ビジネスロジック 4
 
 

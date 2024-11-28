@@ -14,14 +14,13 @@ public class DeleteSendMailAction  extends Action {
 
 		//ローカル変数の宣言
 		HttpSession session = req.getSession();
-		SendmailDao smDao = new SendmailDao();
 
 		//リクエストパラメータ―の取得
 		String send_mail = req.getParameter("send_mail");
 		SendMail mail = null; //メールアドレス
 
 		//DBからデータ取得
-		mail = smDao.get(send_mail);
+
 
 		//JSPへフォワード
 		req.getRequestDispatcher("admin_mail_delete.jsp").forward(req, res);
