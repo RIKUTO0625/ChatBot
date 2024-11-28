@@ -28,7 +28,7 @@ public class DeleteDoctorExecuteAction extends Action{
 		if (doctor != null) {
 			// インスタンスに値をセット
 
-			dDao.deleteStaff(doctor);
+			dDao.doctor_delete(doctor);
 
 			session.removeAttribute("doctor");
 			//JSPへフォワード

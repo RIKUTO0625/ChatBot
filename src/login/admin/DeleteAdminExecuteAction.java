@@ -27,7 +27,7 @@ public class DeleteAdminExecuteAction extends Action{
 		if (admin != null) {
 			// インスタンスに値をセット
 
-			aDao.deleteAdmin(admin);
+			aDao.admin_delete(admin);
 
 			session.removeAttribute("user");
 			//JSPへフォワード
