@@ -5,14 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登録完了</title>
+<link href="../../common/css/login.css" rel="stylesheet">
 </head>
 <body>
+<div class="midasi">
 <h2>登録完了</h2>
-<form action="Home.action" method="get" style="display:inline;">
-		<button type="submit">HOME</button>
-	</form>
-<form action="AdminLogin.action" method="get" style="display:inline;">
-		<button type="submit">ログイン</button>
-	</form>
+</div>
+
+<div class="button">
+<div class="haibutton">
+<a class="logout" href="../Home.action">HOME</a>
+
+	</div>
+<a class="logout" href="AdminLogin.action">ログイン</a>
+	</div>
 </body>
 </html>
