@@ -11,15 +11,14 @@
     <div>
 
     	<div class="midasi">
-        <h2>ログアウトしました</h2>
+        	<h2>ログアウトしました</h2>
         </div>
 
         <div class="button">
-    	<div class="haibutton">
-        <a class="logout" href="DoctorLogin.action">ログイン</a>
-        </div>
-
-        <a class="logout" href="../Home.action">HOME</a>
+	    	<div class="haibutton">
+	        <a class="logout" href="DoctorLogin.action">ログイン</a>
+	        </div>
+        	<a class="logout" href="../Home.action">HOME</a>
         </div>
     </div>
 </body>
