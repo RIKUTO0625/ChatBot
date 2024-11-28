@@ -26,7 +26,7 @@ public class DeleteDoctorAction extends Action {
 	    doctor = dDao.loginDoctor(admin_cd,dc_name);
 		//ビジネスロジック 4
 
-		//セッションに"user"という変数名で値はStaff変数の中身
+		//セッションに"doctor"という変数名で値はdoctor変数の中身
 		session.setAttribute("doctor", doctor);
 
 		//DBへデータ保存 5

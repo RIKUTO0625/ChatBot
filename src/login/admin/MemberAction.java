@@ -1,13 +1,12 @@
 package login.admin;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Admin;
 import bean.Staff;
 import dao.StaffDao;
 import tool.Action;
@@ -20,16 +19,20 @@ public class MemberAction  extends Action {
 		HttpSession session = req.getSession();
 		StaffDao sDao = new StaffDao();
 		List<Staff> staff = null; // 職員
-	    Map<String, String> errors = new HashMap<>(); // エラーメッセージ
+		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
 
-	    String admin_cd = req.getParameter("ad_cd"); // admin_cdをリクエストから取得
+		//ビジネスロジック
 
-	    // Staffオブジェクトを生成し、ad_cdを設定
-	    Staff staffData = new Staff();
-	    staffData.setAd_cd(admin_cd); // admin_cdをStaffオブジェクトに設定
+		staff = sDao.viewStaff(admin.getAd_cd());
 
-	    // DBからデータ取得
-	    staff = sDao.viewStaff(staffData); // Staffオブジェクトを渡す
+//	    String admin_cd = req.getParameter("ad_cd"); // admin_cdをリクエストから取得
+//
+//	    // Staffオブジェクトを生成し、ad_cdを設定
+//	    Staff staffData = new Staff();
+//	    staffData.setAd_cd(admin_cd); // admin_cdをStaffオブジェクトに設定
+//
+//	    // DBからデータ取得
+//	    staff = sDao.viewStaff(staffData); // Staffオブジェクトを渡す
 
 	    // 取得した職員データをリクエスト属性に設定
 	    req.setAttribute("staffData", staff);
