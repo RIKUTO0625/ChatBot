@@ -22,12 +22,31 @@
 				<th>職員年齢</th>
 			</tr>
 
-			<c:forEach var="staff" items="${staff_list}">
+		<c:forEach var="staff" items="${staff_list}">
+		    <tr>
+		        <td>${staff.staff_id}</td>
+		        <td>${staff.staff_name}</td>
+		        <td>${staff.staff_age}</td>
+		        <td>${staff.staff_belong}</td>
+		    </tr>
+		</c:forEach>
+
+		</table>
+
+		<table class="table table-hover">
+			<tr>
+				<th>医者ID</th>
+				<th>医者名</th>
+				<th>医者所属</th>
+				<th>診療科</th>
+			</tr>
+
+			<c:forEach var="dc" items="${dc_list}">
 				<tr>
-					<td>${staff.staff_id}</td>
-					<td>${staff.staff_name}</td>
-					<td>${staff.staff_mail}</td>
-					<td>${staff.staff_age}</td>
+					<td>${dc.dc_pw}</td>
+					<td>${dc.dc_name}</td>
+					<td>${dc.dc_belong}</td>
+					<td>${dc.dc_dept}</td>
 				</tr>
 			</c:forEach>
 		</table>

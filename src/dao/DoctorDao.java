@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import bean.Admin;
 import bean.Doctor;
@@ -156,5 +158,84 @@ public class DoctorDao extends Dao {
 		return success;
 
 	}
+
+	private List<Doctor> changeList(ResultSet rSet) throws Exception {
+
+		// リストを初期化
+	    List<Doctor> list = new ArrayList<>();
+
+	    try {
+	        // リザルトセットを全権走査
+	        while (rSet.next()) {
+	            // 職員インスタンスを初期化
+	            Doctor doctor = new Doctor();
+	            Admin admin = new Admin();
+
+	            // 学生インスタンスに検索結果をセット
+	            doctor.setDc_pw(rSet.getString("dc_pw"));
+	            doctor.setDc_name(rSet.getString("dc_name"));
+	            doctor.setDc_belong(rSet.getString("dc_belong"));
+	            doctor.setDc_dept(rSet.getString("dc_dept"));
+	            admin.setAd_cd(rSet.getString("ad_cd"));
+	            doctor.setAdmin(admin);
+
+	            // リストに追加
+	            list.add(doctor);
+	        }
+
+	    } catch (SQLException | NullPointerException e) {
+	        e.printStackTrace();
+	    }
+
+	    return list;
+	}
+
+
+	//フィルター
+	public List<Doctor> viewDoctor(String admin_cd) throws Exception {
+
+
+		//リストを作り、職員を
+		List<Doctor> dc_list = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement statement = null;
+        ResultSet rSet = null;
+
+        try {
+            statement = connection.prepareStatement(
+            "SELECT * FROM doctor " +
+            	" where ad_cd = ? and is_deleted = false " +
+				" ORDER BY dc_belong ASC, dc_name ASC ");
+
+            statement.setString(1,admin_cd) ;
+
+            rSet = statement.executeQuery();
+            dc_list = changeList(rSet);
+
+        }catch(Exception e){
+			throw e;
+
+		}finally {
+
+            if (statement != null) {
+            	try {
+            		statement.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+
+            }
+            if (connection != null) {
+            	try {
+            		 connection.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+            }
+        }
+
+        return dc_list;
+	}
+
 
 }
