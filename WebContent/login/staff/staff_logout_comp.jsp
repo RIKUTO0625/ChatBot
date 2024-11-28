@@ -21,6 +21,5 @@
         <a class="logout" href="../Home.action">HOME</a>
     	</div>
     	</div>
-    </div>
 </body>
 </html>
