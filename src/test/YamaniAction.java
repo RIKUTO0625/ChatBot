@@ -24,6 +24,7 @@ public class YamaniAction extends Action{
         //職員ログイン：〇
 		StaffDao staff_dao = new StaffDao();
 		Staff staff = staff_dao.loginStaff("staff000", "pass");
+
 		SendMailDao mail_dao = new SendMailDao();
 		SendMail mail = new SendMail();
 		Admin admin = new Admin();
@@ -63,8 +64,8 @@ public class YamaniAction extends Action{
 	    //DoctorDao doctor_dao = new DoctorDao();
 	    //Admin doctor = doctor_dao.loginDoctor("pass", "000000");
 
-		List<SendMail> mail_list = mail_dao.viewMail(staff.getAd_cd());
-
+		List<SendMail> mail_list = mail_dao.viewMail("000000");
+		System.out.println(mail_list);
 
 	    req.setAttribute("staff", staff);
 	    req.setAttribute("staff_list", staff_list);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <c:import url="../common/base.jsp">
@@ -12,7 +13,6 @@
 
 		<% out.println("★★★★"); %>
 
-		<h1>${staff.getStaff_id()}</h1>
 
 		<table class="table table-hover">
 			<tr>
@@ -21,6 +21,7 @@
 				<th>職員メール</th>
 				<th>職員年齢</th>
 			</tr>
+
 			<c:forEach var="staff" items="${staff_list}">
 				<tr>
 					<td>${staff.staff_id}</td>
@@ -30,6 +31,20 @@
 				</tr>
 			</c:forEach>
 		</table>
+
+		<table class="table table-hover">
+			<tr>
+				<th>メールID</th>
+				<th>メールアドレス</th>
+			</tr>
+			<c:forEach var="mail" items="${mail_list}">
+				<tr>
+					<td>${mail.mail_id}</td>
+					<td>${mail.send_mail}</td>
+				</tr>
+			</c:forEach>
+		</table>
+
 
 
 		<h1>${admin.getAd_cd()}</h1>
