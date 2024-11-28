@@ -83,8 +83,7 @@ public class SendMailDao extends Dao {
 			statement = connection
 			.prepareStatement ("delete from sendmail where mail_id = ?;");
 			// プリペアードステートメントに値をバインド
-			statement.setBoolean(1,true);
-			statement.setString(2,sendmail.getMail_id());
+			statement.setString(1,sendmail.getMail_id());
 
 			statement.executeUpdate ();
 
