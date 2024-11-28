@@ -21,27 +21,35 @@ public class AddSendMailExecuteAction extends Action {
 		SendMailDao smDao = new SendMailDao();
 
 		//リクエストパラメータ―の取得
+		String mail_id = req.getParameter("mail_id");
 		String send_mail = req.getParameter("send_mail");
-		SendMail mail = null; //メールアドレス
+		String ad_cd = req.getParameter("ad_cd");
 		Map<String, String> errors = new HashMap<>();// エラーメッセージ
 
-		//DBからデータ取得
+		//未入力時の処理
+		if (send_mail == null || send_mail.isEmpty()) {
+            errors.put("send_mail", "メールアドレスを入力してください。");
+        }
 
+		//エラーがあった時の処理
+		if (!errors.isEmpty()) {
+            session.setAttribute("errors", errors);
+            res.sendRedirect("admin_mail_create.jsp"); // 入力フォームページへ戻る
+            return;
+        }
 
-		//新規のメールアドレス
-		if(mail == null){
-			mail = new SendMail(); //初期化
-			mail.setSend_mail(send_mail); //メールアドレス
+		SendMail sendmail = new SendMail();
+		sendmail.setSend_mail(mail_id);   //メールアドレス番号
+        sendmail.setSend_mail(send_mail); // メールアドレス
+        sendmail.setSend_mail(ad_cd);     //組織コード
+        Boolean success = smDao.createMail(sendmail);
 
-			//メールアドレス情報の登録
-
-
-		//既存のメールアドレス
-		} else {
-			errors.put("send_mail","そのメールアドレスは登録済みです");
-			return;
-		}
-
-		req.getRequestDispatcher("admin_mail_create_comp.jsp").forward(req, res);
+        if (success) {
+            res.sendRedirect("admin_mail_create_comp.jsp"); // 登録完了ページへ遷移
+        } else {
+            errors.put("database", "データベースエラーが発生しました。");
+            session.setAttribute("errors", errors);
+            res.sendRedirect("admin_mail_create.jsp"); // 入力フォームページへ戻る
+        }
 	}
 }

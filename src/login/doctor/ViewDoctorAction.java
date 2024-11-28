@@ -17,7 +17,7 @@ public class ViewDoctorAction extends Action{
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		HttpSession session = req.getSession();
 		DoctorDao dDao = new DoctorDao();
-		List<Doctor> doctor = null; // 職員
+		List<Doctor> doctor = null; // 医者
 		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
 
 		doctor = dDao.viewDoctor(admin.getAd_cd());
