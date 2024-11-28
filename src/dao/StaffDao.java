@@ -219,6 +219,7 @@ public class StaffDao extends Dao {
 	            // リストに追加
 	            list.add(staff);
 	        }
+
 	    } catch (SQLException | NullPointerException e) {
 	        e.printStackTrace();
 	    }
@@ -244,6 +245,7 @@ public class StaffDao extends Dao {
 				" ORDER BY staff_belong ASC, staff_name ASC ");
 
             statement.setString(1,admin_cd) ;
+
             rSet = statement.executeQuery();
             staff_list = changeList(rSet);
 
