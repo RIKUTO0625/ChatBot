@@ -10,7 +10,8 @@
 	<c:param name="scripts"><link href="../common/css/homepage.css" rel="stylesheet"></c:param>
 
 	<c:param name="content">
-
+			<div class="hoge-top">
+			</div>
 
 			<div class="tatecon">
 
@@ -152,6 +153,9 @@
 			<div class="anai">
 			<h2>ご購入はこちらから<br>090-000-000</h2>
 			</div>
+			</div>
+
+			<div class="hoge-bottom">
 			</div>
 
 		</c:param>

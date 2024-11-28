@@ -10,19 +10,19 @@
 <body>
 
 <div class="tatecon">
-
-<div class="chatbot">
-<img src="../image/chatbot.png" alt="チャットボット" style="margin-right: 10px;">
-</div>
-<div class="chatbun">
-<h3>月額定期購入サービスで<br>社員のメンタルヘルスケアをこれ一つで</h3>
-</div>
+	<div class="chatbot">
+		<img src="../image/chatbot.png" alt="チャットボット" style="margin-right: 10px;">
+	</div>
+	<div class="chatbun">
+			<h3>月額定期購入サービスで<br>社員のメンタルヘルスケアをこれ一つで</h3>
+	</div>
 </div>
 
 <div class="container">
   <div class="gear">
     <img src="../image/gear.png" alt="Gear Icon">
   </div>
+
   <div class="kinou">
     <h1>機能紹介</h1>
   </div>
@@ -74,81 +74,83 @@
 </li>
 </ul>
 
+
+
 <div class="container">
-<div class="good">
+	<div class="good">
 		<img src="../image/goodjob.png" alt="a" width="85" height="85" >
 	</div>
 	<div class="meritto">
-	<h2>メリット</h2>
-</div>
+		<h2>メリット</h2>
+	</div>
 </div>
 
 <div class="box">
 	<div class="shosin">
 		<img src="../image/shosin.png" alt="a" width="80" height="96" >
 	</div>
-<div class="tatecon2">
-		<h3>導入費不要</h3>
-		<p>定期購入により導入費を抑え、<br>お求めしやすい価格で提供！！</p>
-</div>
+	<div class="tatecon2">
+			<h3>導入費不要</h3>
+			<p>定期購入により導入費を抑え、<br>お求めしやすい価格で提供！！</p>
+	</div>
 </div>
 
 
 <div class="box2">
 
-<div class="tatecon-next">
-<h4>いつでもどこでも相談可能</h4>
-<p>相手がAIチャットボットのため、いつ<br>でもどこでも気兼ねなくどんなことで<br>も相談可能！！</p>
-</div>
-<div class="akogare">
-<img src="../image/akogare.png" alt="a" width="70" height="98" >
-</div>
+	<div class="tatecon-next">
+		<h4>いつでもどこでも相談可能</h4>
+		<p>相手がAIチャットボットのため、いつ<br>でもどこでも気兼ねなくどんなことで<br>も相談可能！！</p>
+	</div>
+	<div class="akogare">
+		<img src="../image/akogare.png" alt="a" width="70" height="98" >
+	</div>
 </div>
 
 
 <div class="container">
 
-<div class="okane">
-<img src="../image/okane.png" alt="a" width="80" height="100" >
-</div>
-<div class="kinou">
-<h2>料金プラン</h2>
-</div>
+	<div class="okane">
+		<img src="../image/okane.png" alt="a" width="80" height="100" >
+	</div>
+	<div class="kinou">
+		<h2>料金プラン</h2>
+	</div>
 </div>
 
 
 <div class="box3">
-<div class="left-group">
+	<div class="left-group">
 		<div class="teian">
 			<img src="../image/teian.png" alt="a" width="70" height="98" >
 		</div>
 		<div class="tatecon3">
-		<h4 class="sitasen">月間</h4>
-		<p class="hoge">月単位</p>
-		<p class="hoge">￥3,000/月</p>
+			<h4 class="sitasen">月間</h4>
+			<p class="hoge">月単位</p>
+			<p class="hoge">￥3,000/月</p>
 		</div>
-</div>
+	</div>
 
-<div class="right-group">
+	<div class="right-group">
 		<div class="tatecon3">
-		<h4 class="sitasen">年間</h4>
-		<p class="hoge">年単位</p>
-		<p class="hoge">￥30,000</p>
-		<p class="hoge">15％お得!!</p>
+			<h4 class="sitasen">年間</h4>
+			<p class="hoge">年単位</p>
+			<p class="hoge">￥30,000</p>
+			<p class="hoge">15％お得!!</p>
 		</div>
 		<div class="bikkuri">
-		<img src="../image/bikkuri.png" alt="a" width="90" height="90" >
+			<img src="../image/bikkuri.png" alt="a" width="90" height="90" >
 		</div>
-</div>
+	</div>
 </div>
 
 <div class="container">
-<div class="TEL">
-<img src="../image/TEL.png" alt="a" width="72" height="90" >
-</div>
-<div class="anai">
-<h2>ご購入はこちらから<br>090-000-000</h2>
-</div>
+	<div class="TEL">
+		<img src="../image/TEL.png" alt="a" width="72" height="90" >
+	</div>
+	<div class="anai">
+		<h2>ご購入はこちらから<br>090-000-000</h2>
+	</div>
 </div>
 </body>
 </html>
