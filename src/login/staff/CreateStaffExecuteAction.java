@@ -1,5 +1,4 @@
-package login;
-
+package login.staff;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Admin;
 import bean.Staff;
 import dao.StaffDao;
 import tool.Action;
@@ -24,7 +24,10 @@ public class CreateStaffExecuteAction extends Action {
 	    Map<String, String> errors = new HashMap<>();
 
 	    // フォームから送信されたデータの取得
-	    String ad_cd = req.getParameter("ad_cd"); // 組織コード
+	    //adminについて
+	    //ほしいのはadmin_coだけどカラム名がかぶりそうなのでbeanにadmin全体が登録されている
+	    //Daoでadmin内のadmin_coを取得
+	    String admin_str = req.getParameter("admin"); // 組織コード
 	    String staff_name = req.getParameter("staff_name"); // 職員名
 	    String staff_mail = req.getParameter("staff_mail"); // 職員メールアドレス
 	    String staff_pw = req.getParameter("staff_pw"); // パスワード
@@ -32,8 +35,8 @@ public class CreateStaffExecuteAction extends Action {
 	    String staff_id = req.getParameter("staff_id"); // id
 
 	    // 入力値チェック（ifだと最初に見つかったエラーのみの処理が行われるため全部ifで記述）
-	    if (ad_cd == null || ad_cd.isEmpty()) {
-	        errors.put("ad_cd", "組織コードを入力してください。"); //未入力の確認
+	    if (admin_str == null || admin_str.isEmpty()) {
+	        errors.put("admin", "組織コードを入力してください。"); //未入力の確認
 	    }
 	    if (staff_name == null || staff_name.isEmpty()) {
 	        errors.put("staff_name", "職員名を入力してください。"); //未入力の確認
@@ -59,9 +62,14 @@ public class CreateStaffExecuteAction extends Action {
 	        return;
 	    }
 
+
+	    // Adminオブジェクトを作成し、組織コードをセット
+	    Admin admin = new Admin();
+	    admin.setAd_cd(admin_str);
+
 	    // 入力が正しければ、新しいスタッフオブジェクトを作成
 	    Staff staff = new Staff();
-	    staff.setAd_cd(ad_cd); // 組織コード
+	    staff.setAdmin(admin); // 組織コード
 	    staff.setStaff_name(staff_name); // 職員名
 	    staff.setStaff_mail(staff_mail); // 職員メールアドレス
 	    staff.setStaff_pw(staff_pw); // パスワード
