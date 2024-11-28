@@ -16,17 +16,18 @@
 		</form>
 
 		<!-- 組織メンバーが誰もいない(0人) -->
-		<c:if test="${empty staff}">
+		<c:if test="${empty staffList}">
 			<p>誰も登録されていません！</p>
 		</c:if>
 
 		<!-- 誰かしらの組織メンバーがいる(1人以上) -->
-		<c:if test="${not empty adminList}">
+		<c:if test="${not empty staffList}">
 			<form action="MemberDelete.action" method="post">
-				<c:forEach var="staff" items="${adminList}">
+				<c:forEach var="staff" items="${staffList}">
 					<p>氏名：${staff.staff_name}</p>
 					<p>所属：${staff.staff_belong}</p>
 					<input type="hidden" name="staff_id" value="${staff.staff_id}"/>
+					<input type="hidden" name="staff_pw" value="${staff.staff_pw}"/>
 					<input type="submit" value="削除">
 				</c:forEach>
 			</form>

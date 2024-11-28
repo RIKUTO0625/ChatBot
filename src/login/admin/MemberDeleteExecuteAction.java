@@ -29,13 +29,18 @@ public class MemberDeleteExecuteAction  extends Action {
 
 			sDao.staff_delete(staff);
 
+			//レスポンス値をセット
+			req.setAttribute("staff_name", staff.getStaff_name());
+
 			session.removeAttribute("staff");
+
 			//JSPへフォワード
 			req.getRequestDispatcher("admin_member_delete_comp.jsp").forward(req, res);
 
 
 		} else {
 			errors.put("delete", "削除が出来ませんでした");
+
 			//JSPへフォワード
 			req.getRequestDispatcher("admin_member_delete.jsp").forward(req, res);
 		}

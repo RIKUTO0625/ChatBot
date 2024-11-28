@@ -15,7 +15,6 @@
 
 		<!-- 組織メンバー削除完了画面へ -->
 		<form action="MemberDeleteExecute.action" method="post">
-			<input type="hidden" name="staff_id" value="${staff_id}"/>
 			<input type="submit" value="はい">
 		</form>
 

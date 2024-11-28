@@ -35,7 +35,7 @@ public class MemberAction  extends Action {
 //	    staff = sDao.viewStaff(staffData); // Staffオブジェクトを渡す
 
 	    // 取得した職員データをリクエスト属性に設定
-	    req.setAttribute("staffData", staff);
+	    req.setAttribute("staffList", staff);
 
 	    // JSPへフォワード
 	    req.getRequestDispatcher("admin_member.jsp").forward(req, res);
