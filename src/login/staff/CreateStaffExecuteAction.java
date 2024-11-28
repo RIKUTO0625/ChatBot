@@ -15,75 +15,47 @@ public class CreateStaffExecuteAction extends Action {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-	    // セッションの取得
 	    HttpSession session = req.getSession();
-
-	    // スタッフDaoの初期化
 	    StaffDao sDao = new StaffDao();
-	    // エラーメッセージ用のMap
 	    Map<String, String> errors = new HashMap<>();
 
-	    // フォームから送信されたデータの取得
-	    //adminについて
-	    //ほしいのはadmin_coだけどカラム名がかぶりそうなのでbeanにadmin全体が登録されている
-	    //Daoでadmin内のadmin_coを取得
-	    String admin_str = req.getParameter("admin"); // 組織コード
-	    String staff_name = req.getParameter("staff_name"); // 職員名
-	    String staff_mail = req.getParameter("staff_mail"); // 職員メールアドレス
-	    String staff_pw = req.getParameter("staff_pw"); // パスワード
-	    String staff_belong = req.getParameter("staff_belong"); // 所属
-	    String staff_id = req.getParameter("staff_id"); // id
+	    try {
+	        // フォームデータの取得
+	        String admin_str = req.getParameter("admin");
+	        String staff_name = req.getParameter("staff_name");
+	        String staff_mail = req.getParameter("staff_mail");
+	        String staff_pw = req.getParameter("staff_pw");
+	        String staff_belong = req.getParameter("staff_belong");
+	        String staff_id = req.getParameter("staff_id");
 
-	    // 入力値チェック（ifだと最初に見つかったエラーのみの処理が行われるため全部ifで記述）
-	    if (admin_str == null || admin_str.isEmpty()) {
-	        errors.put("admin", "組織コードを入力してください。"); //未入力の確認
-	    }
-	    if (staff_name == null || staff_name.isEmpty()) {
-	        errors.put("staff_name", "職員名を入力してください。"); //未入力の確認
-	    }
-	    if (staff_mail == null || staff_mail.isEmpty() || !staff_mail.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-	        errors.put("staff_mail", "有効なメールアドレスを入力してください。");
-	      //未入力、メールアドレスが正しい形式かの確認
-	    }
-	    if (staff_pw == null || staff_pw.isEmpty()) {
-	        errors.put("staff_pw", "パスワードを入力してください。"); //未入力の確認
-	    }
-	    if (staff_belong == null || staff_belong.isEmpty()) {
-	        errors.put("staff_belong", "所属を入力してください。"); //未入力の確認
-	    }
-	    if (staff_id == null || staff_id.isEmpty()) {
-	        errors.put("staff_id", "IDを入力してください。"); //未入力の確認
-	    }
+	        // Adminオブジェクトを作成
+	        Admin admin = new Admin();
+	        admin.setAd_cd(admin_str);
 
-	    // エラーがある場合は、エラーメッセージをセッションに保存して戻る
-	    if (!errors.isEmpty()) {
+	        // スタッフオブジェクトを作成
+	        Staff staff = new Staff();
+	        staff.setAdmin(admin);
+	        staff.setStaff_name(staff_name);
+	        staff.setStaff_mail(staff_mail);
+	        staff.setStaff_pw(staff_pw);
+	        staff.setStaff_belong(staff_belong);
+	        staff.setStaff_id(staff_id);
+
+	        // データベース処理
+	        boolean success = sDao.createStaff(staff);
+	        if (success) {
+	            res.sendRedirect("staff_create_comp.jsp");
+	        } else {
+	            errors.put("database", "データベースエラーが発生しました。");
+	            session.setAttribute("errors", errors);
+	            res.sendRedirect("staff_create.jsp");
+	        }
+	    } catch (Exception e) {
+	        // 例外発生時の処理
+	        errors.put("system", "システムエラーが発生しました。");
 	        session.setAttribute("errors", errors);
-	        res.sendRedirect("staff_create.jsp"); // 入力フォームページへ戻る
-	        return;
-	    }
-
-
-	    // Adminオブジェクトを作成し、組織コードをセット
-	    Admin admin = new Admin();
-	    admin.setAd_cd(admin_str);
-
-	    // 入力が正しければ、新しいスタッフオブジェクトを作成
-	    Staff staff = new Staff();
-	    staff.setAdmin(admin); // 組織コード
-	    staff.setStaff_name(staff_name); // 職員名
-	    staff.setStaff_mail(staff_mail); // 職員メールアドレス
-	    staff.setStaff_pw(staff_pw); // パスワード
-	    staff.setStaff_belong(staff_belong); // 所属
-	    staff.setStaff_id(staff_id); // id
-
-	    // データベースにスタッフ情報を保存
-	    Boolean success = sDao.createStaff(staff);
-	    if (success) {
-	        res.sendRedirect("staff_create_comp.jsp"); // 登録完了ページへ遷移
-	    } else {
-	        errors.put("database", "データベースエラーが発生しました。");
-	        session.setAttribute("errors", errors);
-	        res.sendRedirect("staff_create.jsp"); // 入力フォームページへ戻る
+	        e.printStackTrace(); // ログに詳細を出力（本番環境では適切なログ出力を行う）
+	        res.sendRedirect("staff_create.jsp");
 	    }
 	}
 }
