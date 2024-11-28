@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <c:import url="../common/base.jsp">
 
@@ -30,6 +30,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+
 
 		<h1>${admin.getAd_cd()}</h1>
 		<h1>${doctor.getIs_deleted()}</h1>

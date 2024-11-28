@@ -5,7 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Admin;
+import bean.SendMail;
 import bean.Staff;
+import dao.SendMailDao;
 import dao.StaffDao;
 import dao.rds;
 import tool.Action;
@@ -21,7 +24,15 @@ public class YamaniAction extends Action{
         //職員ログイン：〇
 		StaffDao staff_dao = new StaffDao();
 		Staff staff = staff_dao.loginStaff("staff000", "pass");
+		SendMailDao mail_dao = new SendMailDao();
+		SendMail mail = new SendMail();
+		Admin admin = new Admin();
+		admin.setAd_cd("000000");
+		mail.setMail_id("3");
+		mail.setSend_mail("example");
+		mail.setAdmin(admin);
 
+//		mail_dao.createMail(mail);
 
 		//職員アカウント作成：〇
 //		Staff created_staff = new Staff();
@@ -52,9 +63,12 @@ public class YamaniAction extends Action{
 	    //DoctorDao doctor_dao = new DoctorDao();
 	    //Admin doctor = doctor_dao.loginDoctor("pass", "000000");
 
+		List<SendMail> mail_list = mail_dao.viewMail(staff.getAd_cd());
+
 
 	    req.setAttribute("staff", staff);
 	    req.setAttribute("staff_list", staff_list);
+	    req.setAttribute("mail_list", mail_list);
 	    //req.setAttribute("admin", admin);
 	    //req.setAttribute("doctor", doctor);
 

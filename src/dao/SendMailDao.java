@@ -4,14 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import bean.Admin;
-import bean.Doctor;
+import bean.SendMail;
 
 public class SendMailDao extends Dao {
 
 
-    public boolean createDoctor(Doctor doctor)throws Exception {
+    public boolean createMail(SendMail sendmail)throws Exception {
 
     	int count = 0;
 
@@ -23,19 +24,17 @@ public class SendMailDao extends Dao {
 
 		try {
 
-			String sql = "insert into doctor "
-			+ "(dc_pw, dc_name, dc_belong, dc_dept, ad_cd)"
-		    + "values (? ,? ,? ,? ,?)";
+			String sql = "insert into sendmail"
+			+ "(mail_id, mail_address, ad_cd)"
+		    + "values (? ,? ,?)";
 
 			//プリペアードステートメントにINSERT文をセット
 			statement = connection
 			.prepareStatement (sql);
 			// プリペアードステートメントに値をバインド
-			statement.setString(1,doctor.getDc_pw());
-			statement.setString(2,doctor.getDc_name());
-			statement.setString(3,doctor.getDc_belong());
-			statement.setString(4,doctor.getDc_dept());
-			statement.setString(5,doctor.getAdmin().getAd_cd());
+			statement.setString(1,sendmail.getMail_id());
+			statement.setString(2,sendmail.getSend_mail());
+			statement.setString(3,sendmail.getAdmin().getAd_cd());
 
 
 			//プリペアードステートメントを実行
@@ -71,7 +70,7 @@ public class SendMailDao extends Dao {
 
     }
 
-	public boolean doctor_delete (Doctor doctor) throws Exception {
+	public boolean deleteMail (SendMail sendmail) throws Exception {
 		//コネクションを確立
 		Connection connection = getConnection();
 		//プリペアードステートメント
@@ -80,13 +79,12 @@ public class SendMailDao extends Dao {
 		Boolean success = false;
 
 		try {
-
 			//プリペアードステートメントにUPDATE文をセット
 			statement = connection
-			.prepareStatement ("update doctor set is_deleted = ? where dc_pw=? ");
+			.prepareStatement ("delete from sendmail where mail_id = ?;");
 			// プリペアードステートメントに値をバインド
 			statement.setBoolean(1,true);
-			statement.setString(2,doctor.getDc_pw());
+			statement.setString(2,sendmail.getMail_id());
 
 			statement.executeUpdate ();
 
@@ -116,6 +114,63 @@ public class SendMailDao extends Dao {
 
 		return success;
 
+	}
+
+	public List<SendMail> viewMail(String ad_cd) throws Exception {
+
+		//リスト
+		List<SendMail> mail_list = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement statement = null;
+        ResultSet rSet = null;
+
+        try {
+            statement = connection.prepareStatement(
+            "SELECT * FROM sendmail " +
+            	" where ad_cd = ? " +
+				" ORDER BY mail_address ASC ");
+
+            statement.setString(1, ad_cd) ;
+
+            rSet = statement.executeQuery();
+
+	        // リザルトセットを全権走査
+	        while (rSet.next()) {
+	            // 職員インスタンスを初期化
+	            SendMail sendmail = new SendMail();
+
+	            // メールインスタンスにリストをセット
+	            sendmail.setMail_id(rSet.getString("mail_id"));
+	            sendmail.setMail_id(rSet.getString("mail_address"));
+	            sendmail.setAd_cd(rSet.getString("ad_cd"));
+
+	            // リストに追加
+	            mail_list.add(sendmail);
+	        }
+
+        }catch(Exception e){
+			throw e;
+
+		}finally {
+
+            if (statement != null) {
+            	try {
+            		statement.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+
+            }
+            if (connection != null) {
+            	try {
+            		 connection.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+            }
+        }
+
+        return mail_list;
 	}
 
 }
