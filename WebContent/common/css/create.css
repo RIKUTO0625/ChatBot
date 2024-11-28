@@ -1,28 +1,10 @@
-.profile{
-  /* フレックスコンテナとして指定 */
-  display: flex;
-  /* フレックスアイテムの並び方向を縦方向に設定 */
-  flex-flow: column;
-  /* 高さを固定：300px */
-  height: 300px;
-  /* 下に1emの余白を追加（上下方向は余白なし） */
-  margin: 0 0 1em;
-    /* 内側に1emの余白を追加 */
-  padding: 1em;
-  /* 上下に0.5em、左右には自動で余白を設定し、左右中央寄せ */
-  margin: 0.5em auto;
-  /* 幅を親要素の50%に設定 */
-  width: 50%;
-}
-
-
 .input_box {
   /* フレックスコンテナとして指定 */
   display: flex;
   /* フレックスアイテムの並び方向を縦方向に設定 */
   flex-flow: column;
   /* 高さを固定：300px */
-  height: 300px;
+  height: 30px;
   /* 下に1emの余白を追加（上下方向は余白なし） */
   margin: 0 0 1em;
     /* 内側に1emの余白を追加 */
@@ -33,31 +15,16 @@
   width: 50%;
 }
 
-.button{
+.button {
 	display: flex;
-	/*justify-content: space-between;  フレックス内のコンテンツを左右に配置*/
-	justify-content: center; /*中央に配置*/
+	justify-content: center; /* 水平方向の中央揃え */
+	align-items: center;   /* 垂直方向の中央揃え */
 	margin-top: 20px;
 }
 
-.left-button{
-	display: flex;
-	margin-right: 100px; /*左ボタン*/
-	display       : inline-block;
-	text-decoration: none;
-	border-radius : 10%;          /* 角丸       */
-	font-size     : 12pt;        /* 文字サイズ */
-	text-align    : center;      /* 文字位置   */
-	cursor        : pointer;     /* カーソル   */
-	padding       : 7px 34px;   /* 余白       */
-	background    : #000000;     /* 背景色     */
-	color         : #ffffff;     /* 文字色     */
-	line-height   : 1em;         /* 1行の高さ  */
-	transition    : .3s;         /* なめらか変化 */
 
-}
 
-.up-button{
+.button input{
 	display: flex;
 	display       : inline-block;
 	text-decoration: none;
@@ -72,10 +39,8 @@
 	transition    : .3s;         /* なめらか変化 */
 }
 
-.right-button{
+.button a{
 	display: flex;
-	margin-left: 100px; /*右ボタン*/
-	background-color: red; /* ボタンの背景色を赤に設定 */
 	display       : inline-block;
 	text-decoration: none;
 	border-radius : 10%;          /* 角丸       */
@@ -89,24 +54,23 @@
 	transition    : .3s;         /* なめらか変化 */
 }
 
-.midashi{
-	text-align: center;
-}
 
-/* フォームの各項目を囲む */
-.form-group {
-  margin-bottom: 1px; /* 各項目の間隔 */
-  padding: 1px; /* 内側の余白 */
-  border: 1px solid #ccc;
-  border-radius: 5px; /* 角を丸く */
-  margin-top: 10px;
-}
 
-/* ラベルのスタイル */
-.form-group label {
-  display: block; /* ラベルをブロック要素にして、inputの上に表示 */
-  margin-bottom:1px; /* ラベルとinputの間に少し余白を作る */
-  font-weight: bold; /* ラベルを太字 */
+
+.button input{
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12pt;        /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
+	margin-left: 100px;
 }
 
 /* 入力フィールドのスタイル */
@@ -117,10 +81,6 @@
   border-radius: 3px; /* 入力フィールドの角を少し丸く */
 }
 
-.pflist{
-  margin-bottom: 1px; /* 各項目の間隔 */
-  padding: 1px; /* 内側の余白 */
-  border: 1px solid #ccc;
-  border-radius: 5px; /* 角を丸く */
-  margin-top: 10px;
+.midasi{
+	text-align: center;
 }

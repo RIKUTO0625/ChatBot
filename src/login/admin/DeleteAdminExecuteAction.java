@@ -1,4 +1,4 @@
-package login.staff;
+package login.admin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,40 +7,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Staff;
-import dao.StaffDao;
+import bean.Admin;
+import dao.AdminDao;
 import tool.Action;
 
-public class DeleteStaffExecuteAction extends Action{
+public class DeleteAdminExecuteAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-
 		//ローカル変数の宣言
 		HttpSession session = req.getSession();//セッション
-		Staff staff = (Staff)session.getAttribute("user");// ログインユーザーを取得
+		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
 		Map<String, String> errors = new HashMap<>();//エラーメッセージ
 
-		StaffDao sDao = new StaffDao();
+		AdminDao aDao = new AdminDao();
 
 		//ビジネスロジック
 
-		if (staff != null) {
+		if (admin != null) {
 			// インスタンスに値をセット
 
-			sDao.staff_delete(staff);
+			aDao.deleteAdmin(admin);
 
 			session.removeAttribute("user");
 			//JSPへフォワード
-			req.getRequestDispatcher("staff_delete_comp.jsp").forward(req, res);
+			req.getRequestDispatcher("admin_delete_comp.jsp").forward(req, res);
+
 
 		} else {
 			errors.put("delete", "削除が出来ませんでした");
 			//JSPへフォワード
-			req.getRequestDispatcher("staff_delete.jsp").forward(req, res);
+			req.getRequestDispatcher("admin_delete.jsp").forward(req, res);
 		}
-
-
 	}
-
 }

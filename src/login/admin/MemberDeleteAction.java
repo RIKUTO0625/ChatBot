@@ -18,13 +18,14 @@ public class MemberDeleteAction  extends Action {
 		StaffDao sDao = new StaffDao();
 
 		//リクエストパラメータ―の取得
-		String staff_name = req.getParameter("staff_name");
+		String staff_id = req.getParameter("staff_id");
+		String staff_pw = req.getParameter("staff_pw");
 		Staff staff = null; //職員名
 
 		//DBからデータ取得
 
-			//クリックした職員名のみ出したい
-		staff = sDao.get(staff_name);
+			//クリックした職員名のみ表示
+		staff = sDao.loginStaff(staff_id,staff_pw);
 
 
 		//JSPへフォワード 7

@@ -15,7 +15,7 @@ public class DeleteSendMailExecuteAction  extends Action {
 		HttpSession session = req.getSession();
 
 		//ビジネスロジック
-		session.removeAttribute("staff_name");
+		session.removeAttribute("mail_id");
 
 		//JSPへフォワード 7
 		req.getRequestDispatcher("admin_mail_delete_comp.jsp").forward(req, res);
