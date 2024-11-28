@@ -2,16 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="../../common/css/style.css" rel="stylesheet">
+	<link href="../../common/css/login.css" rel="stylesheet">
     <title>職員ログアウト</title>
 </head>
-<%@ include file="../../common/staff_header.jsp" %>
 <body class="logout_body">
 
+	<div class="midasi">
 	<h1>ログアウトしますか？</h1>
-	<a class="logout" href="StaffLogoutExecute.action">はい</a>
-    <a class="logout" href="" onclick="history.back()">いいえ</a>
+	</div>
 
+	<div class="button">
+    <div class="haibutton">
+
+	<a class="logout" href="StaffLogoutExecute.action">はい</a>
+
+	</div>
+
+	<div class="iiebutton">
+    <a class="logout" href="" onclick="history.back()">いいえ</a>
+    </div>
+	</div>
 </body>
-<%@ include file="../../common/footer.jsp" %>
+
 </html>
