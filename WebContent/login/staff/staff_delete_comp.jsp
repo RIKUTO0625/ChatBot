@@ -14,6 +14,7 @@
 <body>
 	<div>
 
+
 		<div class="midasi">
 		<h2>職員アカウント削除完了</h2>
 		</div>
