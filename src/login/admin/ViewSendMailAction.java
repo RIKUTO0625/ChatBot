@@ -1,8 +1,13 @@
 package login.admin;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.Admin;
+import bean.SendMail;
 import dao.SendMailDao;
 import tool.Action;
 
@@ -11,18 +16,20 @@ public class ViewSendMailAction extends Action {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//ローカル変数の宣言 1
+		HttpSession session = req.getSession();
 		SendMailDao smDao = new SendMailDao();
+		List<SendMail> sendmail = null; // 職員
+		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
 		//リクエストパラメータ―の取得 2
 		//なし
 		//DBからデータ取得 3
 
 		//ビジネスロジック 4
 
+		sendmail = smDao.viewMail(admin.getAd_cd());
 
-		//DBへデータ保存 5
-		//なし
-		//レスポンス値をセット 6
-		//なし
+		req.setAttribute("mailList", sendmail);
+
 		//JSPへフォワード 7
 		req.getRequestDispatcher("admin_mail_list.jsp").forward(req, res);
 	}
