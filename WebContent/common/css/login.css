@@ -88,7 +88,42 @@
 	margin-left: 50px;
 }
 
-.haibutton{
-	margin-right: 50px
+.NEOhaibutton{
+  position: relative;
+  top: -10px; /* 上に20px動かす */
+}
+
+haibutton{
+	margin-right;
+}
+
+.admen{
+		display: flex;
+		border-radius: 10px; /*丸角*/
+		border:solid 2px #000000;
+		margin-bottom: 5px;
+		width: 60%;
+  		justify-content: center; /* 水平方向の中央揃え */
+  		align-items: center;   /* 垂直方向の中央揃え */
+  		margin: 0.5em auto;
+  		font-size: 20px;
+}
+
+.admen p{
+		margin-right: 20px;
+}
+
+.inline-block{
+	width: 300px;
+}
+
+.sosikimei{
+	text-align: center;
+	font-size: 60px;
+}
+
+.ookisaiiebutton{
+	margin-right;
+	width: 300px;
 }
 

@@ -8,15 +8,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>職員アカウント削除完了</title>
-
+<link href="../../common/css/login.css" rel="stylesheet">
 </head>
 
 <body>
 	<div>
+
+		<div class="midasi">
 		<h2>職員アカウント削除完了</h2>
-		<form action="../Home.action" method="get">
-			<input type="submit" value="ホームページへ">
-		</form>
+		</div>
+
+		<div class="button">
+
+			<a class="../Home.action">ホームページへ</a>
 	</div>
 </body>
 
