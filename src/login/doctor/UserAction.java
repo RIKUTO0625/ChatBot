@@ -1,4 +1,4 @@
-package login.staff;
+package login.doctor;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Doctor;
 import bean.Staff;
 import dao.StaffDao;
 import tool.Action;
@@ -18,6 +19,8 @@ public class UserAction extends Action{
 		HttpSession session = req.getSession();//セッション
 		StaffDao sDao = new StaffDao();
 		List<Staff> staffs = null;
+		Doctor doctor = (Doctor)session.getAttribute("user");
+
 
 		//リクエストパラメータ―の取得 2
 		String name = req.getParameter("name");
@@ -29,7 +32,7 @@ public class UserAction extends Action{
             staffs = sDao.search(name);
         } else {
             // 全リスト表示
-            staffs = sDao.view();
+            staffs = sDao.viewStaff(doctor.getAd_cd());
         }
 
 		//ビジネスロジック 4
