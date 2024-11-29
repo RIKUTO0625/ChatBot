@@ -18,8 +18,10 @@ public class StaffProfileExecuteAction extends Action {
         HttpSession session = req.getSession(); // セッション
         StaffDao sDao = new StaffDao(); // スタッフDaoを初期化
 
+        // セッションからstaff_idを取得
+        String staff_id = (String) session.getAttribute("staff_id"); // セッションから職員番号を取得
+
         // リクエストパラメータ―の取得 2
-        String staff_id = req.getParameter("staff_id"); // 職員番号
         String staff_name = req.getParameter("staff_name"); // 職員名
         String staff_age = req.getParameter("staff_age"); // 年齢
         String staff_belong = req.getParameter("staff_belong"); // 所属
@@ -27,24 +29,55 @@ public class StaffProfileExecuteAction extends Action {
         String gender_cd = req.getParameter("gender_cd"); // 性別
         String favorite = req.getParameter("favorite"); // 趣味
         String detail = req.getParameter("detail"); // 備考
+
         Map<String, String> errors = new HashMap<>(); // エラーメッセージ
 
-        // DBからデータ取得 3
-        Staff staff = sDao.get(staff_id); // 主キーのstaff_idから職員インスタンスを取得
-        // レスポンス値をセット 6
-	    // エラーチェック
+        // DBからスタッフ情報を取得 3
+        Staff staff = sDao.get(staff_id); // staff_idを使ってスタッフ情報を取得
+
+        // スタッフが存在する場合に情報を更新 4
         if (staff != null) {
-        	 staff = new Staff();
-        	 staff.setStaff_name(staff_name); //名前
-             staff.setStaff_age(staff_age); //年齢
-             staff.setStaff_belong(staff_belong); //所属
-             staff.setStaff_mail(staff_mail); // メールアドレス
-             staff.setGender_cd(gender_cd); // 性別コード
-             staff.setFavorite(favorite); // 趣味
-             staff.setDetail(detail); // 備考
-             // 職員情報を保存
-             sDao.save(staff);
+            // 入力された情報をstaffオブジェクトにセット
+            staff.setStaff_name(staff_name); // 名前
+            staff.setStaff_age(staff_age != null && !staff_age.isEmpty() ? Integer.parseInt(staff_age) : null); // 年齢（nullチェック）
+            staff.setStaff_belong(staff_belong); // 所属
+            staff.setStaff_mail(staff_mail); // メールアドレス
+            staff.setGender_cd(gender_cd); // 性別コード
+            staff.setFavorite(favorite); // 趣味
+            staff.setDetail(detail); // 備考
+
+            // エラーチェック
+            if (staff_name == null || staff_name.isEmpty()) {
+                errors.put("staff_name", "名前を入力してください。");
+            }
+            if (staff_age == null || staff_age.isEmpty()) {
+                errors.put("staff_age", "年齢を入力してください。");
+            }
+            if (staff_belong == null || staff_belong.isEmpty()) {
+                errors.put("staff_belong", "所属を入力してください。");
+            }
+            if (staff_mail == null || staff_mail.isEmpty()) {
+                errors.put("staff_mail", "メールアドレスを入力してください。");
+            }
+            if (gender_cd == null || gender_cd.isEmpty()) {
+                errors.put("gender_cd", "性別を入力してください。");
+            }
+
+            // エラーがない場合、データを更新
+            if (errors.isEmpty()) {
+                // 職員情報を更新（保存）
+                sDao.save(staff);
+                // 更新完了後にリダイレクトする場合など（例えば、成功メッセージを表示）
+                req.setAttribute("successMessage", "プロフィールが更新されました。");
+            } else {
+                // エラーがある場合はエラーメッセージをリクエストにセット
+                req.setAttribute("errors", errors);
+            }
+        } else {
+            // スタッフが見つからなかった場合
+            req.setAttribute("errorMessage", "スタッフ情報が見つかりません。");
         }
+
         // JSPへフォワード 7
         req.getRequestDispatcher("staff_profile_update.jsp").forward(req, res);
     }
