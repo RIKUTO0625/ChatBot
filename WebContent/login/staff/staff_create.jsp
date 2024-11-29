@@ -56,10 +56,6 @@
             placeholder="所属部署を入力してください" maxlength="20" value="${staff_belong}" required />
         </div>
 
-
-
-
-
         <div>${errors.get("staff_belong")}</div> <!-- エラーメッセージ表示エリア：所属のエラー -->
 
     <div class="button">
