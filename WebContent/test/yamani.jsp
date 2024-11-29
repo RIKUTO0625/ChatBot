@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <c:import url="../common/base.jsp">
@@ -26,12 +26,31 @@
 		    <tr>
 		        <td>${staff.staff_id}</td>
 		        <td>${staff.staff_name}</td>
-		        <td>${staff.staff_age}</td>
+		        <td>${staff.staff_mail}</td>
+		        <td>${staff.staff_belong}</td>
+		    </tr>
+		</c:forEach>
+		</table>
+
+		<table class="table table-hover">
+			<tr>
+				<th>検索職員ID</th>
+				<th>検索職員名</th>
+				<th>検索職員メール</th>
+				<th>職員年齢</th>
+			</tr>
+
+		<c:forEach var="staff" items="${search_list}">
+		    <tr>
+		        <td>${staff.staff_id}</td>
+		        <td>${staff.staff_name}</td>
+		        <td>${staff.staff_mail}</td>
 		        <td>${staff.staff_belong}</td>
 		    </tr>
 		</c:forEach>
 
 		</table>
+
 
 		<table class="table table-hover">
 			<tr>

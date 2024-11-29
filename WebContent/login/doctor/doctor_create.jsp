@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:import url="../common/base.jsp">
+
 <!-- 上記はJSPの基本設定です。ページの言語はJava、文字エンコーディングはUTF-8で設定し、
      JSTLのcoreライブラリ（cタグ）を使用できるようにしています -->
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>アカウント新規作成（医師）</title> <!-- ページのタイトルを「得点管理システム」としています -->
 <link href="../../common/css/create.css" rel="stylesheet">
-</head>
-<body>
+	<c:param name="title">
+	テスト
+	</c:param>
+
+	<c:param name="content">
+
 <div class="midasi">
 <h2>アカウント新規作成（医師）</h2>
 </div>
@@ -50,5 +53,6 @@
 
 	</form>
 
-</body>
-</html>
+	</c:param>
+
+</c:import>
