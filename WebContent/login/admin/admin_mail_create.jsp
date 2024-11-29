@@ -9,23 +9,21 @@
 </head>
 
 <body>
-	<div>
+	<div class="midasi"> <!-- 見出し -->
 		<h2>通知用メールアドレス設定</h2>
-
+	</div>
+	<div> <!-- メインページ -->
 		<form action="AddSendMailExecute.action" method="post">
-		<label>メールアドレス</label>
-			<input type="text"
-				   name="send_mail"
-				   placeholder="メールアドレスを入力してください"
-				   maxlength="30"
-				   value="${send_mail}"
-				   required />
-			<button type="submit">新規作成</button>
-		</form>
-		<div>${errors.get(send_mail)}</div>
-
-		<form action="ViewSendMail.action" method="get">
-			<input type="submit" value="戻る">
+		<div class="input_box">
+			<label>メールアドレス</label>
+				<input type="text" name="send_mail" placeholder="メールアドレスを入力してください"
+					   maxlength="30" value="${send_mail}" required />
+				<div>${errors.get(send_mail)}</div>
+		</div>
+			<div class="button">
+				<a href="ViewSendMail.action">戻る</a>
+				<input type="submit" value="新規登録">
+			</div>
 		</form>
 	</div>
 </body>

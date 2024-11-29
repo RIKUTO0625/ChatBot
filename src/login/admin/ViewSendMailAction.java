@@ -18,7 +18,7 @@ public class ViewSendMailAction extends Action {
 		//ローカル変数の宣言 1
 		HttpSession session = req.getSession();
 		SendMailDao smDao = new SendMailDao();
-		List<SendMail> sendmail = null; // 職員
+		List<SendMail> sendmail = null; // メールアドレス
 		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
 		//リクエストパラメータ―の取得 2
 		//なし
@@ -28,6 +28,12 @@ public class ViewSendMailAction extends Action {
 
 		sendmail = smDao.viewMail(admin.getAd_cd());
 
+		System.out.println(sendmail);
+		System.out.println(sendmail.size());
+
+
+		//確認用
+		req.setAttribute("ad_name", admin.getAd_name());
 		req.setAttribute("mailList", sendmail);
 
 		//JSPへフォワード 7

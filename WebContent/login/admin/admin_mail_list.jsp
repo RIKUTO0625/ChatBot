@@ -1,6 +1,7 @@
 <%-- 通知用メールアドレス一覧画面 jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,6 +11,7 @@
 
 <body>
 	<div>
+		<div>${ad_name}</div>
 		<h2>通知用メールアドレス一覧</h2>
 
 		<form action="AddSendMail.action" method="post">
@@ -17,18 +19,19 @@
 		</form>
 
 		<!-- 1通もない(0通) -->
-		<c:if data="${empty staffList}">
+		<c:if test="${empty mailList}">
 			<p>誰も登録されていません！</p>
 		</c:if>
 
 		<!-- 登録されているメールアドレスがある -->
-		<c:if data="${not empty staffList}">
-			<form action="DeleteSendMail.action" method="post">
-				<c:forEach var="mail_id" items="${mail_id}">
-					<p>${mail_id.send_mail}</p>
-					<button type="submit">削除</button>
-				</c:forEach>
-			</form>
+		<c:if test="${not empty mailList}">
+			<c:forEach var="sendmail" items="${mailList}">
+				<form action="DeleteSendMail.action" method="post">
+					<p>メールアドレス：${sendmail.mail_id}</p>
+					<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
+					<input type="submit" value="削除">
+				</form>
+			</c:forEach>
 		</c:if>
 	</div>
 </body>

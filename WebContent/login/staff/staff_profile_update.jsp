@@ -45,9 +45,10 @@
 <div class=form-group>
 	    <!-- 備考 -->
 	    <label for="detail">備考</label>
+	    <div class="up_bikou">
 	    <input type="text" id="detail" name="detail" value="${detail}">
+	    </div>
 </div>
-
 	    <div class=button>
 		    <a href="StaffProfileExecute.action" class="left-button">更新</a>
 		    <a href="#.action" class="right-button">削除</a>
