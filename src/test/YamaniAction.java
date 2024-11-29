@@ -62,8 +62,12 @@ public class YamaniAction extends Action{
 //		staff.setStaff_mail("example@gmail.com");
 //		staff_dao.editStaff(staff);
 
-		//職員一覧表示：
+		//職員一覧表示：〇
 		List<Staff> staff_list = staff_dao.viewStaff(staff.getAdmin().getAd_cd());
+
+		//職員検索：
+		String keyword = "%" + "しゅん" + "%";
+		List<Staff> search_list = staff_dao.searchStaff("000000", keyword);
 
 		//組織ログイン：〇
 		AdminDao admin_dao = new AdminDao();
@@ -77,11 +81,12 @@ public class YamaniAction extends Action{
 		List<SendMail> mail_list = mail_dao.viewMail("000000");
 		System.out.println(mail_list);
 
-		//医者一覧表示:
+		//医者一覧表示:〇
 		List<Doctor> dc_list = doctor_dao.viewDoctor("000000");
 
 	    req.setAttribute("staff", staff);
 	    req.setAttribute("staff_list", staff_list);
+	    req.setAttribute("search_list", search_list);
 	    req.setAttribute("mail_list", mail_list);
 	    //req.setAttribute("admin", admin);
 //	    req.setAttribute("doctor", doctor);

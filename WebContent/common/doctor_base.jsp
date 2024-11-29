@@ -15,13 +15,13 @@ ${param.scripts}
 <body>
 	<div id="wrapper">
 		<header class="css">
-			<c:import url="../common/doctor_header.jsp" />
+			<c:import url="../../common/doctor_header.jsp" />
 		</header>
 
 		${param.content}
 
 		<footer class="css">
-			<c:import url="../common/footer.jsp" />
+			<c:import url="../../common/footer.jsp" />
 		</footer>
 
 	</div>

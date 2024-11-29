@@ -275,7 +275,7 @@ public class StaffDao extends Dao {
 	}
 
 	//フィルター
-	public List<Staff> searchStaff(String admin_cd) throws Exception {
+	public List<Staff> searchStaff(String admin_cd, String keyword) throws Exception {
 
 
 		//リストを作り、職員を
@@ -287,10 +287,11 @@ public class StaffDao extends Dao {
         try {
             statement = connection.prepareStatement(
             "SELECT * FROM staff " +
-            	"WHERE name ILIKE '%たろう%'" +
+            	"WHERE ad_cd = ? and staff_name ILIKE ? " +
 				" ORDER BY staff_belong ASC, staff_name ASC ");
 
-            statement.setString(1,admin_cd) ;
+            statement.setString(1, admin_cd) ;
+            statement.setString(2, keyword) ;
 
             rSet = statement.executeQuery();
             staff_list = changeList(rSet);
