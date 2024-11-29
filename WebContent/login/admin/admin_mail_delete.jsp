@@ -12,6 +12,8 @@
 <body>
 	<div>
 		<h2>通知用メールアドレス削除</h2>
+	</div>
+	<div>
 		<p>${send_mail}を削除しますか？</p>
 
 		<div>
