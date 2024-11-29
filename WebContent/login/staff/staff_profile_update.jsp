@@ -45,7 +45,9 @@
 <div class=form-group>
 	    <!-- 備考 -->
 	    <label for="detail">備考</label>
+	    <div class="up_bikou">
 	    <input type="text" id="detail" name="detail" value="${detail}">
+	    </div>
 </div>
 
 	    <div class=button>
