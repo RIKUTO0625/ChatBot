@@ -57,7 +57,6 @@
 								</c:choose>
 							</div>
 						</div>
-
 						<!-- 連絡先 -->
 						<div class="pflist">
 							<div class="koumoku"><p>連絡先</p></div>
