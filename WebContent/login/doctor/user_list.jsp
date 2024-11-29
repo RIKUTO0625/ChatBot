@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +11,10 @@
 	    <form method="get" action="User.action">
 	        <label>氏名</label>
 	        <input type="text" name="name" value="<c:out value='${param.name}' />">
-	        <button><img src="../../image/serchi.png" width=10 height=10></button>
+	        <a href="#"><img src="../../image/serchi.png" width=100 height=100></a>
 	    </form>
 	<c:choose>
-		<c:when "${not empty staffs}">
+		<c:when test="${not empty staffs}">
 			<table class="staff_table">
 				<tr>
 					<th>名前</th>
@@ -26,7 +27,10 @@
 						<td>${staff.name}</td>
 						<td>${staff.belong}</td>
 						<!-- <td>${staff.####}</td> 感情のデータ（AWS）	-->
-						<td><a href="User.action?no=${staff.staff_id}">詳細</a></td>
+						<td>
+
+							<a href="User.action?no=${staff.staff_id}">詳細</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

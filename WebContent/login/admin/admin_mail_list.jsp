@@ -17,12 +17,12 @@
 		</form>
 
 		<!-- 1通もない(0通) -->
-		<c:if data="${mail_id == null}">
+		<c:if data="${empty staffList}">
 			<p>誰も登録されていません！</p>
 		</c:if>
 
 		<!-- 登録されているメールアドレスがある -->
-		<c:if data="${mail_id != null}">
+		<c:if data="${not empty staffList}">
 			<form action="DeleteSendMail.action" method="post">
 				<c:forEach var="mail_id" items="${mail_id}">
 					<p>${mail_id.send_mail}</p>

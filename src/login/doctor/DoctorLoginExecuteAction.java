@@ -37,7 +37,7 @@ public class DoctorLoginExecuteAction extends Action{
 			//セッションに"user"という変数名で値はStaff変数の中身
 			session.setAttribute("user", doctor);
 			//リダイレクト
-			res.sendRedirect("doctor_mypage.jsp");
+			res.sendRedirect("User.action");
 		} else {
 			Map<String, String> errors = new HashMap<>();// エラーメッセージ
 			errors.put("1", "ログインに失敗しました。組織コードまたはパスワードが違います。");

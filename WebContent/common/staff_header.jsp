@@ -19,13 +19,13 @@
 		<header>
 		  <nav class="nav">
 		    <ul>
-		      <li><a href="#">マイページ</a></li>
+		      <li><a href="staff/StaffProfile.action">マイページ</a></li>
 		      <li><a href="#">チャットボット</a></li>
 		      <li><a href="#">履歴</a></li>
 
 		      <li class=footer-menu>
 		      <a href="#">HOME</a>
-		      <a href="#">Logout</a>
+		      <a href="staff/StaffLogout.action">Logout</a>
 		      </li>
 		    </ul>
 		  </nav>
