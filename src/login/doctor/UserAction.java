@@ -29,7 +29,7 @@ public class UserAction extends Action{
 
         if (name != null && !name.isEmpty()) {
             // 名前で検索
-            staffs = sDao.search(name);
+            staffs = sDao.search("%"+name+"%");
         } else {
             // 全リスト表示
             staffs = sDao.viewStaff(doctor.getAd_cd());

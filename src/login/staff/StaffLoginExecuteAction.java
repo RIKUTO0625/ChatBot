@@ -37,7 +37,7 @@ public class StaffLoginExecuteAction extends Action{
 			//セッションに"user"という変数名で値はStaff変数の中身
 			session.setAttribute("user", staff);
 			//リダイレクト
-			res.sendRedirect("staff_mypage.jsp");
+			res.sendRedirect("StaffProfile.action");
 		} else {
 			Map<String, String> errors = new HashMap<>();// エラーメッセージ
 			errors.put("1", "ログインに失敗しました。職員コードまたはパスワードが違います。");
