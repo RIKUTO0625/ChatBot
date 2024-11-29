@@ -19,7 +19,7 @@
 							<div class="naiyou">
 								<c:choose>
 									<c:when test="${empty staff_name}">
-										<p>「名前」を入力してください</p>
+										<p style="color: #ccc;">「名前」を入力してください</p>
 									</c:when>
 									<c:otherwise>
 										<p>${staff_name}</p>
@@ -34,7 +34,7 @@
 							<div class="naiyou">
 								<c:choose>
 									<c:when test="${empty staff_age}">
-										<p>「年齢」を入力してください</p>
+										<p style="color: #ccc;">「年齢」を入力してください</p>
 									</c:when>
 									<c:otherwise>
 										<p>${staff_age}</p>
@@ -49,7 +49,7 @@
 							<div class="naiyou">
 								<c:choose>
 									<c:when test="${empty staff_belong}">
-										<p>「所属」を入力してください</p>
+										<p style="color: #ccc;">「所属」を入力してください</p>
 									</c:when>
 									<c:otherwise>
 										<p>${staff_belong}</p>
@@ -57,16 +57,17 @@
 								</c:choose>
 							</div>
 						</div>
+
 						<!-- 連絡先 -->
 						<div class="pflist">
 							<div class="koumoku"><p>連絡先</p></div>
 							<div class="naiyou">
 								<c:choose>
 									<c:when test="${empty staff_mail}">
-										<p>「連絡先」を入力してください</p>
+										<p style="color: #ccc;">「連絡先」を入力してください</p> <!-- 色変更 -->
 									</c:when>
 									<c:otherwise>
-										<p>${staff_mail}</p>
+										<p style="color: black;">${staff_mail}</p> <!-- 黒色 -->
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -78,7 +79,7 @@
 							<div class="naiyou">
 								<c:choose>
 									<c:when test="${empty gender_cd}">
-										<p>「性別」を入力してください</p>
+										<p style="color: #ccc;">「性別」を入力してください</p>
 									</c:when>
 									<c:otherwise>
 										<p>${gender_cd}</p>
@@ -93,7 +94,7 @@
 							<div class="naiyou">
 								<c:choose>
 									<c:when test="${empty favorite}">
-										<p>「趣味」を入力してください</p>
+										<p style="color: #ccc;">「趣味」を入力してください</p>
 									</c:when>
 									<c:otherwise>
 										<p>${favorite}</p>
@@ -118,7 +119,7 @@
 				<div class="pf-bikou">
 					<c:choose>
 						<c:when test="${empty detail}">
-							<p>「備考」を入力してください</p>
+							<p style="color: #ccc;">「備考」を入力してください</p> <!-- 色変更 -->
 						</c:when>
 						<c:otherwise>
 							<p>${detail}</p>
