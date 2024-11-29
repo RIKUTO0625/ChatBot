@@ -274,6 +274,53 @@ public class StaffDao extends Dao {
         return staff_list;
 	}
 
+	//フィルター
+	public List<Staff> searchStaff(String admin_cd) throws Exception {
+
+
+		//リストを作り、職員を
+		List<Staff> staff_list = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement statement = null;
+        ResultSet rSet = null;
+
+        try {
+            statement = connection.prepareStatement(
+            "SELECT * FROM staff " +
+            	"WHERE name ILIKE '%たろう%'" +
+				" ORDER BY staff_belong ASC, staff_name ASC ");
+
+            statement.setString(1,admin_cd) ;
+
+            rSet = statement.executeQuery();
+            staff_list = changeList(rSet);
+
+        }catch(Exception e){
+			throw e;
+
+		}finally {
+
+            if (statement != null) {
+            	try {
+            		statement.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+
+            }
+            if (connection != null) {
+            	try {
+            		 connection.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+            }
+        }
+
+        return staff_list;
+	}
+
+
 
 
 	public boolean staff_delete (Staff staff) throws Exception {

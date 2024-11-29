@@ -13,11 +13,11 @@
 		<header>
 		  <nav class="nav">
 		    <ul>
-		      <li><a href="#">職員一覧</a></li>
+		      <li><a href="doctor/User.action">職員検索</a></li>
 
 		      <li class=footer-menu>
-		      <a href="#">HOME</a>
-		      <a href="#">Logout</a>
+		      <a href="doctor/.action">HOME</a>
+		      <a href="DoctorLogout.action">Logout</a>
 		      </li>
 		    </ul>
 		  </nav>
