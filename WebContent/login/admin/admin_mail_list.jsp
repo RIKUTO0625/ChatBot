@@ -36,6 +36,7 @@
 					<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
 					<input type="submit" value="削除">
 				</form>
+
 			</c:forEach>
 		</c:if>
 	</div>
