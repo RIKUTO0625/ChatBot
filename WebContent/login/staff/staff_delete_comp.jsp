@@ -21,6 +21,8 @@
 
 		<div class="button">
 
+
+
 			<a class="../Home.action">ホームページへ</a>
 	</div>
 </body>

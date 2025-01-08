@@ -1,0 +1,43 @@
+.midasi{
+	text-align: center;
+}
+
+
+.button {
+	display: flex;
+
+	margin-top: 20px;
+}
+
+.button a{
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12pt;        /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
+}
+
+
+
+
+.button input{
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12pt;        /* 文字サイズ */
+	margin-left:  1000px;
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
+}
