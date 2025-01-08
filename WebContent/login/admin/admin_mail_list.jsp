@@ -4,6 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
+<link href="../../common/css/sendmail.css" rel="stylesheet">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>通知用メールアドレス一覧</title>
@@ -12,10 +13,14 @@
 <body>
 	<div>
 		<div>${ad_name}</div>
+		<div class="midasi">
 		<h2>通知用メールアドレス一覧</h2>
+		</div>
 
 		<form action="AddSendMail.action" method="post">
-			<button type="submit">新規作成</button>
+			<div class="button">
+			<input type="submit" value="新規作成">
+			</div>
 		</form>
 
 		<!-- 1通もない(0通) -->
