@@ -38,7 +38,6 @@
 				</form>
 			</c:forEach>
 		</c:if>
-
 	</div>
 </body>
 
