@@ -17,20 +17,23 @@
 		<input type="submit" value="新規作成">
 	</form>
 
-	<c:if test="${empty doctorList}">
-		<p>誰も登録されていません！</p>
-	</c:if>
+	<c:choose>
+		<%-- 誰も登録していない(0人) --%>
+		<c:when test="${empty doctorList}">
+			<p>誰も登録されていません！</p>
+		</c:when>
 
-	<c:if test="${not empty doctorList}">
+		<%-- 1人以上登録されている --%>
+		<c:when test="${not empty doctorList}">
+			<form action="DeleteDoctor.action" method="post">
+				<c:forEach var="doctor" items="${doctorList}">
+					<p>${doctor.dc_belong}病院：${doctor.dc_dept}科：${doctor.dc_name}</p>
+					<input type="submit" value="削除">
+				</c:forEach>
+			</form>
+		</c:when>
 
-		<form action="DeleteDoctor.action" method="post">
-
-		<c:forEach var="doctor" items="${doctorList}">
-			<p>${doctor.dc_belong}病院：${doctor.dc_dept}科：${doctor.dc_name}</p>
-			<input type="submit" value="削除">
-		</c:forEach>
-		</form>
-	</c:if>
+	</c:choose>
 
 </body>
 </html>
