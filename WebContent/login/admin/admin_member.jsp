@@ -1,14 +1,12 @@
 <%-- 組織メンバー一覧画面 jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>組織メンバー一覧</title>
-<link href="../../common/css/login.css" rel="stylesheet">
-</head>
-<body>
+<c:import url="/common/admin_base.jsp">
+<c:param name="title">
+組織メンバー一覧
+</c:param>
+<c:param name="scripts"><link href="../../common/css/login.css" rel="stylesheet"></c:param>
+<c:param name="content">
 	<div>
 
 		<div class="sosikimei">
@@ -48,5 +46,5 @@
 			</c:forEach>
 		</c:if>
 	</div>
-</body>
-</html>
+</c:param>
+</c:import>

@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../common/css/style.css" rel="stylesheet">
+<link href="../../common/css/style.css" rel="stylesheet">
 <title>${param.title}</title>
 
 ${param.scripts}
@@ -15,13 +15,13 @@ ${param.scripts}
 <body>
 	<div id="wrapper">
 		<header class="css">
-			<c:import url="../common/admin_header.jsp" />
+			<c:import url="../../common/admin_header.jsp" />
 		</header>
 
 		${param.content}
 
 		<footer class="css">
-			<c:import url="../common/footer.jsp" />
+			<c:import url="../../common/footer.jsp" />
 		</footer>
 
 	</div>

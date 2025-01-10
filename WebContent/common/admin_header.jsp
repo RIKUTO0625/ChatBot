@@ -15,12 +15,12 @@
 		<header>
 		  <nav class="nav">
 		    <ul>
-		      <li><a href="admin/Member.action">職員アカウント管理</a></li>
-		      <li><a href="doctor/ViewDoctor.action">医者アカウント管理</a></li>
-		      <li><a href="admin/ViewSendMail.action">通知用メールアドレス管理</a></li>
+		      <li><a href="Member.action">職員アカウント管理</a></li>
+		      <li><a href="ViewDoctor.action">医者アカウント管理</a></li>
+		      <li><a href="ViewSendMail.action">通知用メールアドレス管理</a></li>
 		      <li class=footer-menu>
 		      <a href="#">HOME</a>
-		      <a href="admin/AdminLogout.action">Logout</a>
+		      <a href="AdminLogout.action">Logout</a>
 		      </li>
 		    </ul>
 		  </nav>

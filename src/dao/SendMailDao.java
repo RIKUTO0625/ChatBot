@@ -25,16 +25,15 @@ public class SendMailDao extends Dao {
 		try {
 
 			String sql = "insert into sendmail"
-			+ "(mail_id, mail_address, ad_cd)"
-		    + "values (? ,? ,?)";
+			+ "(mail_address, ad_cd)"
+		    + "values (? ,?)";
 
 			//プリペアードステートメントにINSERT文をセット
 			statement = connection
 			.prepareStatement (sql);
 			// プリペアードステートメントに値をバインド
-			statement.setString(1,sendmail.getMail_id());
-			statement.setString(2,sendmail.getSend_mail());
-			statement.setString(3,sendmail.getAdmin().getAd_cd());
+			statement.setString(1,sendmail.getSend_mail());
+			statement.setString(2,sendmail.getAdmin().getAd_cd());
 
 
 			//プリペアードステートメントを実行
