@@ -16,9 +16,9 @@
 		<form action="AddSendMailExecute.action" method="post">
 		<div class="input_box">
 			<label>メールアドレス</label>
-				<input type="text" name="send_mail" placeholder="メールアドレスを入力してください"
-					   maxlength="30" value="${send_mail}" required />
-				<div>${errors.get(send_mail)}</div>
+			<input type="text" name="send_mail" placeholder="メールアドレスを入力してください"
+				maxlength="30" value="${mail_id}" required />
+			<div>${errors.get(mail_id)}</div>
 		</div>
 			<div class="button">
 				<a href="ViewSendMail.action">戻る</a>
