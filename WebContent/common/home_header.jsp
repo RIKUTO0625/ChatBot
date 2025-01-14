@@ -3,11 +3,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotheader.png?raw=true"
-    alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
+    alt="chatbot" width=262.5 height=54  style="margin-right: 10px; margin-top: 20px;">
     <div style="display: flex; align-items: center;">
-        <a href="#" class=image><img class=image
+        <a href="homepage.jsp" class=image><img class=image
         src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
-        alt="HOME" width=150 height=30></a>
+        alt="HOME" width=150 height=30 style="margin-top: 20px;"></a>
 		<header>
 		  <nav class="nav">
 		    <ul>
@@ -23,7 +23,9 @@
 </div>
 
 <!-- Separator -->
+<div class="morita">
 <hr color="black">
+</div>
 
 <!-- JavaScript -->
 <script>

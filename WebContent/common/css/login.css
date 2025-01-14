@@ -127,3 +127,15 @@ haibutton{
 	width: 300px;
 }
 
+.request_cp {
+    /* フレックスコンテナとして指定 */
+    display: flex;
+    /* フレックスアイテムの並び方向を縦方向に設定 */
+    flex-direction: column;
+    /* フレックスアイテムを中央に配置 */
+    justify-content: center;
+    align-items: center;
+    /* 上部のマージンを設定 */
+    margin-top: 150px;
+}
+

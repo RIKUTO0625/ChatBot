@@ -5,34 +5,31 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>組織メンバー削除</title>
+<title>面談希望</title>
 <link href="../../common/css/login.css" rel="stylesheet">
 </head>
 
 <body>
 	<div>
 		<div class="midasi">
-		<h2>組織メンバー削除</h2>
-		</div>
-		<div class="midasi">
-		<p>${staff_name}を削除しますか？</p>
+		<h2>面談を希望しますか？</h2>
 		</div>
 
 		<!-- 組織メンバー削除完了画面へ -->
-		<form action="MemberDeleteExecute.action" method="post">
-		<div class="button">
-        <div class="haibutton">
-			<input type="submit" value="はい">
+			<div class="button">
+        	<div class="haibutton">
+			<a href="CreateAdmin.action">はい</a>
+			</div>
 		</form>
-		</div>
 
 	<!-- 組織メンバー一覧へ -->
-	<form action="Member.action" method="get">
+	<form action="Request.action" method="get">
 	<div class="iiebutton">
 	<input type="submit" value="戻る">
 	</div>
+	</div>
 	</form>
-</div>
+
 </div>
 
 </body>
