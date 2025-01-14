@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../common/css/style.css" rel="stylesheet">
+<link href="../../common/css/style.css" rel="stylesheet">
 <title>${param.title}</title>
 
 ${param.scripts}

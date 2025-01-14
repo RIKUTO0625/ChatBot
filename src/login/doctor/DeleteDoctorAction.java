@@ -19,12 +19,14 @@ public class DeleteDoctorAction extends Action {
 	    DoctorDao dDao = new DoctorDao();
 	    Doctor doctor = null; //医者
 		//リクエストパラメータ―の取得 2
-	    String admin_cd = req.getParameter(admin.getAd_cd());
-	    String dc_name = req.getParameter("dc_name");
+	    String admin_cd = admin.getAd_cd();
+	    String password = req.getParameter("password");
 
 		//DBからデータ取得 3
-	    doctor = dDao.loginDoctor(admin_cd,dc_name);
-		//ビジネスロジック 4
+	    doctor = dDao.loginDoctor(password,admin_cd);
+		//ビジネスロジック
+
+	    System.out.println(doctor);
 
 		//セッションに"doctor"という変数名で値はdoctor変数の中身
 		session.setAttribute("doctor", doctor);
@@ -32,7 +34,6 @@ public class DeleteDoctorAction extends Action {
 		//DBへデータ保存 5
 
 		//レスポンス値をセット 6
-	    req.setAttribute("dc_name", dc_name);
 		//JSPへフォワード 7
 		req.getRequestDispatcher("doctor_delete.jsp").forward(req, res);
 	}

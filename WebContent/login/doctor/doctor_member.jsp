@@ -28,6 +28,8 @@
 			<form action="DeleteDoctor.action" method="post">
 				<c:forEach var="doctor" items="${doctorList}">
 					<p>${doctor.dc_belong}病院：${doctor.dc_dept}科：${doctor.dc_name}</p>
+
+					<input type="hidden" name="password" value="${doctor.dc_pw}">
 					<input type="submit" value="削除">
 				</c:forEach>
 			</form>

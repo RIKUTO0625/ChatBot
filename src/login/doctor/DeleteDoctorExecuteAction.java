@@ -18,15 +18,19 @@ public class DeleteDoctorExecuteAction extends Action{
 
 		//ローカル変数の宣言
 		HttpSession session = req.getSession();//セッション
-		Doctor doctor = (Doctor)session.getAttribute("doctor");// ログインユーザーを取得
+		Doctor doctor = (Doctor)session.getAttribute("doctor");// 医者情報を取得
 		Map<String, String> errors = new HashMap<>();//エラーメッセージ
 
 		DoctorDao dDao = new DoctorDao();
+
+		System.out.println(doctor);
 
 		//ビジネスロジック
 
 		if (doctor != null) {
 			// インスタンスに値をセット
+
+			System.out.println("条件分岐１");
 
 			dDao.doctor_delete(doctor);
 
@@ -36,6 +40,9 @@ public class DeleteDoctorExecuteAction extends Action{
 
 
 		} else {
+
+			System.out.println("条件分岐２");
+
 			errors.put("delete", "削除が出来ませんでした");
 			//JSPへフォワード
 			req.getRequestDispatcher("doctor_delete.jsp").forward(req, res);
