@@ -26,6 +26,8 @@ public class DoctorLoginExecuteAction extends Action{
 		//DBからデータ取得 3
 		doctor = dDao.loginDoctor(password, admin_cd);
 
+
+
 		//ビジネスロジック 4
 
 		if (doctor != null) {
@@ -34,6 +36,7 @@ public class DoctorLoginExecuteAction extends Action{
 
 			//Sessionを有効にする
 			HttpSession session = req.getSession(true);
+
 			//セッションに"user"という変数名で値はStaff変数の中身
 			session.setAttribute("user", doctor);
 			//リダイレクト

@@ -11,7 +11,7 @@
 	    <form method="get" action="User.action">
 	        <label>氏名</label>
 	        <input type="text" name="name" value="<c:out value='${param.name}' />">
-	        <a href="#"><img src="../../image/serchi.png" width=100 height=100></a>
+	        <a href="#"><img src="../../image/serchi.png" width=17 height=17></a>
 	    </form>
 	<c:choose>
 		<c:when test="${not empty staffs}">
@@ -19,16 +19,13 @@
 				<tr>
 					<th>名前</th>
 					<th>所属</th>
-					<th>状態</th>
 					<th></th>
 				</tr>
 				<c:forEach var="staff" items="${staffs}">
 					<tr>
-						<td>${staff.name}</td>
-						<td>${staff.belong}</td>
-						<!-- <td>${staff.####}</td> 感情のデータ（AWS）	-->
+						<td>${staff.staff_name}</td>
+						<td>${staff.staff_belong}</td>
 						<td>
-
 							<a href="User.action?no=${staff.staff_id}">詳細</a>
 						</td>
 					</tr>
