@@ -4,14 +4,19 @@
 <html>
 <head>
     <title>利用者一覧</title>
+    <link href="../../common/css/sendmail.css" rel="stylesheet">
 </head>
 <body>
     <div class="staff_list">
+    <div class="midasi">
         <h2>利用者一覧</h2>
+        </div>
 	    <form method="get" action="User.action">
+	    	<div class="keiji">
 	        <label>氏名</label>
 	        <input type="text" name="name" value="<c:out value='${param.name}' />">
 	        <a href="#"><img src="../../image/serchi.png" width=17 height=17></a>
+	    </div>
 	    </form>
 	<c:choose>
 		<c:when test="${not empty staffs}">
@@ -30,10 +35,13 @@
 						</td>
 					</tr>
 				</c:forEach>
+
 			</table>
 		</c:when>
 		<c:otherwise>
+		<div class="midasi">
 			<div>該当者なし</div>
+		</div>
 		</c:otherwise>
 	</c:choose>
 	</div>
