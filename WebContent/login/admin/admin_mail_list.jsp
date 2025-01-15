@@ -34,14 +34,12 @@
 			<c:forEach var="sendmail" items="${mailList}">
 				<form action="DeleteSendMail.action" method="post">
 				<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
+				<input type="hidden" name="mail_address" value="${sendmail.mail_address}"/>
+				<input type="hidden" name="ad_cd" value="${sendmail.ad_cd}"/>
 					<div class="admen2">
 						<div class="inline-block">
-							<p>${sendmail.mail_id}</p>
+							<p>${sendmail.mail_address}</p>
 						</div>
-						<input type="hidden" name="staff_id" value="${staff.staff_id}"/>
-						<input type="hidden" name="staff_pw" value="${staff.staff_pw}"/>
-
-
 							<div class="ookisahaibutton">
 								<input type="submit"value="削除">
 						</div>

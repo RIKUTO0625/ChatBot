@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.SendMail;
-import dao.SendMailDao;
 import tool.Action;
 
 public class DeleteSendMailAction  extends Action {
@@ -15,11 +14,19 @@ public class DeleteSendMailAction  extends Action {
 
 		//削除予定のメールアドレスを表示させる
 		HttpSession session = req.getSession();
-		SendMailDao smDao = new SendMailDao();
-		SendMail sendmail = null;
+		SendMail sendmail = new SendMail();
 
-		//次回はここから
+
 		String mail_id = req.getParameter("mail_id");
+		String mail_address = req.getParameter("mail_address");
+		String ad_cd = req.getParameter("ad_cd");
+
+
+		sendmail.setMail_id(mail_id);
+		sendmail.setAd_cd(ad_cd);
+		sendmail.setMail_address(mail_address);
+
+		session.setAttribute("sendmail", sendmail);
 
 		//↓クリックしたメールアドレスのみ表示させてほしい
 //		sendmail = smDao.loginMail(mail_id);

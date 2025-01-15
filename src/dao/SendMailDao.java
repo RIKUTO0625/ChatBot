@@ -32,7 +32,7 @@ public class SendMailDao extends Dao {
 			statement = connection
 			.prepareStatement (sql);
 			// プリペアードステートメントに値をバインド
-			statement.setString(1,sendmail.getSend_mail());
+			statement.setString(1,sendmail.getMail_address());
 			statement.setString(2,sendmail.getAdmin().getAd_cd());
 
 
@@ -139,7 +139,7 @@ public class SendMailDao extends Dao {
 
 	            // メールインスタンスにリストをセット
 	            sendmail.setMail_id(rSet.getString("mail_id"));
-	            sendmail.setMail_id(rSet.getString("mail_address"));
+	            sendmail.setMail_address(rSet.getString("mail_address"));
 	            sendmail.setAd_cd(rSet.getString("ad_cd"));
 
 	            // リストに追加

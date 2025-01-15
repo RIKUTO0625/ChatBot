@@ -20,7 +20,7 @@ public class SendMail extends Admin implements Serializable{
 	/**
 	 * メールアドレス:String
 	 */
-	private String send_mail;
+	private String mail_address;
 
 	/**
 	 * ゲッター、セッター
@@ -46,14 +46,16 @@ public class SendMail extends Admin implements Serializable{
 	}
 
 
-	public String getSend_mail() {
-		return send_mail;
+	public String getMail_address() {
+		return mail_address;
 	}
 
 
-	public void setSend_mail(String send_mail) {
-		this.send_mail = send_mail;
+	public void setMail_address(String mail_address) {
+		this.mail_address = mail_address;
 	}
+
+
 
 
 
