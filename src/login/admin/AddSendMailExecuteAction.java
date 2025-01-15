@@ -39,7 +39,7 @@ public class AddSendMailExecuteAction extends Action {
         }
 
 		SendMail sendmail = new SendMail();
-        sendmail.setSend_mail(send_mail); // メールアドレス
+        sendmail.setMail_address(send_mail); // メールアドレス
         sendmail.setAdmin(admin);     //組織コード
         Boolean success = smDao.createMail(sendmail);
 
