@@ -42,6 +42,67 @@
 	text-align: center;
 }
 
+/* ----- 検索ボックス ----- */
+
+/* ----- 全般的な入力フィールドのスタイル ----- */
+input {
+  -webkit-appearance: none; /* Safari のデフォルトスタイルを無効化 */
+  -moz-appearance: none;    /* Firefox のデフォルトスタイルを無効化 */
+  appearance: none;         /* デフォルトのスタイルを無効化 */
+  padding: 10px;            /* 内側の余白 */
+  margin: 5px 0;            /* 上下の余白 */
+  border: 1px solid #999;   /* 灰色の境界線 */
+  border-radius: 5px;       /* 角を丸める */
+}
+
+/* ----- 検索フォームのコンテナ ----- */
+.searchForm {
+  position: relative; /* 子要素を絶対位置で配置するための基準 */
+}
+
+/* ----- 検索入力フィールドのスタイル ----- */
+.searchForm-input {
+  width: 85%; /* フォーム全体の幅に拡張 */
+}
+
+/* ----- 検索ボタン（送信ボタン）のスタイル ----- */
+.searchForm-submit {
+  position: absolute;       /* 親要素を基準に位置を絶対指定 */
+  width: 38px;              /* ボタンの幅 */
+  height: 38px;             /* ボタンの高さ */
+  top: calc(50% - 19px);    /* 親要素の中央に配置 */
+  right: 0;                 /* 親要素の右端に配置 */
+  border-radius: 0 4px 4px 0; /* 右側の角を丸める */
+  background: #999;         /* 背景色を灰色に設定 */
+}
+
+/* ----- 検索ボタン内の丸いアイコンの外側デザイン ----- */
+.searchForm-submit::before {
+  position: absolute;       /* ボタン内で絶対位置指定 */
+  content: '';              /* 視覚要素としての空のコンテンツ */
+  width: 15px;              /* 丸いアイコンの幅 */
+  height: 15px;             /* 丸いアイコンの高さ */
+  top: calc(50% - 9px);     /* ボタンの中央に配置 */
+  left: calc(50% - 9px);    /* ボタンの中央に配置 */
+  border-radius: 50%;       /* 完全な円形にする */
+  box-shadow: 0 0 0 2px #fff; /* 白い境界線を描画 */
+}
+
+/* ----- 検索ボタン内の拡大鏡の柄部分デザイン ----- */
+.searchForm-submit::after {
+  position: absolute;       /* ボタン内で絶対位置指定 */
+  content: '';              /* 視覚要素としての空のコンテンツ */
+  width: 8px;               /* 柄の幅 */
+  height: 6px;              /* 柄の高さ */
+  top: calc(50% + 6px);     /* ボタン中央から下に配置 */
+  left: calc(50% + 2px);    /* ボタン中央から右に配置 */
+  border-top: solid 2px #fff; /* 白い線で描画 */
+  transform: rotate(45deg); /* 柄を45度傾ける */
+}
+
+/* -----  ----- */
+
+
 .staff_list {
   /* フレックスコンテナとして指定 */
   display: flex;

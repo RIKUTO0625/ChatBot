@@ -12,11 +12,10 @@
         <h2>利用者一覧</h2>
         </div>
 	    <form method="get" action="User.action">
-	    	<div class="keiji">
-	        <label>氏名</label>
-	        <input type="text" name="name" value="<c:out value='${param.name}' />">
-	        <a href="#"><img src="../../image/serchi.png" width=17 height=17></a>
-	    </div>
+	    	<div class="searchForm">
+	        	<input class="searchForm-input" type="text" name="name" placeholder="名前から検索" value="<c:out value='${param.name}' />">
+	        	<button class="searchForm-submit" type="submit"></button>
+	    	</div>
 	    </form>
 	<c:choose>
 		<c:when test="${not empty staffs}">

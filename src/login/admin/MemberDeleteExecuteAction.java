@@ -25,12 +25,11 @@ public class MemberDeleteExecuteAction  extends Action {
 
 		//ビジネスロジック
 		if (staff != null) {
-			// インスタンスに値をセット
-
-			sDao.staff_delete(staff);
 
 			//レスポンス値をセット
 			req.setAttribute("staff_name", staff.getStaff_name());
+
+			sDao.staff_delete(staff);
 
 			session.removeAttribute("staff");
 

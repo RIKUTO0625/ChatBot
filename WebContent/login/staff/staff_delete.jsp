@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="iiebutton">
-		<a href="DeleteStaffExecute.action">はい</a>
+		<a href="MemberDeleteExecute.action">はい</a>
 		</div>
 
 	</div>

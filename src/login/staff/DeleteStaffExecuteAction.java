@@ -18,7 +18,7 @@ public class DeleteStaffExecuteAction extends Action{
 
 		//ローカル変数の宣言
 		HttpSession session = req.getSession();//セッション
-		Staff staff = (Staff)session.getAttribute("user");// ログインユーザーを取得
+		Staff staff = (Staff)session.getAttribute("staff");// 職員情報を取得
 		Map<String, String> errors = new HashMap<>();//エラーメッセージ
 
 		StaffDao sDao = new StaffDao();

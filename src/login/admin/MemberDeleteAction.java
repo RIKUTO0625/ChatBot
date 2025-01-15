@@ -24,8 +24,10 @@ public class MemberDeleteAction  extends Action {
 
 		//DBからデータ取得
 
-			//クリックした職員名のみ表示
+		//クリックした職員名のみ表示
 		staff = sDao.loginStaff(staff_id,staff_pw);
+		System.out.println(staff);
+
 
 		//セッションに"staff"という変数名で値はstaff変数の中身
 		session.removeAttribute("staff"); //値のリセット
@@ -35,7 +37,7 @@ public class MemberDeleteAction  extends Action {
 		req.setAttribute("staff_name", staff.getStaff_name());
 
 		//JSPへフォワード 7
-		req.getRequestDispatcher("admin_member_delete.jsp").forward(req, res);
+		req.getRequestDispatcher("../staff/staff_delete.jsp").forward(req, res);
 	}
 
 }
