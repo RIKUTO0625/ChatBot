@@ -4,10 +4,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
-<link href="../../common/css/sendmail.css" rel="stylesheet">
+<link href="../../common/css/login.css" rel="stylesheet">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>通知用メールアドレス一覧</title>
+
 </head>
 
 <body>
@@ -32,12 +33,25 @@
 		<c:if test="${not empty mailList}">
 			<c:forEach var="sendmail" items="${mailList}">
 				<form action="DeleteSendMail.action" method="post">
-					<p>メールアドレス：${sendmail.mail_id}</p>
-					<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
-					<input type="submit" value="削除">
+				<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
+					<div class="admen">
+						<div class="inline-block">
+							<p>${sendmail.mail_id}</p>
+						</div>
+						<input type="hidden" name="staff_id" value="${staff.staff_id}"/>
+						<input type="hidden" name="staff_pw" value="${staff.staff_pw}"/>
+
+						<div class="button">
+							<div class="ookisahaibutton">
+								<input type="submit"id="delete_button" value="削除">
+							</div>
+						</div>
+					</div>
 				</form>
-			</c:forEach>
-		</c:if>
+				</c:forEach>
+				</c:if>
+
+
 	</div>
 </body>
 
