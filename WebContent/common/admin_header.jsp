@@ -6,10 +6,10 @@
     alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
         <h2><span>user:${admin_name}</span></h2>
-        <a href="#" class=image><img class=image
+        <a href="../admin/Member.action" class=image><img class=image
         src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
         alt="HOME" width=150 height=30></a>
-        <a href="#"><img class=image
+        <a href="../admin/AdminLogout.action"><img class=image
         src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
         alt="ログアウト" width=150 height=30></a>
 		<header>
@@ -19,7 +19,7 @@
 		      <li><a href="../doctor/ViewDoctor.action">医者アカウント管理</a></li>
 		      <li><a href="../admin/ViewSendMail.action">通知用メールアドレス管理</a></li>
 		      <li class=footer-menu>
-		      <a href="#">HOME</a>
+		      <a href="../admin/Member.action">HOME</a>
 		      <a href="../admin/AdminLogout.action">Logout</a>
 		      </li>
 		    </ul>

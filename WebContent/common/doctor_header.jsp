@@ -6,8 +6,8 @@
     alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
         <h2><span>user:${doctor_name}</span></h2>
-        <a href="#" class=image><img class=image src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true" alt="HOME" width=150 height=30></a>
-        <a href="#"><img class=image
+        <a href="doctor/.action" class=image><img class=image src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true" alt="HOME" width=150 height=30></a>
+        <a href="DoctorLogout.action"><img class=image
         src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
         alt="ログアウト" width=150 height=30></a>
 		<header>
