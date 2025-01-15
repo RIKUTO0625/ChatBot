@@ -38,6 +38,7 @@
 
 						<div class="button">
 							<div class="ookisahaibutton">
+
 								<input type="submit" value="削除">
 							</div>
 						</div>
