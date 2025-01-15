@@ -19,7 +19,7 @@ public class StaffProfileExecuteAction extends Action {
         StaffDao sDao = new StaffDao(); // スタッフDaoを初期化
 
         // セッションからstaff_idを取得
-        String staff_id = (String) session.getAttribute("staff_id"); // セッションから職員番号を取得
+        Staff staff = (Staff) session.getAttribute("user"); // セッションから職員番号を取得
 
         // リクエストパラメータ―の取得 2
         String staff_name = req.getParameter("staff_name"); // 職員名
@@ -31,10 +31,6 @@ public class StaffProfileExecuteAction extends Action {
         String detail = req.getParameter("detail"); // 備考
 
         Map<String, String> errors = new HashMap<>(); // エラーメッセージ
-
-        // DBからスタッフ情報を取得 3
-        Staff staff = sDao.get(staff_id); // staff_idを使ってスタッフ情報を取得
-
         // スタッフが存在する場合に情報を更新 4
         if (staff != null) {
             // 入力された情報をstaffオブジェクトにセット
@@ -66,7 +62,7 @@ public class StaffProfileExecuteAction extends Action {
             // エラーがない場合、データを更新
             if (errors.isEmpty()) {
                 // 職員情報を更新（保存）
-                sDao.save(staff);
+                sDao.editStaff(staff);
                 // 更新完了後にリダイレクトする場合など（例えば、成功メッセージを表示）
                 req.setAttribute("successMessage", "プロフィールが更新されました。");
             } else {
@@ -74,11 +70,10 @@ public class StaffProfileExecuteAction extends Action {
                 req.setAttribute("errors", errors);
             }
         } else {
-            // スタッフが見つからなかった場合
+            // スタッフが見つからなかった場合a
             req.setAttribute("errorMessage", "スタッフ情報が見つかりません。");
         }
-
         // JSPへフォワード 7
-        req.getRequestDispatcher("staff_profile_update.jsp").forward(req, res);
+        req.getRequestDispatcher("staff_profile_comp.jsp").forward(req, res);
     }
 }

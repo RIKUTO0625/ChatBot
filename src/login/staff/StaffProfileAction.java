@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Staff;
-import dao.StaffDao;
 import tool.Action;
 
 public class StaffProfileAction extends Action {
@@ -17,7 +16,6 @@ public class StaffProfileAction extends Action {
     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
         // セッションからログイン中のスタッフ情報を取得
         HttpSession session = req.getSession(); // セッション取得
-        StaffDao sDao = new StaffDao(); // スタッフDaoを初期化
         Map<String, String> errors = new HashMap<>(); // エラーメッセージ
 
         // セッションから"staff"という名前でStaffオブジェクトを取得
