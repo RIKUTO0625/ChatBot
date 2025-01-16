@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>通知用メールアドレス設定</title>
+<link href="../../common/css/login.css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,9 +21,13 @@
 				maxlength="30" value="${mail_id}" required />
 			<div>${errors.get(mail_id)}</div>
 		</div>
-			<div class="button">
+			<div class="button56">
+			<div class="button_1">
 				<a href="ViewSendMail.action">戻る</a>
+				</div>
+				<div class="button_2">
 				<input type="submit" value="新規登録">
+				</div>
 			</div>
 		</form>
 	</div>

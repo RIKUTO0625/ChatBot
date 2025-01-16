@@ -27,7 +27,7 @@
 	display       : inline-block;
 	text-decoration: none;
 	border-radius : 10%;          /* 角丸       */
-	font-size     : 12pt;        /* 文字サイズ */
+	font-size     : 12px;        /* 文字サイズ */
 	text-align    : center;      /* 文字位置   */
 	cursor        : pointer;     /* カーソル   */
 	padding       : 7px 34px;   /* 余白       */
@@ -171,4 +171,59 @@ haibutton{
     margin-top: 150px;
 }
 
+.button56{
+	display: flex;
+	justify-content: center; /* 水平方向の中央揃え */
+	align-items: center;   /* 垂直方向の中央揃え */
+	margin-top: 20px;
+}
 
+.button56 input{
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12px;        /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
+}
+
+.button56 a{
+
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12pt;        /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
+}
+
+.button_2{
+	margin-left: 50px;
+}
+
+.button_1{
+  display: inline-block;     /* インラインブロック要素に設定 */
+  text-decoration: none;     /* 下線を削除 */
+  width: 120px;              /* 幅を固定 */
+  height: 30px;              /* 高さを固定 */
+  line-height: 30px;         /* ボタン内テキストを縦方向中央に配置 */
+  text-align: center;        /* テキストを水平方向に中央揃え */
+  border-radius: 5px;        /* 角丸設定 */
+  background-color: #000000; /* 背景色を黒に設定 */
+  color: #ffffff;            /* テキストの色を白に設定 */
+  font-size: 14px;           /* フォントサイズ */
+  cursor: pointer;           /* ホバー時のポインター */
+  transition: 0.3s;          /* なめらかな変化 */
+}
