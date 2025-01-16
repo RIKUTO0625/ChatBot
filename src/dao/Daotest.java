@@ -8,12 +8,9 @@ import java.sql.ResultSet;
 public class Daotest {
 
     public static void main(String[] args) {
-//        String jdbcUrl = "jdbc:mysql://mysql-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:3306/test";
-//        String username = "admin";
-//        String password = "test-password";
-
-
-
+        String jdbcUrl = "jdbc:mysql://mysql-database.cvk6s8aywusg.ap-northeast-1.rds.amazonaws.com:3306/test";
+        String username = "admin";
+        String password = "test-password";
 
         try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password)) {
             System.out.println("データベース接続成功!");

@@ -42,6 +42,24 @@
     </dependency>
 
     <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.1.0</version> <!-- 最新バージョンを確認して適宜変更 -->
+    </dependency>
+
+    <dependency>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>dynamodb</artifactId>
+        <version>2.20.98</version> <!-- 最新バージョンを使用 -->
+    </dependency>
+
+    <dependency>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>s3</artifactId>
+        <version>2.20.0</version> <!-- 最新版を確認して適宜変更 -->
+    </dependency>
+
+    <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-lambda</artifactId>
         <version>1.12.590</version>
