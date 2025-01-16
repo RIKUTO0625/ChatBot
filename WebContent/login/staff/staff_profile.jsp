@@ -122,7 +122,7 @@
 							<p style="color: #ccc;">「備考」を入力してください</p> <!-- 色変更 -->
 						</c:when>
 						<c:otherwise>
-							<p>${detail}</p>
+							<p style="color: black;">${detail}</p>
 						</c:otherwise>
 					</c:choose>
 				</div>

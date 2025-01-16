@@ -200,10 +200,6 @@
   /* 上下に0.5em、左右には自動で余白を設定し、左右中央寄せ */
   margin: 0.5em auto;
 }
-.pf-bikou p{
-	color:#ccc;
-}
-
 
 .up_bikou{
 	height: 70px;
