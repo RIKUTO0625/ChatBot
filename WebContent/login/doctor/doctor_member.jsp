@@ -8,30 +8,55 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>医者アカウント管理</title>
+<link href="../../common/css/login.css" rel="stylesheet">
 
 </head>
 <body>
+	<div class="midasi">
 	<h2>医者アカウント管理</h2>
-
+	</div>
 	<form action="CreateDoctor.action" method="post">
+	<div class="button">
 		<input type="submit" value="新規作成">
+		</div>
 	</form>
 
 	<c:choose>
 		<%-- 誰も登録していない(0人) --%>
+
 		<c:when test="${empty doctorList}">
+		<div class="midasi">
 			<p>誰も登録されていません！</p>
+			</div>
 		</c:when>
 
 		<%-- 1人以上登録されている --%>
+
 		<c:when test="${not empty doctorList}">
 			<form action="DeleteDoctor.action" method="post">
-				<c:forEach var="doctor" items="${doctorList}">
-					<p>${doctor.dc_belong}病院：${doctor.dc_dept}科：${doctor.dc_name}</p>
+			<div class="admen3">
 
+				<c:forEach var="doctor" items="${doctorList}">
+				<div class="inline-block2">
+					<p>${doctor.dc_belong}病院：</p>
+					</div>
+					<div class="inline-block2">
+					<p>
+					${doctor.dc_dept}
+					</p>
+					</div>
+					<div class="inline-block2">
+					<p>${doctor.dc_name}</p>
+					</div>
 					<input type="hidden" name="password" value="${doctor.dc_pw}">
+					<div class="inline-block2">
+					<div class="button">
 					<input type="submit" value="削除">
+					</div>
+					</div>
+
 				</c:forEach>
+				</div>
 			</form>
 		</c:when>
 
