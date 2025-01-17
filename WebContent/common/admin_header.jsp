@@ -5,13 +5,15 @@
     <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotheader.png?raw=true"
     alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
-        <h2><span>user:${admin_name}</span></h2>
-        <a href="../admin/Member.action" class=image><img class=image
-        src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
-        alt="HOME" width=150 height=30></a>
-        <a href="../admin/AdminLogout.action"><img class=image
-        src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
-        alt="ログアウト" width=150 height=30></a>
+        <h2><span>user:${ad_name}</span></h2>
+        <div class=images>
+	        <a href="../admin/Member.action">
+	        <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
+	        alt="HOME" width=150 height=30></a>
+	        <a href="../admin/AdminLogout.action">
+	        <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
+	        alt="ログアウト" width=150 height=30></a>
+	    </div>
 		<header>
 		  <nav class="nav">
 		    <ul>

@@ -167,11 +167,23 @@
 }
 
 
+/* 画像のCSS */
 
-
-.image {
-	margin-left: 100%;
+.images {
+  display: flex; /* フレックスボックスを有効化 */
+  justify-content: flex-end; /* 子要素を右端に配置 */
+  align-items: center; /* 子要素を縦方向に中央揃え */
+  width: 100%; /* 親要素を画面幅いっぱいにする */
+  padding: 0 20px; /* 右端の余白調整 */
+  box-sizing: border-box; /* パディングを含む幅計算 */
 }
+
+.images a img {
+  max-width: 100px; /* 画像の最大幅を制限（必要なら調整） */
+  height: auto; /* 画像の高さを自動調整 */
+}
+
+/* --- --- */
 
 .footer {
 	width:100%;

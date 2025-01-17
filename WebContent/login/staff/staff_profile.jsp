@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>プロフィール</title>
-<link href="../../common/css/profile.css" rel="stylesheet">
-</head>
-<body>
+<c:import url="../../common/staff_base.jsp">
+<c:param name="title">
+プロフィール
+</c:param>
+<c:param name="scripts"><link href="../../common/css/profile.css" rel="stylesheet"></c:param>
+<c:param name="content">
 	<form action="staff_profile_update.jsp" method="post">
 		<div class="profile">
 			<div class="pf-table">
@@ -134,5 +133,6 @@
 			</div>
 		</div>
 	</form>
-</body>
-</html>
+</c:param>
+</c:import>
+

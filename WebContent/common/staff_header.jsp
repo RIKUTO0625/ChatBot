@@ -8,14 +8,15 @@
 
     <div style="display: flex; align-items: center;">
         <!-- ユーザー情報とリンク -->
-        <h2><span>user: ${staff_name}</span></h2>
-        <a href="StaffProfile.action" class="image"><img class="image"
-           src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
-           alt="HOME" width="150" height="30"></a>
-        <a href="StaffLogout.action"><img class="image"
-           src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
-           alt="ログアウト" width="150" height="30"></a>
-
+        <h2><span>user:${staff_name}</span></h2>
+        <div class="images">
+	        <a href="StaffProfile.action">
+	        <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
+	           alt="HOME" width="150" height="30"></a>
+	        <a href="StaffLogout.action">
+	        <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
+	           alt="ログアウト" width="150" height="30"></a>
+		</div>
 		<header>
 		  <nav class="nav">
 		    <ul>
