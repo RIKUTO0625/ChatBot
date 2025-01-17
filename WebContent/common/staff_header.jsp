@@ -20,7 +20,7 @@
 		<header>
 		  <nav class="nav">
 		    <ul>
-		      <li><a href="staff/StaffProfile.action">マイページ</a></li>
+		      <li><a href="StaffProfile.action">マイページ</a></li>
 		      <li><a href="#">チャットボット</a></li>
 		      <li><a href="#">履歴</a></li>
 
