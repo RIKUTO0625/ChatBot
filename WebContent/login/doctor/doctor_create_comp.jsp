@@ -10,12 +10,8 @@
 </div>
 
 <div class="button">
-<div class="haibutton">
-
-<a class="logout" href="../Home.action">HOME</a>
-</div>
-<a class="logout" href="DoctorLogin.action">ログイン</a>
-</div>
+    <a href="ViewDoctor.action">戻る</a>
+	</div>
 
 </c:param>
 

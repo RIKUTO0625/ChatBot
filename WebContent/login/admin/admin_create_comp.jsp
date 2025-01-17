@@ -13,13 +13,7 @@
 </div>
 
 <div class="button">
-<div class="haibutton">
-<a class="logout" href="../Home.action">HOME</a>
-
-	</div>
-<div class="iiebutton">
-<a class="logout" href="AdminLogin.action">ログイン</a>
-	</div>
+    <a href="Member.action">戻る</a>
 	</div>
 </body>
 </html>

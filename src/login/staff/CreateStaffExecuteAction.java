@@ -46,16 +46,16 @@ public class CreateStaffExecuteAction extends Action {
 	        if (success) {
 	            res.sendRedirect("staff_create_comp.jsp");
 	        } else {
-	            errors.put("database", "データベースエラーが発生しました。");
-	            session.setAttribute("errors", errors);
-	            res.sendRedirect("staff_create.jsp");
+	            // 作成に失敗した場合の処理
+	            session.setAttribute("errorMessage", "作成に失敗しました。組織コードまたは職員IDが違います。");
+	            res.sendRedirect("staff_create.jsp"); // エラーメッセージを持ったまま戻る
 	        }
 	    } catch (Exception e) {
 	        // 例外発生時の処理
-	        errors.put("system", "システムエラーが発生しました。");
-	        session.setAttribute("errors", errors);
 	        e.printStackTrace(); // ログに詳細を出力（本番環境では適切なログ出力を行う）
-	        res.sendRedirect("staff_create.jsp");
+	        session.setAttribute("errorMessage", "作成に失敗しました。組織コードまたは職員IDが違います。");
+	        res.sendRedirect("staff_create.jsp"); // エラーメッセージを持ったまま戻る
 	    }
 	}
+
 }

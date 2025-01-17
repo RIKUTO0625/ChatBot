@@ -14,10 +14,7 @@
 </div>
 
 <div class="button">
-<div class="haibutton">
- <a class="logout" href="../Home.action">HOME</a>
-</div>
-<a class="logout" href="StaffLogin.action">ログイン</a>
-</div>
+    <a href="StaffProfile.action">戻る</a>
+	</div>
 </body>
 </html>
