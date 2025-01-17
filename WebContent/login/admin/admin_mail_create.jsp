@@ -1,15 +1,13 @@
 <%-- 通知用メールアドレス設定画面 jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>通知用メールアドレス設定</title>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:import url="/common/admin_base.jsp">
+<c:param name="title">通知用メールアドレス設定</c:param>
+<c:param name="scripts">
 <link href="../../common/css/login.css" rel="stylesheet">
-</head>
-
-<body>
+</c:param>
+<c:param name="content">
 	<div class="midasi"> <!-- 見出し -->
 		<h2>通知用メールアドレス設定</h2>
 	</div>
@@ -31,6 +29,5 @@
 			</div>
 		</form>
 	</div>
-</body>
-
-</html>
+</c:param>
+</c:import>
