@@ -29,6 +29,7 @@
 		      <a href="StaffLogout.action">Logout</a>
 		      </li>
 		    </ul>
+
 		  </nav>
 		  <button type="button" id="navbtn"></button>
 		</header>
