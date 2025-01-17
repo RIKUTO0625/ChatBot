@@ -243,3 +243,9 @@ haibutton{
   cursor: pointer;           /* ホバー時のポインター */
   transition: 0.3s;          /* なめらかな変化 */
 }
+
+.right{
+	margin-left: 600px;
+	display: flex;
+
+}

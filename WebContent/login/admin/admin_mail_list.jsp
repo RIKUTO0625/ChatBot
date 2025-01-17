@@ -20,7 +20,9 @@
 
 		<form action="AddSendMail.action" method="post">
 			<div class="button">
+			<div class="right">
 			<input type="submit" value="新規作成">
+			</div>
 			</div>
 		</form>
 
