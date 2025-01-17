@@ -125,7 +125,7 @@ haibutton{
 		border-radius: 10px; /*丸角*/
 		border:solid 2px #000000;
 		margin-bottom: 5px;
-		width: 40%;
+		width: 50%;
   		justify-content: center; /* 水平方向の中央揃え */
   		align-items: center;   /* 垂直方向の中央揃え */
   		margin: 0.5em auto;
@@ -140,10 +140,18 @@ haibutton{
 
 .inline-block{
 	width: 300px;
+	white-space: nowrap; /* テキストの折り返しを防止 */
+    overflow: hidden; /* 内容がはみ出す場合に隠す */
+    text-overflow: ellipsis; /* 内容がはみ出す場合、末尾に「...」を表示 */
 }
 
 .inline-block2{
-	width: 150px;
+	width: 23%;
+	white-space: nowrap; /* テキストの折り返しを防止 */
+    overflow: hidden; /* 内容がはみ出す場合に隠す */
+    text-overflow: ellipsis;  /*内容がはみ出す場合、末尾に「...」を表示 */
+    margin-right:3px;
+
 }
 
 .sosikimei{
