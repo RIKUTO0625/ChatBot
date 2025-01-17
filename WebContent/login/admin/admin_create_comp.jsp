@@ -11,7 +11,6 @@
 <div class="midasi">
 <h2>登録完了</h2>
 </div>
-
 <div class="button">
     <a href="Member.action">戻る</a>
 	</div>
