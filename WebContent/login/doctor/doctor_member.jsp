@@ -2,16 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>医者アカウント管理</title>
+<c:import url="/common/admin_base.jsp">
+<c:param name="title">医者アカウント管理</c:param>
+<c:param name="scripts">
 <link href="../../common/css/login.css" rel="stylesheet">
-
-</head>
-<body>
+</c:param>
+<c:param name="content">
 	<div class="midasi">
 	<h2>医者アカウント管理</h2>
 	</div>
@@ -64,5 +60,5 @@
 
 	</c:choose>
 
-</body>
-</html>
+</c:param>
+</c:import>

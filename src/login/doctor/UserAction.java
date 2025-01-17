@@ -25,10 +25,13 @@ public class UserAction extends Action{
 		//リクエストパラメータ―の取得 2
 		String name = req.getParameter("name");
 
+
+
 		//DBからデータ取得 3
 
         if (name != null && !name.isEmpty()) {
             // 名前で検索
+    		name = "%" + name + "%";
             staffs = sDao.searchStaff(doctor.getAdmin().getAd_cd(), name);
         } else {
             // 全リスト表示
@@ -40,6 +43,7 @@ public class UserAction extends Action{
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6
+        req.setAttribute("dc_name", doctor.getDc_name());
         req.setAttribute("staffs", staffs);
 		//JSPへフォワード 7
 		req.getRequestDispatcher("user_list.jsp").forward(req, res);

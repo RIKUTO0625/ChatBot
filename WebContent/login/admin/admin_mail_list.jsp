@@ -2,16 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="ja">
+<c:import url="/common/admin_base.jsp">
+<c:param name="title">通知用メールアドレス一覧</c:param>
+<c:param name="scripts">
 <link href="../../common/css/login.css" rel="stylesheet">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>通知用メールアドレス一覧</title>
-
-</head>
-
-<body>
+</c:param>
+<c:param name="content">
 	<div>
 		<div>${ad_name}</div>
 		<div class="midasi">
@@ -52,6 +48,5 @@
 
 
 	</div>
-</body>
-
-</html>
+</c:param>
+</c:import>

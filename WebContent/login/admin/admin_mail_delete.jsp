@@ -15,7 +15,7 @@
 		<h2>通知用メールアドレス削除</h2>
 	</div>
 	<div>
-			<p>${param.mail_id}を削除しますか？</p>
+			<p>${param.mail_address}を削除しますか？</p>
 		<div>
 			<!-- 通知用メールアドレス削除完了画面へ -->
 			<form action="DeleteSendMailExecute.action" method="post">

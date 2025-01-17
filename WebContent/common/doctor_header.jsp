@@ -5,18 +5,21 @@
     <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotheader.png?raw=true"
     alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
-        <h2><span>user:${doctor_name}</span></h2>
-        <a href="doctor/.action" class=image><img class=image src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true" alt="HOME" width=150 height=30></a>
-        <a href="DoctorLogout.action"><img class=image
-        src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
-        alt="ログアウト" width=150 height=30></a>
+    	<h2><span>user:${dc_name}</span></h2>
+    	<div class="images">
+
+	        <a href="User.action"><img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
+	         alt="HOME" width=150 height=30></a>
+	        <a href="DoctorLogout.action"><img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
+	        alt="ログアウト" width=150 height=30></a>
+        </div>
 		<header>
 		  <nav class="nav">
 		    <ul>
-		      <li><a href="doctor/User.action">職員検索</a></li>
+		      <li><a href="User.action">職員検索</a></li>
 
 		      <li class=footer-menu>
-		      <a href="doctor/.action">HOME</a>
+		      <a href="User.action">HOME</a>
 		      <a href="DoctorLogout.action">Logout</a>
 		      </li>
 		    </ul>
@@ -28,14 +31,6 @@
 
 <!-- Separator -->
 <hr color="black">
-
-<!-- JavaScript -->
-<script>
-document.getElementById("navbtn").onclick = function(){
-	  document.querySelector('html').classList.toggle('open');
-	}
-</script>
-
 
 <!-- JavaScript -->
 <script>
