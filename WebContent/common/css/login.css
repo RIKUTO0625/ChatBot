@@ -36,6 +36,22 @@
 	transition    : .3s;         /* なめらか変化 */
 }
 
+.button button{
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12px;        /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
+}
+
+
 .kotira{
   text-align : center;
   justify-content: center; /* 水平方向の中央揃え */
@@ -257,3 +273,21 @@ haibutton{
 	display: flex;
 
 }
+
+.content {
+    padding-bottom: 90px; /* フッターの高さ分の余白を確保 */
+}
+
+.pagenation li {
+	display: inline-block;
+	height:40px;line-height:40px;
+	width:40px;text-align:center;
+	border:1px #ccc solid;color:#000053;
+	border-radius: 5px / 5px;}
+	.example3 .pre {background-color:#ccc;color:#333;}
+	.example3 .this {background-color:#777;color:#fff;}
+	.example3 li a{display:block;text-decoration: none;}
+	.example3 li a:hover {color: #fff;text-decoration: none;
+	background-color: #003396;}
+	margin-bottom: 45px;
+	}

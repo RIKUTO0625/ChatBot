@@ -8,6 +8,7 @@
 </c:param>
 <c:param name="scripts"><link href="../../common/css/login.css" rel="stylesheet"></c:param>
 <c:param name="content">
+<div class=content>
 	<div class="sosikimei">
 	<div>${ad_name}</div>
 	</div>
@@ -39,11 +40,17 @@
 						<div class="ookisahaibutton">
 
 							<input type="submit" value="削除">
+
+
 						</div>
 					</div>
 				</div>
 			</form>
+
 		</c:forEach>
 	</c:if>
+
+
+</div>
 </c:param>
 </c:import>
