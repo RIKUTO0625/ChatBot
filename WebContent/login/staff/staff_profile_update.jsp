@@ -6,6 +6,7 @@
 </c:param>
 <c:param name="scripts"><link href="../../common/css/profile.css" rel="stylesheet"></c:param>
 <c:param name="content">
+<div class="content2">
 <h1 class="midashi">プロフィール編集</h1>
 <form action="StaffProfileExecute.action" method="post">
     <div class="input_box">
@@ -56,5 +57,6 @@
         </div>
     </div>
 </form>
+</div>
 </c:param>
 </c:import>

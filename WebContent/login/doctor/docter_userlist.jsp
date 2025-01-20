@@ -5,8 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>利用者一覧</title>
+<link href="../../common/css/login.css" rel="stylesheet">
+
+<div class="midasi">
 <h1>利用者一覧</h1>
-   <h2>User：${search_conditions}<h2>
+   <h2>User：${search_conditions}</h2>
+</div>
+
 </head>
 <body>
 

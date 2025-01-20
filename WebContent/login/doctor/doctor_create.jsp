@@ -24,6 +24,7 @@
 
 <form action="CreateDoctorExecute.action" method="post">
 
+<div class="content"><%--フッターの上に強制的に空白を作る--%>
 	 <div class="input_box">
         <label>組織コード</label>
         <input type="text" name="admin"
@@ -63,6 +64,7 @@
         <a href="#" onclick="history.back(); return false;">戻る</a>
         <input type="submit" value="登録">
     </div>
+</div>
 </form>
 </c:param>
 </c:import>

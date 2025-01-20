@@ -71,3 +71,8 @@
 .error_message{
 	text-align: center;
 }
+
+
+.content {
+    padding-bottom: 120px; /* フッターの高さ分の余白を確保 */
+}
