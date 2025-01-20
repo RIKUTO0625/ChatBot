@@ -6,6 +6,7 @@
 </c:param>
 <c:param name="scripts"><link href="../../common/css/sendmail.css" rel="stylesheet"></c:param>
 <c:param name="content">
+<div class="content2">
     <div class="staff_list">
     <div class="midasi">
         <h2>利用者一覧</h2>
@@ -40,9 +41,10 @@
 		<div class="midasi">
 			<div>該当者なし</div>
 		</div>
+		<
 		</c:otherwise>
 	</c:choose>
 	</div>
-
+</div>
 </c:param>
 </c:import>

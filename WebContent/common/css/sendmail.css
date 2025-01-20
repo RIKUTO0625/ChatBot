@@ -9,6 +9,10 @@
 
 }
 
+.content2 {
+    padding-bottom:200px; /* フッターの高さ分の余白を確保 */
+}
+
 .button a{
 	display: flex;
 	display       : inline-block;

@@ -265,6 +265,10 @@ haibutton{
     padding-bottom: 90px; /* フッターの高さ分の余白を確保 */
 }
 
+.content2 {
+    padding-bottom:600px; /* フッターの高さ分の余白を確保 */
+}
+
 .pagenation li {
 	display: inline-block;
 	height:40px;line-height:40px;
