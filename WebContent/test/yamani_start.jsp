@@ -11,7 +11,7 @@
 
 
 <script>
-location.href="/chatbot/test/Yamani.action";
+location.href="/chatbot/test/Yamani2.action";
 </script>
 </body>
 </html>
