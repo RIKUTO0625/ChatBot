@@ -32,11 +32,13 @@ public class Yamani2Action extends Action{
 	    staff.setStaff_id("staff001");
 	    staff.setAd_cd(admin.getAd_cd());
 
-	    boolean bool = chatDao.setChat(staff, 1, 1);
+//	    boolean bool = chatDao.setChat(staff, 1, 1);
+	    String ans_text = chatDao.getAnsText(1);
 
-	    System.out.println(bool);
+//	    System.out.println(bool);
+	    System.out.println(ans_text);
 
-	    req.setAttribute("bool", bool);
+//	    req.setAttribute("bool", bool);
 
 	    res.sendRedirect("yamani.jsp");
 	}

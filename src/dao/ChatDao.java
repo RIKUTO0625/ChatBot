@@ -110,4 +110,48 @@ public class ChatDao extends Dao {
 
     }
 
+    public String getAnsText(int answer_no) throws Exception{
+
+    	String text = "";
+
+        String sql = "SELECT ans_text FROM answer where ans_no = ? ";
+
+        Connection conn = getConnection();
+	    PreparedStatement stmt = conn.prepareStatement(sql);
+	    stmt.setInt(1, answer_no);
+
+	    ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+
+    	    text = rs.getString("ans_text");
+
+        }
+
+
+        return text;
+    }
+
+    public String getQueText(int question_no) throws Exception{
+
+    	String text = "";
+
+        String sql = "SELECT que_text FROM answer where que_no = ? ";
+
+        Connection conn = getConnection();
+	    PreparedStatement stmt = conn.prepareStatement(sql);
+	    stmt.setInt(1, question_no);
+
+	    ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+
+    	    text = rs.getString("que_text");
+
+        }
+
+
+        return text;
+    }
+
 }
