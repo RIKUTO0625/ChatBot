@@ -73,7 +73,6 @@
     </div>
 
 </div>
-
     <div class="chat-input-area">
         <input type="text" class="chat-input" placeholder="メッセージを入力">
            <button class="send-button">
