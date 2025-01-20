@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dynamodb-2.29.50.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/modules.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstests.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

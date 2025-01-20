@@ -136,7 +136,7 @@ public class ChatDao extends Dao {
 
     	String text = "";
 
-        String sql = "SELECT que_text FROM answer where que_no = ? ";
+        String sql = "SELECT que_text FROM question where que_no = ? ";
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
