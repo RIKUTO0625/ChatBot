@@ -11,8 +11,8 @@
 
 	<c:param name="content">
 
-
-
+	<p>チャット</p>
+			<p>${bool}</p>
 	</c:param>
 
 

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import bean.Admin;
 import bean.Staff;
 import dao.ChatDao;
-import dao.StaffDao;
 import tool.Action;
 
 public class Yamani2Action extends Action{
@@ -20,23 +19,25 @@ public class Yamani2Action extends Action{
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
 	    HttpSession session = req.getSession();
-	    StaffDao sDao = new ChatDao();
+	    ChatDao chatDao = new ChatDao();
 	    Map<String, String> errors = new HashMap<>();
 
 	    // Adminオブジェクトを作成
 	    Admin admin = new Admin();
-	    admin.setAd_cd(admin_str);
+	    admin.setAd_cd("000000");
 
 	    // スタッフオブジェクトを作成
 	    Staff staff = new Staff();
 	    staff.setAdmin(admin);
-	    staff.setStaff_name(staff_name);
-	    staff.setStaff_mail(staff_mail);
-	    staff.setStaff_pw(staff_pw);
-	    staff.setStaff_belong(staff_belong);
-	    staff.setStaff_id(staff_id);
+	    staff.setStaff_id("staff001");
+	    staff.setAd_cd(admin.getAd_cd());
 
-	    // データベース処理
-	    boolean success = sDao.createStaff(staff);
+	    boolean bool = chatDao.setChat(staff, 1, 1);
+
+	    System.out.println(bool);
+
+	    req.setAttribute("bool", bool);
+
+	    res.sendRedirect("yamani.jsp");
 	}
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,60 @@ public class ChatDao extends Dao {
         }
 
         return list;
+    }
+
+	// 質問別、履歴取得
+    public boolean setChat(Staff staff, int answer_no , int question_no) throws Exception{
+
+    	String sql = "INSERT INTO chat (que_no, ans_no, date, ad_cd, staff_id)VALUES (?, ?, now()::date, ?, ?);";
+
+
+        Connection conn = getConnection();
+	    PreparedStatement stmt = conn.prepareStatement(sql);
+
+		// 実行件数
+		int count = 0;
+
+		try {
+
+		    stmt.setInt(1, question_no);
+		    stmt.setInt(2, answer_no);
+		    stmt.setString(3, staff.getAd_cd());
+		    stmt.setString(4, staff.getStaff_id());
+
+			//プリペアードステートメントを実行
+			count = stmt.executeUpdate ();
+
+		}catch(Exception e) {
+				throw e;
+		}finally {
+			// プリペアードステートメントを閉じる
+			if (stmt != null) {
+				try {
+					stmt. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (conn != null) {
+				try {
+					conn.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
+
+		if (count > 0) {
+			//実行件数が1件以上ある場合
+			return true;
+		}else{
+		    //実行件数が0件の場合
+		    return false;
+		}
+
+
     }
 
 }
