@@ -33,11 +33,32 @@
   width: 50%;
 }
 
+.button-container{
+	display: flex;
+	justify-content: center; /* 水平方向の中央揃え */
+	align-items: center;   /* 垂直方向の中央揃え */
+}
+
 .button{
 	display: flex;
 	/*justify-content: space-between;  フレックス内のコンテンツを左右に配置*/
 	justify-content: center; /*中央に配置*/
 	margin-top: 20px;
+}
+
+.button-container a{
+	display: flex;
+	display       : inline-block;
+	text-decoration: none;
+	border-radius : 10%;          /* 角丸       */
+	font-size     : 12pt;        /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 7px 34px;   /* 余白       */
+	background    : #000000;     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	transition    : .3s;         /* なめらか変化 */
 }
 
 .left-button{

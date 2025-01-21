@@ -51,9 +51,7 @@
         <!-- 更新ボタン -->
         <div class="button-container">
             <button type="submit" class="left-button">更新</button>
-            <form action="StaffProfileDelete.action" method="post">
-                <button type="submit" class="right-button">削除</button>
-            </form>
+                <a href="#" onclick="history.back(); return false;">戻る</a>
         </div>
     </div>
 </form>
