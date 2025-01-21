@@ -21,6 +21,17 @@ public class Chat implements Serializable{
 	 */
 	private Integer ans_no;
 
+
+	/**
+	 * 質問文:String
+	 */
+	private String que_text;
+
+	/**
+	 * 返答文:String
+	 */
+	private String ans_text;
+
 	/**
 	 * 組織コード:String
 	 */
@@ -62,6 +73,22 @@ public class Chat implements Serializable{
 
 	public void setAns_no(Integer ans_no) {
 		this.ans_no = ans_no;
+	}
+
+	public String getQue_text() {
+		return que_text;
+	}
+
+	public void setQue_text(String que_text) {
+		this.que_text = que_text;
+	}
+
+	public String getAns_text() {
+		return ans_text;
+	}
+
+	public void setAns_text(String ans_text) {
+		this.ans_text = ans_text;
 	}
 
 	public String getAd_cd() {

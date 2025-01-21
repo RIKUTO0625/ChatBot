@@ -21,7 +21,25 @@ public class ChatDao extends Dao {
 
     	Chat chat = null;
 
-        String sql = "SELECT * FROM chat where staff_id = ? and date = ?";
+        String sql = "SELECT "+
+		    "c.chat_no,"+
+		    "c.date,"+
+		    "c.que_no,"+
+		    "c.ans_no,"+
+		    "q.que_text AS question,"+
+		    "a.ans_text AS answer,"+
+		    "c.staff_id,"+
+		    "c.ad_cd"+
+		"FROM"+
+		    "chat c"+
+		    "INNER JOIN question q ON c.que_no = q.que_no"+
+		    "INNER JOIN answer a ON c.ans_no = a.ans_no"+
+		    "INNER JOIN admin ad ON c.ad_cd = ad.ad_cd"+
+		    "INNER JOIN staff s ON c.staff_id = s.staff_id"+
+		"WHERE "+
+		    "c.staff_id = '?' "+
+		    "AND a.ans_no = ?"+
+		    "AND q.que_no = ?";
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
@@ -34,6 +52,8 @@ public class ChatDao extends Dao {
 	        int chat_no = rs.getInt("chat_no");
 	        int ans_no = rs.getInt("ans_no");
 	        int que_no = rs.getInt("que_no");
+        	String question = rs.getString("question");
+        	String answer = rs.getString("answer");
 	        String staff_id = rs.getString("staff_id");
 	        String ad_cd = rs.getString("ad_cd");
 	        Date date = rs.getDate("date");
@@ -43,6 +63,8 @@ public class ChatDao extends Dao {
 	        chat.setChat_no(chat_no);
 	        chat.setAns_no(ans_no);
 	        chat.setQue_no(que_no);
+	        chat.setAns_text(answer);
+	        chat.setQue_text(question);
 	        chat.setStaff_id(staff_id);
 	        chat.setAd_cd(ad_cd);
 	        chat.setDate(date);
