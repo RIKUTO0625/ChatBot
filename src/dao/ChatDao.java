@@ -72,7 +72,7 @@ public class ChatDao extends Dao {
 
 		    stmt.setInt(1, question_no);
 		    stmt.setInt(2, answer_no);
-		    stmt.setString(3, staff.getAd_cd());
+		    stmt.setString(3, staff.getAdmin().getAd_cd());
 		    stmt.setString(4, staff.getStaff_id());
 
 			//プリペアードステートメントを実行
