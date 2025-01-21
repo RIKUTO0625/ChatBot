@@ -42,6 +42,8 @@ public class UserChatBotAction extends Action{
 		//DBからデータ取得 3
 
 		//ビジネスロジック 4
+        System.out.println(answer_st);
+        System.out.println(question_st);
 
         //質問と回答内容の記録
         if (answer_st != null && question_st != null){
