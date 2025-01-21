@@ -150,8 +150,8 @@ public class ChatDao extends Dao {
 
         }
 
-
         return text;
+
     }
 
 }
