@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="midasi">
-		<p>${dc_name}を削除しますか？</p>
+		<p>本当に削除しますか？</p>
 		</div>
 
 		<div class="button">
