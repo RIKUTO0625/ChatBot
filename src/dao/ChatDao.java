@@ -14,31 +14,29 @@ import bean.Staff;
 public class ChatDao extends Dao {
 
 	// 質問別、履歴取得
-    public List<Chat> getChat(Staff staff, int answer_no , int question_no) throws Exception{
+    public List<Chat> getChat(Staff staff, String day) throws Exception{
 
 		// リストを初期化
 	    List<Chat> list = new ArrayList<>();
 
     	Chat chat = null;
 
-        String sql = "SELECT * FROM chat where staff_id = ? and ans_no = ? and que_no = ?";
+        String sql = "SELECT * FROM chat where staff_id = ? and date = ?";
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
 	    stmt.setString(1, staff.getStaff_id());
-	    stmt.setInt(2, answer_no);
-	    stmt.setInt(3, question_no);
+	    stmt.setString(2, day);
 
 	    ResultSet rs = stmt.executeQuery();
 
-        if (rs.next()) {
-
-        	int chat_no  = rs.getInt("chat_no");
-        	int ans_no  = rs.getInt("ans_no");
-        	int que_no  = rs.getInt("que_no");
-            String staff_id = rs.getString("staff_id");
-            String ad_cd = rs.getString("ad_cd");
-            Date date = rs.getDate("date");
+	    while (rs.next()) { // if -> while に修正
+	        int chat_no = rs.getInt("chat_no");
+	        int ans_no = rs.getInt("ans_no");
+	        int que_no = rs.getInt("que_no");
+	        String staff_id = rs.getString("staff_id");
+	        String ad_cd = rs.getString("ad_cd");
+	        Date date = rs.getDate("date");
 
 	        chat = new Chat();
 
@@ -49,9 +47,8 @@ public class ChatDao extends Dao {
 	        chat.setAd_cd(ad_cd);
 	        chat.setDate(date);
 
-	        list.add(chat);
-
-        }
+	        list.add(chat); // 複数件のデータを追加
+	    }
 
         return list;
     }

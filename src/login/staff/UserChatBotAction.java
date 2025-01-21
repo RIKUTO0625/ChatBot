@@ -1,5 +1,7 @@
 package login.staff;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,9 +54,17 @@ public class UserChatBotAction extends Action{
         	cDao.setChat(staff, answer, question);
         }
 
+        // 今日の日付を取得
+        LocalDate today = LocalDate.now();
+
+        // 日付フォーマットの定義 (例: yyyy-MM-dd)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // 今日の日付を文字列に変換
+        String formattedDate = today.format(formatter);
 
         //チャット履歴の取得
-        list = cDao.getChat(staff, 1, 1);
+        list = cDao.getChat(staff, formattedDate);
         System.out.println(list);
 
 
