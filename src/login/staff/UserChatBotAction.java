@@ -29,13 +29,14 @@ public class UserChatBotAction extends Action{
         List<String>question_list = new ArrayList<>();	//質問の履歴リスト
         List<String>answer_list = new ArrayList<>();	//回答の履歴リスト
         String question_new;	//次の質問
+        Integer qu_id;		//次の質問のID
 
         // セッションから"staff"という名前でStaffオブジェクトを取得
         Staff staff = (Staff) session.getAttribute("user");
 
 		//リクエストパラメータ―の取得 2
 
-        String question_st = req.getParameter("question");	//質問
+        String question_st = req.getParameter("qu_id");	//質問
         String answer_st = req.getParameter("answer");		//回答
 
 		//DBからデータ取得 3
@@ -79,11 +80,13 @@ public class UserChatBotAction extends Action{
 	        	answer_list.add(cDao.getAnsText(data));
 	        }
 
-	        question_new = cDao.getQueText(list.size()+1);
+	        qu_id = list.size()+1;
+	        question_new = cDao.getQueText(qu_id);
 
         }
         else {	//初回だった場合
-        	question_new = cDao.getQueText(1);
+        	qu_id = 1;
+        	question_new = cDao.getQueText(qu_id);
 
         }
 		//DBへデータ保存 5
@@ -93,6 +96,7 @@ public class UserChatBotAction extends Action{
         req.setAttribute("question_list", question_list);	//今までの質問
         req.setAttribute("answer_list", answer_list);		//今までの回答
         req.setAttribute("question", question_new);		//次に渡される質問
+        req.setAttribute("qu_id", qu_id);		//次に渡される質問ID
 
 		//JSPへフォワード 7
 		req.getRequestDispatcher("chatbot.jsp").forward(req, res);
