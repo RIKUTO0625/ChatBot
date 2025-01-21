@@ -91,6 +91,7 @@ public class UserChatBotAction extends Action{
 	        for (Integer data : ans_no_list){
 	        	answer_list.add(cDao.getAnsText(data));
 	        }
+	        System.out.println("通過");
 
 	        qu_id = list.size()+1;
 	        question_new = cDao.getQueText(qu_id);
@@ -105,6 +106,7 @@ public class UserChatBotAction extends Action{
 		//なし
 
 		//レスポンス値をセット 6
+        System.out.print("Actionは大丈夫");
         req.setAttribute("question_list", question_list);	//今までの質問
         req.setAttribute("answer_list", answer_list);		//今までの回答
         req.setAttribute("question", question_new);		//次に渡される質問
