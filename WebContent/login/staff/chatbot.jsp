@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<html lang="ja">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>質問画面</title>
-    <link href="../../common/css/chatbot.css" rel="stylesheet">
-</head>
-<body>
+<c:import url="../../common/staff_base.jsp">
+<c:param name="title">
+質問画面
+</c:param>
+<c:param name="scripts"><link href="../../common/css/chatbot.css" rel="stylesheet"></c:param>
+<c:param name="content">
+<div class="content2">
     <!-- ★★★選択肢付き質問★★★ -->
     <div class="contents">
         <!-- 「次の質問に答えてください」のメッセージ -->
@@ -22,7 +22,7 @@
                 <!-- item1 と item2 を同時に処理 -->
                 <c:set var="q" value="${question_list[i]}" />
                 <c:set var="a" value="${answer_list[i]}" />
-                <div class="chat-message received2">
+                <div class="chat-message received">
                 	<span class="message-text">${q}</span>
                 </div>
 
@@ -35,7 +35,7 @@
         <!-- 質問IDが9の場合の条件分岐 -->
         <c:if test="${qu_id == 9}">
             <!-- メッセージのみを表示 -->
-            <div class="chat-message received2">
+            <div class="chat-message received">
                 <span class="message-text">${question}</span>
             </div>
         </c:if>
@@ -60,6 +60,6 @@
             </form>
         </c:if>
     </div>
-
-</body>
-</html>
+</div>
+</c:param>
+</c:import>
