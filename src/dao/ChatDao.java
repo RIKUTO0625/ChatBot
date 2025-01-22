@@ -126,7 +126,7 @@ public class ChatDao extends Dao {
 	            "s.staff_id, q.que_no, a.ans_no";
 
 	    Connection conn = getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
+	    PreparedStatement stmt = conn.prepareStatement(sql);
 
 	    try {
 	        // プレースホルダーに値を設定
@@ -145,7 +145,8 @@ public class ChatDao extends Dao {
 
 	                // 回答ID（例: 5件）
 	                for (int j = 1; j <= 5; j++) {
-	                    // 結果を処理
+	                    // 結果セットから必要なデータを取得
+	                    boolean found = false; // データが見つかったかどうかのフラグ
 	                    while (rs.next()) {
 	                        int que_no = rs.getInt("que_no");
 	                        int ans_no = rs.getInt("ans_no");
@@ -154,11 +155,13 @@ public class ChatDao extends Dao {
 	                        // 質問IDと回答IDが一致する場合のみ、リストに追加
 	                        if (que_no == i && ans_no == j) {
 	                            que_list.add(total_answers); // 回答数をリストに追加
+	                            found = true; // データが見つかった
+	                            break; // データが見つかった時点でループを抜ける
 	                        }
 	                    }
 
 	                    // 結果が無ければ0を追加
-	                    if (que_list.size() < j) {
+	                    if (!found) {
 	                        que_list.add(0); // データがなければ0を追加
 	                    }
 
@@ -167,33 +170,38 @@ public class ChatDao extends Dao {
 
 	                // 質問ごとの結果をリストに追加
 	                sum_list.add(que_list);
+
+	                // リザルトセットを再度最初に戻す（必要な場合）
+	                rs.beforeFirst();
 	            }
+
 	        }
 
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        throw new Exception("Error while retrieving chat data.", e);
-	    }finally {
-			// プリペアードステートメントを閉じる
-			if (stmt != null) {
-				try {
-					stmt. close ();
-				}catch (SQLException sqle) {
-					throw sqle;
-				}
-			}
-			//コネクションを閉じる
-			if (conn != null) {
-				try {
-					conn.close ();
-				}catch (SQLException sqle) {
-					throw sqle;
-				}
-			}
-		}
+	    } finally {
+	        // プリペアードステートメントを閉じる
+	        if (stmt != null) {
+	            try {
+	                stmt.close();
+	            } catch (SQLException sqle) {
+	                throw sqle;
+	            }
+	        }
+	        // コネクションを閉じる
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException sqle) {
+	                throw sqle;
+	            }
+	        }
+	    }
 
 	    return sum_list;
 	}
+
 
 
 
