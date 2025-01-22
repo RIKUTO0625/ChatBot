@@ -38,10 +38,12 @@ public class ChatDao extends Dao {
 	        "c.staff_id = ? " +  // プレースホルダーを使用
 	        "AND c.date = ?";
 
-	    try (
-	        Connection conn = getConnection();
-	        PreparedStatement stmt = conn.prepareStatement(sql)
-	    ) {
+
+		Connection conn = getConnection();
+		PreparedStatement stmt = conn.prepareStatement(sql);
+
+
+	    try {
 	        // プレースホルダーに値を設定
 	        stmt.setString(1, staff.getStaff_id());
 	        stmt.setString(2, day);
@@ -69,7 +71,25 @@ public class ChatDao extends Dao {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        throw new Exception("Error while retrieving chat data.", e);
-	    }
+	    }finally {
+			// プリペアードステートメントを閉じる
+			if (stmt != null) {
+				try {
+					stmt. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (conn != null) {
+				try {
+					conn.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
+
 
 	    return list;
 	}
@@ -105,10 +125,10 @@ public class ChatDao extends Dao {
 	        "ORDER BY " +
 	            "s.staff_id, q.que_no, a.ans_no";
 
-	    try (
-	        Connection conn = getConnection();
-	        PreparedStatement stmt = conn.prepareStatement(sql)
-	    ) {
+	    Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+	    try {
 	        // プレースホルダーに値を設定
 	        stmt.setInt(1, year);  // 年
 	        stmt.setInt(2, year);  // 年
@@ -153,7 +173,24 @@ public class ChatDao extends Dao {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        throw new Exception("Error while retrieving chat data.", e);
-	    }
+	    }finally {
+			// プリペアードステートメントを閉じる
+			if (stmt != null) {
+				try {
+					stmt. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (conn != null) {
+				try {
+					conn.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
 
 	    return sum_list;
 	}
