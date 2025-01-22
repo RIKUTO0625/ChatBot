@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,66 +12,67 @@ import bean.Staff;
 
 public class ChatDao extends Dao {
 
-	// 質問別、履歴取得
-    public List<Chat> getChat(Staff staff, String day) throws Exception{
+	public List<Chat> getChat(Staff staff, String day) throws Exception {
 
-		// リストを初期化
+	    // リストを初期化
 	    List<Chat> list = new ArrayList<>();
+	    Chat chat = null;
 
-    	Chat chat = null;
+	    // SQLクエリ
+	    String sql = "SELECT " +
+	        "c.chat_no, " +
+	        "c.date, " +
+	        "c.que_no, " +
+	        "c.ans_no, " +
+	        "q.que_text AS question, " +
+	        "a.ans_text AS answer, " +
+	        "c.staff_id, " +
+	        "c.ad_cd " +
+	        "FROM " +
+	        "chat c " +
+	        "INNER JOIN question q ON c.que_no = q.que_no " +
+	        "INNER JOIN answer a ON c.ans_no = a.ans_no " +
+	        "INNER JOIN admin ad ON c.ad_cd = ad.ad_cd " +
+	        "INNER JOIN staff s ON c.staff_id = s.staff_id " +
+	        "WHERE " +
+	        "c.staff_id = ? " +  // プレースホルダーを使用
+	        "AND c.date = ?";
 
-        String sql = "SELECT "+
-		    "c.chat_no,"+
-		    "c.date,"+
-		    "c.que_no,"+
-		    "c.ans_no,"+
-		    "q.que_text AS question,"+
-		    "a.ans_text AS answer,"+
-		    "c.staff_id,"+
-		    "c.ad_cd "+
-		"FROM "+
-		    "chat c "+
-		    "INNER JOIN question q ON c.que_no = q.que_no "+
-		    "INNER JOIN answer a ON c.ans_no = a.ans_no "+
-		    "INNER JOIN admin ad ON c.ad_cd = ad.ad_cd "+
-		    "INNER JOIN staff s ON c.staff_id = s.staff_id "+
-		"WHERE "+
-		    "c.staff_id = '?' "+
-		    "AND c.date = '?' ";
+	    try (
+	        Connection conn = getConnection();
+	        PreparedStatement stmt = conn.prepareStatement(sql)
+	    ) {
+	        // プレースホルダーに値を設定
+	        stmt.setString(1, staff.getStaff_id());
+	        stmt.setString(2, day);
 
-        Connection conn = getConnection();
-	    PreparedStatement stmt = conn.prepareStatement(sql);
-	    stmt.setString(1, staff.getStaff_id());
-	    stmt.setString(2, day);
+	        // クエリを実行
+	        try (ResultSet rs = stmt.executeQuery()) {
+	            // 結果を処理
+	            while (rs.next()) {
+	                chat = new Chat();
 
-	    ResultSet rs = stmt.executeQuery();
+	                // 結果セットから値を取得し、Chatオブジェクトに設定
+	                chat.setChat_no(rs.getInt("chat_no"));
+	                chat.setDate(rs.getDate("date"));
+	                chat.setQue_no(rs.getInt("que_no"));
+	                chat.setAns_no(rs.getInt("ans_no"));
+	                chat.setQue_text(rs.getString("question"));
+	                chat.setAns_text(rs.getString("answer"));
+	                chat.setStaff_id(rs.getString("staff_id"));
+	                chat.setAd_cd(rs.getString("ad_cd"));
 
-	    while (rs.next()) { // if -> while に修正
-	        int chat_no = rs.getInt("chat_no");
-	        int ans_no = rs.getInt("ans_no");
-	        int que_no = rs.getInt("que_no");
-        	String question = rs.getString("question");
-        	String answer = rs.getString("answer");
-	        String staff_id = rs.getString("staff_id");
-	        String ad_cd = rs.getString("ad_cd");
-	        Date date = rs.getDate("date");
-
-	        chat = new Chat();
-
-	        chat.setChat_no(chat_no);
-	        chat.setAns_no(ans_no);
-	        chat.setQue_no(que_no);
-	        chat.setAns_text(answer);
-	        chat.setQue_text(question);
-	        chat.setStaff_id(staff_id);
-	        chat.setAd_cd(ad_cd);
-	        chat.setDate(date);
-
-	        list.add(chat); // 複数件のデータを追加
+	                // リストに追加
+	                list.add(chat);
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new Exception("Error while retrieving chat data.", e);
 	    }
 
-        return list;
-    }
+	    return list;
+	}
 
 	// 質問別、履歴取得
     public boolean setChat(Staff staff, int answer_no , int question_no) throws Exception{
