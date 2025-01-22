@@ -70,27 +70,15 @@ public class UserChatBotAction extends Action{
 
         if(list != null){	//履歴の格納
 	        // que_noだけを抽出
-	        List<Integer> que_no_list = list.stream()
-	                                   	.map(Chat::getQue_no) // getQue_noメソッドを使用して質問を取得
-	                                   	.collect(Collectors.toList()); // リストに収集
+	        question_list = list.stream()
+	                        .map(Chat::getQue_text) // getQue_noメソッドを使用して質問を取得
+	                        .collect(Collectors.toList()); // リストに収集
 
 	        // ans_noだけを抽出
-	        List<Integer> ans_no_list = list.stream()
-	                                   	.map(Chat::getAns_no) // getAns_noメソッドを使用して解答を取得
-	                                   	.collect(Collectors.toList()); // リストに収集
+	        answer_list = list.stream()
+	                      .map(Chat::getAns_text) // getAns_noメソッドを使用して解答を取得
+	                      .collect(Collectors.toList()); // リストに収集
 
-	        System.out.println(que_no_list);
-	        System.out.println(ans_no_list);
-
-	        //質問内容のリスト化
-	        for (Integer data : que_no_list){
-	        	question_list.add(cDao.getQueText(data));
-	        }
-
-	        //回答内容のリスト化
-	        for (Integer data : ans_no_list){
-	        	answer_list.add(cDao.getAnsText(data));
-	        }
 	        System.out.println("通過");
 
 	        qu_id = list.size()+1;
