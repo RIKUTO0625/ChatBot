@@ -22,31 +22,53 @@ public class DoctorDao extends Dao {
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
-	    stmt.setString(1, dc_pw);
-	    stmt.setString(2, ad_cd);
 
-	    ResultSet rs = stmt.executeQuery();
+	    try{
+		    stmt.setString(1, dc_pw);
+		    stmt.setString(2, ad_cd);
 
-        if (rs.next()) { // 認証成功の場合（該当アカウントがあった場合）
-        	String pw = rs.getString("dc_pw");
-            String name = rs.getString("dc_name");
-            String belong = rs.getString("dc_belong");
-            String cd = rs.getString("ad_cd");
-            String dept = rs.getString("dc_dept");
-            Boolean deleted = rs.getBoolean("is_deleted");
+		    ResultSet rs = stmt.executeQuery();
 
-	        doctor = new Doctor();
-	        Admin admin = new Admin();
+	        if (rs.next()) { // 認証成功の場合（該当アカウントがあった場合）
+	        	String pw = rs.getString("dc_pw");
+	            String name = rs.getString("dc_name");
+	            String belong = rs.getString("dc_belong");
+	            String cd = rs.getString("ad_cd");
+	            String dept = rs.getString("dc_dept");
+	            Boolean deleted = rs.getBoolean("is_deleted");
 
-	        doctor.setDc_pw(pw);
-	        admin.setAd_cd(cd);
-            doctor.setAdmin(admin);
-	        doctor.setDc_name(name);
-	        doctor.setDc_belong(belong);
-	        doctor.setDc_dept(dept);
-	        doctor.setIs_deleted(deleted);
+		        doctor = new Doctor();
+		        Admin admin = new Admin();
 
-        }
+		        doctor.setDc_pw(pw);
+		        admin.setAd_cd(cd);
+	            doctor.setAdmin(admin);
+		        doctor.setDc_name(name);
+		        doctor.setDc_belong(belong);
+		        doctor.setDc_dept(dept);
+		        doctor.setIs_deleted(deleted);
+
+	        }
+		}catch(Exception e) {
+			throw e;
+		}finally {
+			// プリペアードステートメントを閉じる
+			if (stmt != null) {
+				try {
+					stmt. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (conn != null) {
+				try {
+					conn.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
 
         return doctor;
     }

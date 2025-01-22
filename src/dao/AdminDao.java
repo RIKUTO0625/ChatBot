@@ -19,25 +19,47 @@ public class AdminDao extends Dao {
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
-	    stmt.setString(1, ad_cd);
-	    stmt.setString(2, pass);
 
-	    ResultSet rs = stmt.executeQuery();
+		try {
+		    stmt.setString(1, ad_cd);
+		    stmt.setString(2, pass);
 
-        if (rs.next()) { // 認証成功の場合（該当アカウントがあった場合）
+		    ResultSet rs = stmt.executeQuery();
 
-        	String cd = rs.getString("ad_cd");
-            String name = rs.getString("ad_name");
-            String pw = rs.getString("ad_pw");
-            Boolean deleted = rs.getBoolean("is_deleted");
+	        if (rs.next()) { // 認証成功の場合（該当アカウントがあった場合）
 
-	        admin = new Admin();
+	        	String cd = rs.getString("ad_cd");
+	            String name = rs.getString("ad_name");
+	            String pw = rs.getString("ad_pw");
+	            Boolean deleted = rs.getBoolean("is_deleted");
 
-	        admin.setAd_cd(cd);
-	        admin.setAd_name(name);
-	        admin.setAd_pw(pw);
-	        admin.setIs_deleted(deleted);
-        }
+		        admin = new Admin();
+
+		        admin.setAd_cd(cd);
+		        admin.setAd_name(name);
+		        admin.setAd_pw(pw);
+		        admin.setIs_deleted(deleted);
+	        }
+		}catch(Exception e) {
+			throw e;
+		}finally {
+			// プリペアードステートメントを閉じる
+			if (stmt != null) {
+				try {
+					stmt. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (conn != null) {
+				try {
+					conn.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+	}
 
         return admin;
     }

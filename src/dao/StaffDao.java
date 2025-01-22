@@ -23,44 +23,67 @@ public class StaffDao extends Dao {
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
-	    stmt.setString(1, staff_id);
-	    stmt.setString(2, staff_pw);
 
-        ResultSet rs = stmt.executeQuery();
+		try {
 
-        if (rs.next()) { // 認証成功の場合（該当アカウントがあった場合）
+		    stmt.setString(1, staff_id);
+		    stmt.setString(2, staff_pw);
 
-        	String id = rs.getString("staff_id");
-            String name = rs.getString("staff_name");
-            Integer age = rs.getInt("staff_age");
-            String belong = rs.getString("staff_belong");
-            String pass = rs.getString("staff_pw");
-            String ad_cd = rs.getString("ad_cd");
-            String mail = rs.getString("staff_mail");
-            String gen_cd = rs.getString("gender_cd");
-            String favorite = rs.getString("favorite");
-            String detail = rs.getString("detail");
-            Boolean deleted = rs.getBoolean("is_deleted");
+	        ResultSet rs = stmt.executeQuery();
 
-            staff = new Staff();
-            admin = new Admin();
+	        if (rs.next()) { // 認証成功の場合（該当アカウントがあった場合）
 
-            staff.setStaff_id(id);
-            staff.setStaff_name(name);
-            staff.setStaff_age(age);
-            staff.setStaff_belong(belong);
-            staff.setStaff_pw(pass);
-            admin.setAd_cd(ad_cd);
-            staff.setAdmin(admin);
-            staff.setStaff_mail(mail);
-            staff.setGender_cd(gen_cd);
-            staff.setFavorite(favorite);
-            staff.setDetail(detail);
-            staff.setIs_deleted(deleted);
+	        	String id = rs.getString("staff_id");
+	            String name = rs.getString("staff_name");
+	            Integer age = rs.getInt("staff_age");
+	            String belong = rs.getString("staff_belong");
+	            String pass = rs.getString("staff_pw");
+	            String ad_cd = rs.getString("ad_cd");
+	            String mail = rs.getString("staff_mail");
+	            String gen_cd = rs.getString("gender_cd");
+	            String favorite = rs.getString("favorite");
+	            String detail = rs.getString("detail");
+	            Boolean deleted = rs.getBoolean("is_deleted");
 
-            // 認証済みフラグを設定
-//            staff.setAuthenticated(true);
-        }
+	            staff = new Staff();
+	            admin = new Admin();
+
+	            staff.setStaff_id(id);
+	            staff.setStaff_name(name);
+	            staff.setStaff_age(age);
+	            staff.setStaff_belong(belong);
+	            staff.setStaff_pw(pass);
+	            admin.setAd_cd(ad_cd);
+	            staff.setAdmin(admin);
+	            staff.setStaff_mail(mail);
+	            staff.setGender_cd(gen_cd);
+	            staff.setFavorite(favorite);
+	            staff.setDetail(detail);
+	            staff.setIs_deleted(deleted);
+
+	            // 認証済みフラグを設定
+	//            staff.setAuthenticated(true);
+	        }
+		}catch(Exception e) {
+				throw e;
+		}finally {
+			// プリペアードステートメントを閉じる
+			if (stmt != null) {
+				try {
+					stmt. close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+			//コネクションを閉じる
+			if (conn != null) {
+				try {
+					conn.close ();
+				}catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
 
 
         //ログインされたteacherのデータを返す
@@ -235,6 +258,7 @@ public class StaffDao extends Dao {
 		//リストを作り、職員を
 		List<Staff> staff_list = new ArrayList<>();
         Connection connection = getConnection();
+
         PreparedStatement statement = null;
         ResultSet rSet = null;
 
