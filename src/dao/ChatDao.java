@@ -119,12 +119,12 @@ public class ChatDao extends Dao {
 	        try (ResultSet rs = stmt.executeQuery()) {
 
 	            // 質問の数（例: 5件）
-	            for (int i = 1; i <= 5; i++) {
+	            for (int i = 1; i <= 8; i++) {
 	                // 質問ごとに回答数のリストを作成
 	                List<Integer> que_list = new ArrayList<>();
 
 	                // 回答ID（例: 8件）
-	                for (int j = 1; j <= 8; j++) {
+	                for (int j = 1; j <= 5; j++) {
 	                    // 結果を処理
 	                    while (rs.next()) {
 	                        int que_no = rs.getInt("que_no");
