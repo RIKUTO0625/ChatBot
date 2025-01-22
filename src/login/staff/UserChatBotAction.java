@@ -66,9 +66,10 @@ public class UserChatBotAction extends Action{
         //チャット履歴の取得
         list = cDao.getChat(staff, formattedDate);
         System.out.println(list);
-
+        System.out.println(list.size());
 
         if(list != null){	//履歴の格納
+        	if(list.size() < 8){	//質問の上限に達しているかどうか
 	        // que_noだけを抽出
 	        question_list = list.stream()
 	                        .map(Chat::getQue_text) // getQue_noメソッドを使用して質問を取得
@@ -83,6 +84,21 @@ public class UserChatBotAction extends Action{
 
 	        qu_id = list.size()+1;
 	        question_new = cDao.getQueText(qu_id);
+        	}
+        	else{
+    	        // que_noだけを抽出
+    	        question_list = list.stream()
+    	                        .map(Chat::getQue_text) // getQue_noメソッドを使用して質問を取得
+    	                        .collect(Collectors.toList()); // リストに収集
+
+    	        // ans_noだけを抽出
+    	        answer_list = list.stream()
+    	                      .map(Chat::getAns_text) // getAns_noメソッドを使用して解答を取得
+    	                      .collect(Collectors.toList()); // リストに収集
+
+        		qu_id = 9;
+        		question_new = "以上で質問は終わりとなりますお疲れさまでした";
+        	}
 
         }
         else {	//初回だった場合
