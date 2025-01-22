@@ -29,13 +29,13 @@ public class ChatDao extends Dao {
 		    "q.que_text AS question,"+
 		    "a.ans_text AS answer,"+
 		    "c.staff_id,"+
-		    "c.ad_cd"+
-		"FROM"+
-		    "chat c"+
-		    "INNER JOIN question q ON c.que_no = q.que_no"+
-		    "INNER JOIN answer a ON c.ans_no = a.ans_no"+
-		    "INNER JOIN admin ad ON c.ad_cd = ad.ad_cd"+
-		    "INNER JOIN staff s ON c.staff_id = s.staff_id"+
+		    "c.ad_cd "+
+		"FROM "+
+		    "chat c "+
+		    "INNER JOIN question q ON c.que_no = q.que_no "+
+		    "INNER JOIN answer a ON c.ans_no = a.ans_no "+
+		    "INNER JOIN admin ad ON c.ad_cd = ad.ad_cd "+
+		    "INNER JOIN staff s ON c.staff_id = s.staff_id "+
 		"WHERE "+
 		    "c.staff_id = '?' "+
 		    "AND c.date = ? ";

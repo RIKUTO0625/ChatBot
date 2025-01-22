@@ -11,6 +11,7 @@ import software.amazon.awssdk.services.dynamodb.model.PutItemRequest;
 public class YamaniAction {
 
     public static void main(String[] args) {
+
         // 1. DynamoDBクライアントを作成
         DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
                 .region(Region.AP_NORTHEAST_1) // リージョンを指定（例: 東京）
