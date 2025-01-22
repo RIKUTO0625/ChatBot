@@ -30,7 +30,7 @@
 						<td>${staff.staff_name}</td>
 						<td>${staff.staff_belong}</td>
 						<td>
-							<a href="User.action?no=${staff.staff_id}">詳細</a>
+							<a href="UserLog.action?no=${staff.staff_id}&pw=${staff.staff_pw}">詳細</a>
 						</td>
 					</tr>
 				</c:forEach>
