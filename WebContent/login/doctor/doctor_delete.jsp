@@ -24,7 +24,7 @@
 		<div class="button">
 
 		<div class="haibutton">
-		<a href="ViewDoctor.action">戻る</a>
+		<a href="#" onclick="history.back(); return false;">戻る</a>
 		</div>
 
 		<div class="iiebutton">

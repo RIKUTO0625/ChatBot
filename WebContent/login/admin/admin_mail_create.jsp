@@ -21,7 +21,7 @@
 		</div>
 			<div class="button56">
 			<div class="button_1">
-				<a href="ViewSendMail.action">戻る</a>
+				<a href="#" onclick="history.back(); return false;">戻る</a>
 				</div>
 				<div class="button_2">
 				<input type="submit" value="新規登録">

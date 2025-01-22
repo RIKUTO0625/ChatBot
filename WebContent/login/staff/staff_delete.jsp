@@ -23,7 +23,7 @@
 		<!-- 職員マイページへ -->
 
 		<div class="haibutton">
-		<a href="StaffMypage.action">戻る</a>
+		<a href="#" onclick="history.back(); return false;">戻る</a>
 		</div>
 
 		<div class="iiebutton">
