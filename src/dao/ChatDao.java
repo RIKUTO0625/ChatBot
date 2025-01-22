@@ -38,7 +38,7 @@ public class ChatDao extends Dao {
 		    "INNER JOIN staff s ON c.staff_id = s.staff_id "+
 		"WHERE "+
 		    "c.staff_id = '?' "+
-		    "AND c.date = ? ";
+		    "AND c.date = '?' ";
 
         Connection conn = getConnection();
 	    PreparedStatement stmt = conn.prepareStatement(sql);
