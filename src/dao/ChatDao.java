@@ -74,6 +74,92 @@ public class ChatDao extends Dao {
 	    return list;
 	}
 
+	public List<List<Integer>> getHis(Staff staff, int year) throws Exception {
+
+	    // リストを初期化
+	    List<List<Integer>> sum_list = new ArrayList<>();
+
+	    // SQLクエリ
+	    String sql =
+	        "SELECT " +
+	            "s.staff_id, " +
+	            "q.que_no, " +
+	            "a.ans_no, " +
+	            "COUNT(c.chat_no) AS total_answers, " +
+	            "COALESCE(EXTRACT(YEAR FROM c.date), ?) AS year " +
+	        "FROM " +
+	            "staff s " +
+	        "CROSS JOIN " +
+	            "question q " +
+	        "CROSS JOIN " +
+	            "answer a " +
+	        "LEFT JOIN " +
+	            "chat c ON s.staff_id = c.staff_id " +
+	                "AND q.que_no = c.que_no " +
+	                "AND a.ans_no = c.ans_no " +
+	                "AND (EXTRACT(YEAR FROM c.date) = ? OR c.date IS NULL) " +
+	        "WHERE " +
+	            "s.staff_id = ? " +
+	        "GROUP BY " +
+	            "s.staff_id, q.que_no, a.ans_no, COALESCE(EXTRACT(YEAR FROM c.date), ?) " +
+	        "ORDER BY " +
+	            "s.staff_id, q.que_no, a.ans_no";
+
+	    try (
+	        Connection conn = getConnection();
+	        PreparedStatement stmt = conn.prepareStatement(sql)
+	    ) {
+	        // プレースホルダーに値を設定
+	        stmt.setInt(1, year);  // 年
+	        stmt.setInt(2, year);  // 年
+	        stmt.setString(3, staff.getStaff_id());  // 職員ID
+	        stmt.setInt(4, year);  // 年
+
+	        // クエリを実行
+	        try (ResultSet rs = stmt.executeQuery()) {
+
+	            // 質問の数（例: 5件）
+	            for (int i = 1; i <= 5; i++) {
+	                // 質問ごとに回答数のリストを作成
+	                List<Integer> que_list = new ArrayList<>();
+
+	                // 回答ID（例: 8件）
+	                for (int j = 1; j <= 8; j++) {
+	                    // 結果を処理
+	                    while (rs.next()) {
+	                        int que_no = rs.getInt("que_no");
+	                        int ans_no = rs.getInt("ans_no");
+	                        int total_answers = rs.getInt("total_answers");
+
+	                        // 質問IDと回答IDが一致する場合のみ、リストに追加
+	                        if (que_no == i && ans_no == j) {
+	                            que_list.add(total_answers); // 回答数をリストに追加
+	                        }
+	                    }
+
+	                    // 結果が無ければ0を追加
+	                    if (que_list.size() < j) {
+	                        que_list.add(0); // データがなければ0を追加
+	                    }
+
+	                    // 結果をリストに追加
+	                }
+
+	                // 質問ごとの結果をリストに追加
+	                sum_list.add(que_list);
+	            }
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new Exception("Error while retrieving chat data.", e);
+	    }
+
+	    return sum_list;
+	}
+
+
+
 	// 質問別、履歴取得
     public boolean setChat(Staff staff, int answer_no , int question_no) throws Exception{
 
