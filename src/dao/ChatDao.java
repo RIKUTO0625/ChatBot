@@ -39,8 +39,9 @@ public class ChatDao extends Dao {
 	        "AND c.date = ?";
 
 
-		Connection conn = getConnection();
-		PreparedStatement stmt = conn.prepareStatement(sql);
+	    Connection conn = getConnection();
+	    PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
 
 
 	    try {
@@ -96,17 +97,23 @@ public class ChatDao extends Dao {
 
 	public List<List<Integer>> getHis(Staff staff, int year) throws Exception {
 
-	    // リストを初期化
-	    List<List<Integer>> sum_list = new ArrayList<>();
+	    // 質問ごとの回答数を格納するリスト
+	    List<List<Integer>> sumList = new ArrayList<>();
+
+	    // 8つの質問を初期化（質問数が固定の場合）
+	    for (int i = 0; i < 8; i++) {
+	        List<Integer> queList = new ArrayList<>();
+	        // 5つの回答の初期値を0に設定
+	        for (int j = 0; j < 5; j++) {
+	            queList.add(0);
+	        }
+	        sumList.add(queList);
+	    }
 
 	    // SQLクエリ
 	    String sql =
 	        "SELECT " +
-	            "s.staff_id, " +
-	            "q.que_no, " +
-	            "a.ans_no, " +
-	            "COUNT(c.chat_no) AS total_answers, " +
-	            "COALESCE(EXTRACT(YEAR FROM c.date), ?) AS year " +
+	            "q.que_no, a.ans_no, COUNT(c.chat_no) AS total_answers " +
 	        "FROM " +
 	            "staff s " +
 	        "CROSS JOIN " +
@@ -115,93 +122,42 @@ public class ChatDao extends Dao {
 	            "answer a " +
 	        "LEFT JOIN " +
 	            "chat c ON s.staff_id = c.staff_id " +
-	                "AND q.que_no = c.que_no " +
-	                "AND a.ans_no = c.ans_no " +
-	                "AND (EXTRACT(YEAR FROM c.date) = ? OR c.date IS NULL) " +
-	        "WHERE " +
-	            "s.staff_id = ? " +
-	        "GROUP BY " +
-	            "s.staff_id, q.que_no, a.ans_no, COALESCE(EXTRACT(YEAR FROM c.date), ?) " +
-	        "ORDER BY " +
-	            "s.staff_id, q.que_no, a.ans_no";
+	            "AND q.que_no = c.que_no " +
+	            "AND a.ans_no = c.ans_no " +
+	            "AND EXTRACT(YEAR FROM c.date) = ? " +
+	        "WHERE s.staff_id = ? " +
+	        "GROUP BY q.que_no, a.ans_no " +
+	        "ORDER BY q.que_no, a.ans_no";
 
-	    Connection conn = getConnection();
-	    PreparedStatement stmt = conn.prepareStatement(sql);
-
-	    try {
+	    try (
+	        Connection conn = getConnection();
+	        PreparedStatement stmt = conn.prepareStatement(sql)
+	    ) {
 	        // プレースホルダーに値を設定
 	        stmt.setInt(1, year);  // 年
-	        stmt.setInt(2, year);  // 年
-	        stmt.setString(3, staff.getStaff_id());  // 職員ID
-	        stmt.setInt(4, year);  // 年
+	        stmt.setString(2, staff.getStaff_id());  // スタッフID
 
 	        // クエリを実行
 	        try (ResultSet rs = stmt.executeQuery()) {
+	            while (rs.next()) {
+	                int queNo = rs.getInt("que_no");
+	                int ansNo = rs.getInt("ans_no");
+	                int totalAnswers = rs.getInt("total_answers");
 
-	            // 質問の数（例: 8件）
-	            for (int i = 1; i <= 8; i++) {
-	                // 質問ごとに回答数のリストを作成
-	                List<Integer> que_list = new ArrayList<>();
-
-	                // 回答ID（例: 5件）
-	                for (int j = 1; j <= 5; j++) {
-	                    // 結果セットから必要なデータを取得
-	                    boolean found = false; // データが見つかったかどうかのフラグ
-	                    while (rs.next()) {
-	                        int que_no = rs.getInt("que_no");
-	                        int ans_no = rs.getInt("ans_no");
-	                        int total_answers = rs.getInt("total_answers");
-
-	                        // 質問IDと回答IDが一致する場合のみ、リストに追加
-	                        if (que_no == i && ans_no == j) {
-	                            que_list.add(total_answers); // 回答数をリストに追加
-	                            found = true; // データが見つかった
-	                            break; // データが見つかった時点でループを抜ける
-	                        }
-	                    }
-
-	                    // 結果が無ければ0を追加
-	                    if (!found) {
-	                        que_list.add(0); // データがなければ0を追加
-	                    }
-
-	                    // 結果をリストに追加
+	                // 質問番号と回答番号に対応するリスト要素を更新
+	                if (queNo >= 1 && queNo <= 8 && ansNo >= 1 && ansNo <= 5) {
+	                    sumList.get(queNo - 1).set(ansNo - 1, totalAnswers);
 	                }
-
-	                // 質問ごとの結果をリストに追加
-	                sum_list.add(que_list);
-
-	                // リザルトセットを再度最初に戻す（必要な場合）
-	                rs.beforeFirst();
 	            }
-
 	        }
 
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        throw new Exception("Error while retrieving chat data.", e);
-	    } finally {
-	        // プリペアードステートメントを閉じる
-	        if (stmt != null) {
-	            try {
-	                stmt.close();
-	            } catch (SQLException sqle) {
-	                throw sqle;
-	            }
-	        }
-	        // コネクションを閉じる
-	        if (conn != null) {
-	            try {
-	                conn.close();
-	            } catch (SQLException sqle) {
-	                throw sqle;
-	            }
-	        }
 	    }
 
-	    return sum_list;
+	    return sumList;
 	}
-
 
 
 
