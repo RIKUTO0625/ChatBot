@@ -51,11 +51,30 @@ public class UserLogAction extends Action{
 		staff_log = cDao.getHis(staff, year);
 		System.out.println(staff_log);
 
+
+        // 各リストの要素の割合を格納するリスト
+        List<List<Double>> percentageList = new ArrayList<>();
+
+        // 各サブリストの合計を計算し、その中での割合を求める
+        for (List<Integer> sublist : staff_log) {
+            double sum = 0;
+            for (int num : sublist) {
+                sum += num;
+            }
+
+            List<Double> percentages = new ArrayList<>();
+            for (int num : sublist) {
+                // 各要素がそのサブリストの合計に占める割合を計算
+                percentages.add((sum == 0) ? 0.0 : (num / sum) * 100);
+            }
+            percentageList.add(percentages);
+        }
+
 		//質問ごとの回答の統計を渡す処理
         // カウントを1からスタートする
         int index = 1;
-        for (List<Integer> sublist : staff_log) {
-            String key = "qu_list" + index; // キー名を qu_list1, qu_list2, ... とする
+        for (List<Double> sublist : percentageList) {
+            String key = "list" + index; // キー名を list1, list2, ... とする
             req.setAttribute(key, sublist); // サーブレットのリクエストオブジェクトに設定
             index++;
         }
