@@ -30,7 +30,7 @@
 		<div>${errors.get("ad_pw")}</div> <!-- エラーメッセージ表示エリア：氏名のエラー -->
 		</div>
 		<div class="button">
-		<a href="AdminCreateExecute.action">戻る</a>
+		<a href="#" onclick="history.back(); return false;">
 		<input type="submit" value="登録"> <!-- 登録ボタン -->
 		</div>
 	</form>

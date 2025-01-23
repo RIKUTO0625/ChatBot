@@ -10,6 +10,7 @@
     <div>
     	<div class="midasi">
         <h2>ログアウトしますか？</h2>
+
         </div>
 
         <div class="button">
