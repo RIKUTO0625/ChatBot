@@ -71,7 +71,7 @@ public class UserLogAction extends Action{
                 } else {
                     // 各要素がそのサブリストの合計に占める割合を計算し、小数点以下2桁に丸める
                     BigDecimal percentage = BigDecimal.valueOf((num / sum) * 100)
-                        .setScale(2, RoundingMode.HALF_UP); // 小数点以下2桁、四捨五入
+                        .setScale(1, RoundingMode.HALF_UP); // 小数点以下1桁、四捨五入
                     percentages.add(percentage.doubleValue());
                 }
             }
