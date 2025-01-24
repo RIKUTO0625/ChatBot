@@ -1,5 +1,7 @@
 package login.doctor;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,8 +66,14 @@ public class UserLogAction extends Action{
 
             List<Double> percentages = new ArrayList<>();
             for (int num : sublist) {
-                // 各要素がそのサブリストの合計に占める割合を計算
-                percentages.add((sum == 0) ? 0.0 : (num / sum) * 100);
+                if (sum == 0) {
+                    percentages.add(0.0); // 合計が0の場合、割合も0
+                } else {
+                    // 各要素がそのサブリストの合計に占める割合を計算し、小数点以下2桁に丸める
+                    BigDecimal percentage = BigDecimal.valueOf((num / sum) * 100)
+                        .setScale(2, RoundingMode.HALF_UP); // 小数点以下2桁、四捨五入
+                    percentages.add(percentage.doubleValue());
+                }
             }
             percentageList.add(percentages);
         }
