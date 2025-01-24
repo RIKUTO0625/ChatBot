@@ -18,6 +18,10 @@ public class ChatDao extends Dao {
 	    List<Chat> list = new ArrayList<>();
 	    Chat chat = null;
 
+    	Connection conn = null;
+    	PreparedStatement stmt = null;
+	    ResultSet rs = null;
+
 	    // SQLクエリ
 	    String sql = "SELECT " +
 	        "c.chat_no, " +
@@ -38,37 +42,36 @@ public class ChatDao extends Dao {
 	        "c.staff_id = ? " +  // プレースホルダーを使用
 	        "AND c.date = ?";
 
-
-	    Connection conn = getConnection();
-	    PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-
-
-
 	    try {
+
+		    conn = getConnection();
+		    stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
 	        // プレースホルダーに値を設定
 	        stmt.setString(1, staff.getStaff_id());
 	        stmt.setString(2, day);
 
 	        // クエリを実行
-	        try (ResultSet rs = stmt.executeQuery()) {
-	            // 結果を処理
-	            while (rs.next()) {
-	                chat = new Chat();
+	        rs = stmt.executeQuery();
 
-	                // 結果セットから値を取得し、Chatオブジェクトに設定
-	                chat.setChat_no(rs.getInt("chat_no"));
-	                chat.setDate(rs.getDate("date"));
-	                chat.setQue_no(rs.getInt("que_no"));
-	                chat.setAns_no(rs.getInt("ans_no"));
-	                chat.setQue_text(rs.getString("question"));
-	                chat.setAns_text(rs.getString("answer"));
-	                chat.setStaff_id(rs.getString("staff_id"));
-	                chat.setAd_cd(rs.getString("ad_cd"));
+            // 結果を処理
+            while (rs.next()) {
+                chat = new Chat();
 
-	                // リストに追加
-	                list.add(chat);
-	            }
-	        }
+                // 結果セットから値を取得し、Chatオブジェクトに設定
+                chat.setChat_no(rs.getInt("chat_no"));
+                chat.setDate(rs.getDate("date"));
+                chat.setQue_no(rs.getInt("que_no"));
+                chat.setAns_no(rs.getInt("ans_no"));
+                chat.setQue_text(rs.getString("question"));
+                chat.setAns_text(rs.getString("answer"));
+                chat.setStaff_id(rs.getString("staff_id"));
+                chat.setAd_cd(rs.getString("ad_cd"));
+
+                // リストに追加
+                list.add(chat);
+            }
+
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        throw new Exception("Error while retrieving chat data.", e);
@@ -89,6 +92,13 @@ public class ChatDao extends Dao {
 					throw sqle;
 				}
 			}
+		    if (rs != null) {
+		        try {
+		            rs.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
 		}
 
 
@@ -100,6 +110,9 @@ public class ChatDao extends Dao {
 	    // 質問ごとの回答数を格納するリスト
 	    List<List<Integer>> sumList = new ArrayList<>();
 
+
+    	Connection conn = null;
+    	PreparedStatement stmt = null;
 	    ResultSet rs = null;
 
 	    // 8つの質問を初期化（質問数が固定の場合）
@@ -131,16 +144,16 @@ public class ChatDao extends Dao {
 	        "GROUP BY q.que_no, a.ans_no " +
 	        "ORDER BY q.que_no, a.ans_no";
 
-	    try (
-	        Connection conn = getConnection();
-	        PreparedStatement stmt = conn.prepareStatement(sql)
-	    ) {
+	    try {
+
+	        conn = getConnection();
+	        stmt = conn.prepareStatement(sql);
 	        // プレースホルダーに値を設定
 	        stmt.setInt(1, year);  // 年
 	        stmt.setString(2, staff.getStaff_id());  // スタッフID
 
-        // クエリを実行
-        rs = stmt.executeQuery();
+	        // クエリを実行
+	        rs = stmt.executeQuery();
 
             while (rs.next()) {
                 int queNo = rs.getInt("que_no");
@@ -236,21 +249,51 @@ public class ChatDao extends Dao {
     public String getAnsText(int answer_no) throws Exception{
 
     	String text = "";
+    	Connection conn = null;
+	    PreparedStatement stmt = null;
+	    ResultSet rs = null;
 
         String sql = "SELECT ans_text FROM answer where ans_no = ? ";
 
-        Connection conn = getConnection();
-	    PreparedStatement stmt = conn.prepareStatement(sql);
-	    stmt.setInt(1, answer_no);
+        try{
 
-	    ResultSet rs = stmt.executeQuery();
+            conn = getConnection();
+    	    stmt = conn.prepareStatement(sql);
 
-        if (rs.next()) {
+    	    stmt.setInt(1, answer_no);
 
-    	    text = rs.getString("ans_text");
+    	    rs = stmt.executeQuery();
 
+            if (rs.next()) {
+
+        	    text = rs.getString("ans_text");
+
+            }
+
+        }finally{
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-
 
         return text;
     }
@@ -259,18 +302,49 @@ public class ChatDao extends Dao {
 
     	String text = "";
 
+    	Connection conn = null;
+	    PreparedStatement stmt = null;
+	    ResultSet rs = null;
+
         String sql = "SELECT que_text FROM question where que_no = ? ";
 
-        Connection conn = getConnection();
-	    PreparedStatement stmt = conn.prepareStatement(sql);
-	    stmt.setInt(1, question_no);
+        try{
 
-	    ResultSet rs = stmt.executeQuery();
+            conn = getConnection();
+    	    stmt = conn.prepareStatement(sql);
+    	    stmt.setInt(1, question_no);
 
-        if (rs.next()) {
+    	    rs = stmt.executeQuery();
 
-    	    text = rs.getString("que_text");
+            if (rs.next()) {
 
+        	    text = rs.getString("que_text");
+
+            }
+
+        }finally{
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         return text;
