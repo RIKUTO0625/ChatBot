@@ -27,7 +27,7 @@
 		    <ul>
 		      <li><a href="StaffProfile.action">マイページ</a></li>
 		      <li><a href="UserChatBot.action">チャットボット</a></li>
-		      <li><a href="#">履歴</a></li>
+		      <li><a href="StaffLog.action">履歴</a></li>
 
 		      <li class=footer-menu>
 		      <a href="StaffProfile.action">HOME</a>
