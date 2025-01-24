@@ -100,6 +100,8 @@ public class ChatDao extends Dao {
 	    // 質問ごとの回答数を格納するリスト
 	    List<List<Integer>> sumList = new ArrayList<>();
 
+	    ResultSet rs = null;
+
 	    // 8つの質問を初期化（質問数が固定の場合）
 	    for (int i = 0; i < 8; i++) {
 	        List<Integer> queList = new ArrayList<>();
@@ -137,23 +139,32 @@ public class ChatDao extends Dao {
 	        stmt.setInt(1, year);  // 年
 	        stmt.setString(2, staff.getStaff_id());  // スタッフID
 
-	        // クエリを実行
-	        try (ResultSet rs = stmt.executeQuery()) {
-	            while (rs.next()) {
-	                int queNo = rs.getInt("que_no");
-	                int ansNo = rs.getInt("ans_no");
-	                int totalAnswers = rs.getInt("total_answers");
+        // クエリを実行
+        rs = stmt.executeQuery();
 
-	                // 質問番号と回答番号に対応するリスト要素を更新
-	                if (queNo >= 1 && queNo <= 8 && ansNo >= 1 && ansNo <= 5) {
-	                    sumList.get(queNo - 1).set(ansNo - 1, totalAnswers);
-	                }
-	            }
-	        }
+            while (rs.next()) {
+                int queNo = rs.getInt("que_no");
+                int ansNo = rs.getInt("ans_no");
+                int totalAnswers = rs.getInt("total_answers");
+
+                // 質問番号と回答番号に対応するリスト要素を更新
+                if (queNo >= 1 && queNo <= 8 && ansNo >= 1 && ansNo <= 5) {
+                    sumList.get(queNo - 1).set(ansNo - 1, totalAnswers);
+                }
+            }
+
 
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        throw new Exception("Error while retrieving chat data.", e);
+	    }finally {
+	        if (rs != null) {
+	            try {
+	                rs.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
 	    }
 
 	    return sumList;
@@ -162,30 +173,37 @@ public class ChatDao extends Dao {
 
 
 	// 質問別、履歴取得
-    public boolean setChat(Staff staff, int answer_no , int question_no) throws Exception{
+    public boolean setChat(Staff staff, List<List<Integer>> chat_list) throws Exception{
+
+    	Connection conn = null;
+    	PreparedStatement stmt = null;
 
     	String sql = "INSERT INTO chat (que_no, ans_no, date, ad_cd, staff_id)VALUES (?, ?, now()::date, ?, ?);";
 
-
-        Connection conn = getConnection();
-	    PreparedStatement stmt = conn.prepareStatement(sql);
+        conn = getConnection();
+	    stmt = conn.prepareStatement(sql);
 
 		// 実行件数
 		int count = 0;
 
 		try {
 
-		    stmt.setInt(1, question_no);
-		    stmt.setInt(2, answer_no);
-		    stmt.setString(3, staff.getAdmin().getAd_cd());
-		    stmt.setString(4, staff.getStaff_id());
+			for(int i = 0; i < 8;i++){
 
-			//プリペアードステートメントを実行
-			count = stmt.executeUpdate ();
+			    stmt.setInt(1, chat_list.get(0).get(i));
+			    stmt.setInt(2, chat_list.get(1).get(i));
+			    stmt.setString(3, staff.getAdmin().getAd_cd());
+			    stmt.setString(4, staff.getStaff_id());
+
+				//プリペアードステートメントを実行
+				count = stmt.executeUpdate ();
+
+			}
 
 		}catch(Exception e) {
 				throw e;
 		}finally {
+
 			// プリペアードステートメントを閉じる
 			if (stmt != null) {
 				try {
