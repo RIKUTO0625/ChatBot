@@ -1,0 +1,65 @@
+/*------------------------------------
+  bar graph - vertical
+------------------------------------*/
+.content1{
+	display: flex; /* フレックスボックスでレイアウトを設定 */
+	-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（Safari対応） */
+  	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（標準のブラウザ対応） */
+}
+
+
+.bar-graph-wrap {
+  display: flex; /* フレックスボックスでレイアウトを設定 */
+  align-items: flex-end; /* 子要素（棒グラフ）を下端に揃える */
+  justify-content: space-around; /* 棒を等間隔で配置 */
+  height: 250px; /* 棒グラフの全体の高さを設定 */
+  width: 25%; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+
+}
+
+.bar-graph-wrap .graph {
+  width: 50px; /* 棒の幅を指定 */
+  height: 0; /* 初期の高さは0、アニメーションで高さを増やす */
+  border-radius: 4px 4px 0 0; /* 上端を丸くする */
+  display: flex; /* フレックスボックスを使って配置 */
+  flex-direction: column; /* 子要素を縦方向に配置 */
+  align-items: center; /* 水平方向に中央揃え */
+  justify-content: flex-end; /* 垂直方向は下端に揃える */
+  animation: graphAnimVertical 2.5s forwards; /* アニメーションを2.5秒で実行、終了後にその状態を維持 */
+}
+
+.bar-graph-wrap .graph span {
+  font-size: 14px; /* テキストのフォントサイズを設定 */
+  color: #000000; /* テキストの色を黒に設定 */
+  /
+}
+
+.bar-graph-wrap .graph.blue {
+  background: #03a9f4; /* 青色の棒グラフ */
+}
+
+.bar-graph-wrap .graph.red {
+  background: #ff3051; /* 赤色の棒グラフ */
+}
+
+.bar-graph-wrap .graph.green {
+  background: #1fd26c; /* 緑色の棒グラフ */
+}
+
+.bar-graph-wrap .graph.yellow {
+  background: #ffeb3b; /* 黄色の棒グラフ */
+}
+
+.bar-graph-wrap .graph.purple {
+  background: #9c27b0; /* 紫色の棒グラフ */
+}
+
+/* アニメーションの定義 */
+@keyframes graphAnimVertical {
+  0% {
+    height: 0; /* アニメーション開始時は高さが0 */
+  }
+  100% {
+    height: var(--bar-height); /* アニメーション終了時は高さをvar(--bar-height)に設定 */
+  }
+}
