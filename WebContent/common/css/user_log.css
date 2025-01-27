@@ -1,10 +1,123 @@
 /*------------------------------------
   bar graph - vertical
 ------------------------------------*/
+
 .content1{
 	display: flex; /* フレックスボックスでレイアウトを設定 */
-	-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（Safari対応） */
-  	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（標準のブラウザ対応） */
+	flex-direction: column;
+	height: 800px; /* 棒グラフの全体の高さを設定 */
+  	width: 100%; /* グラフコンテナの幅を指定*/
+}
+
+
+.content2{
+	display: flex; /* フレックスボックスでレイアウトを設定 */
+	height: 100%; /* 棒グラフの全体の高さを設定 */
+  	width: 100%; /* グラフコンテナの幅を指定*/
+}
+
+.content3{
+	display: flex; /* フレックスボックスでレイアウトを設定 */
+  	width: 100%; /* グラフコンテナの幅を指定*/
+  	margin-left: 10px; /* 左側に20pxのマージンを追加 */
+  	margin-right: 10px; /* 左側に20pxのマージンを追加 */
+
+}
+
+.percentage{
+	display: flex; /* フレックスボックスで中央揃えを有効化 */
+	justify-content: space-around; /* 棒を等間隔で配置 */
+	margin-bottom: 40px;
+}
+
+.answer_box1 {
+  display: flex; /* 子要素をフレックスボックスで配置 */
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+}
+
+.answer_box2 {
+  display: flex; /* フレックスボックスでレイアウトを設定 */
+  align-items: flex-end; /* 子要素（棒グラフ）を下端に揃える */
+  justify-content: space-around; /* 棒を等間隔で配置 */
+  width: 100%; /* グラフコンテナの幅を指定*/
+}
+
+.answer_title {
+  display: flex; /* フレックスボックスで中央揃えを有効化 */
+  align-items: center; /* 縦方向を中央揃え */
+  justify-content: center; /* 横方向を中央揃え */
+  margin-bottom: 60px;
+}
+
+.answer_title::before {
+  content: ""; /* 擬似要素で内容を追加 */
+  display: inline-block;
+  width: 16px; /* 正方形の幅 */
+  height: 16px; /* 正方形の高さ */
+  margin-right: 8px; /* 正方形とテキストの間の余白 */
+  border-radius: 2px; /* 角を少し丸くする（任意） */
+}
+
+/*回答項目1*/
+#answer1 {
+	width: 150px; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+}
+
+#answer1::before {
+  background: #03a9f4; /* 青色の棒グラフ */
+}
+
+/*回答項目2*/
+#answer2 {
+	width: 250px; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+}
+
+#answer2::before {
+  background: #ff3051; /* 赤色の棒グラフ */
+}
+
+/*回答項目3*/
+#answer3 {
+	width: 120px; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+}
+
+#answer3::before {
+  background: #1fd26c; /* 緑色の棒グラフ */
+}
+
+/*回答項目4*/
+#answer4 {
+	width: 250px; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+}
+
+#answer4::before {
+  background: #ffeb3b; /* 黄色の棒グラフ */
+}
+
+/*回答項目5*/
+#answer5 {
+	width: 150px; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+}
+
+#answer5::before {
+  background: #9c27b0; /* 紫色の棒グラフ */
+}
+
+
+
+.answer_title .name {
+	font-size: 14px; /* テキストのフォントサイズを設定 */
+	margin-right: 10px; /* 右側に20pxのマージンを追加 */
+	margin-left: 5px; /* 左側に20pxのマージンを追加 */
+}
+.answer_title .number {
+	font-size: 14px; /* テキストのフォントサイズを設定 */
+}
+
+.c-title{
+	text-align: center; /* テキストを中央揃え */
+	margin-bottom: 90px;
 }
 
 
@@ -13,8 +126,21 @@
   align-items: flex-end; /* 子要素（棒グラフ）を下端に揃える */
   justify-content: space-around; /* 棒を等間隔で配置 */
   height: 250px; /* 棒グラフの全体の高さを設定 */
-  width: 25%; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+  width: 100%; /* グラフコンテナの幅を指定*/
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（Safari対応） */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（標準のブラウザ対応） */
+   margin-bottom: 10px;
+}
 
+.bar-graph-wrap2 {
+  display: flex; /* フレックスボックスでレイアウトを設定 */
+  align-items: flex-end; /* 子要素（棒グラフ）を下端に揃える */
+  justify-content: space-around; /* 棒を等間隔で配置 */
+  height: 250px; /* 棒グラフの全体の高さを設定 */
+  width: 33%; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
+  margin-left: 20px; /* 左側に20pxのマージンを追加 */
+  margin-right: 20px; /* 右側に20pxのマージンを追加 */
+   margin-bottom: 30px;
 }
 
 .bar-graph-wrap .graph {
@@ -63,3 +189,20 @@
     height: var(--bar-height); /* アニメーション終了時は高さをvar(--bar-height)に設定 */
   }
 }
+
+.content3 {
+    display: flex;
+    flex-direction: column; /* グラフとタイトルを縦に配置 */
+    width: 33%;
+    align-items: center; /* 水平方向に中央揃え */
+}
+
+.graph-title {
+    font-size: 18px; /* タイトルのフォントサイズ */
+    margin-bottom: 5px; /* タイトルとグラフの間にスペースを追加 */
+    font-weight: bold; /* タイトルを太字に */
+    text-align: center; /* タイトルを中央揃え */
+}
+
+
+
