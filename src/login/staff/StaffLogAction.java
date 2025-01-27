@@ -85,6 +85,6 @@ public class StaffLogAction extends Action{
 		req.setAttribute("staffLog", staff_log);
         req.setAttribute("name", staff.getStaff_name());
 		//JSPへフォワード 7
-		req.getRequestDispatcher("user_log.jsp").forward(req, res);
+		req.getRequestDispatcher("staff_log.jsp").forward(req, res);
 	}
 }
