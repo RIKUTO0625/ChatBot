@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>回答結果の棒グラフ</title>
-    <link href="../../common/css/user_log.css" rel="stylesheet">
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:import url="../../common/doctor_base.jsp">
+<c:param name="title">
+回答統計
+</c:param>
+<c:param name="scripts"><link href="../../common/css/user_log.css" rel="stylesheet"></c:param>
+<c:param name="content">
 
 <div class="content1">
     <h2 class="c-title">統計グラフ一覧</h2>
@@ -264,5 +264,5 @@
 
 	    </div>
 	</div>
-</body>
-</html>
+</c:param>
+</c:import>
