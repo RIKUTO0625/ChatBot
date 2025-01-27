@@ -24,9 +24,37 @@
 
 }
 
+.search{
+	display: flex; /* 子要素をフレックスボックスで配置 */
+	justify-content: center; /* 水平方向に中央揃え */
+	align-items: center; /* 垂直方向に中央揃え */
+	margin-bottom: 40px;
+	font-size: 20px; /* テキストのフォントサイズを設定 */
+}
+
+#yearSelect{
+	padding: 7px;
+	border-radius: 8px;
+	font-size: 15px; /* テキストのフォントサイズを設定 */
+}
+
+.custom-button {
+    padding: 5px 25px;
+    background-color: #000000; /* 黒色 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px; /* テキストのフォントサイズを設定 */
+}
+
+.custom-button:hover {
+    background-color: #333333; /* ホバー時に背景色を暗く */
+}
+
 .percentage{
 	display: flex; /* フレックスボックスで中央揃えを有効化 */
-	justify-content: space-around; /* 棒を等間隔で配置 */
+	justify-content: space-around; /* 等間隔で配置 */
 	margin-bottom: 40px;
 }
 
@@ -47,7 +75,8 @@
   display: flex; /* フレックスボックスで中央揃えを有効化 */
   align-items: center; /* 縦方向を中央揃え */
   justify-content: center; /* 横方向を中央揃え */
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+
 }
 
 .answer_title::before {
@@ -117,7 +146,7 @@
 
 .c-title{
 	text-align: center; /* テキストを中央揃え */
-	margin-bottom: 90px;
+	margin-bottom: 40px;
 }
 
 
@@ -129,7 +158,7 @@
   width: 100%; /* グラフコンテナの幅を指定*/
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（Safari対応） */
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 影を追加（標準のブラウザ対応） */
-   margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .bar-graph-wrap2 {
@@ -140,7 +169,7 @@
   width: 33%; /* グラフコンテナの幅を指定（親要素に対して25%の幅） */
   margin-left: 20px; /* 左側に20pxのマージンを追加 */
   margin-right: 20px; /* 右側に20pxのマージンを追加 */
-   margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .bar-graph-wrap .graph {
@@ -198,7 +227,7 @@
 }
 
 .graph-title {
-    font-size: 18px; /* タイトルのフォントサイズ */
+    font-size: 15px; /* タイトルのフォントサイズ */
     margin-bottom: 5px; /* タイトルとグラフの間にスペースを追加 */
     font-weight: bold; /* タイトルを太字に */
     text-align: center; /* タイトルを中央揃え */
