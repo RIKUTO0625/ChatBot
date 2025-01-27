@@ -10,7 +10,6 @@
   	margin-bottom: 600px;
 }
 
-
 .content2{
 	display: flex; /* フレックスボックスでレイアウトを設定 */
 	height: 100%; /* 棒グラフの全体の高さを設定 */
