@@ -246,109 +246,62 @@ public class ChatDao extends Dao {
 
     }
 
-    public String getAnsText(int answer_no) throws Exception{
+    public List<String> getQueTextList() throws Exception {
+        // 返却用のリストを初期化
+        List<String> textList = new ArrayList<>();
 
-    	String text = "";
-    	Connection conn = null;
-	    PreparedStatement stmt = null;
-	    ResultSet rs = null;
+        // SQL文
+        String sql = "SELECT que_text FROM question";
 
-        String sql = "SELECT ans_text FROM answer where ans_no = ? ";
+        // DB接続
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
 
-        try{
+        // SQLを実行
+        ResultSet rs = stmt.executeQuery();
 
-            conn = getConnection();
-    	    stmt = conn.prepareStatement(sql);
-
-    	    stmt.setInt(1, answer_no);
-
-    	    rs = stmt.executeQuery();
-
-            if (rs.next()) {
-
-        	    text = rs.getString("ans_text");
-
-            }
-
-        }finally{
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        // 結果をリストに追加
+        while (rs.next()) {
+            textList.add(rs.getString("que_text"));
         }
 
-        return text;
+        // リソースをクローズ
+        rs.close();
+        stmt.close();
+        conn.close();
+
+        // リストを返却
+        return textList;
     }
 
-    public String getQueText(int question_no) throws Exception{
 
-    	String text = "";
+    public List<String> getAnsTextList() throws Exception {
+        // 返却用のリストを初期化
+        List<String> textList = new ArrayList<>();
 
-    	Connection conn = null;
-	    PreparedStatement stmt = null;
-	    ResultSet rs = null;
+        // SQL文
+        String sql = "SELECT ans_text FROM answer";
 
-        String sql = "SELECT que_text FROM question where que_no = ? ";
+        // DB接続
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
 
-        try{
+        // SQLを実行
+        ResultSet rs = stmt.executeQuery();
 
-            conn = getConnection();
-    	    stmt = conn.prepareStatement(sql);
-    	    stmt.setInt(1, question_no);
-
-    	    rs = stmt.executeQuery();
-
-            if (rs.next()) {
-
-        	    text = rs.getString("que_text");
-
-            }
-
-        }finally{
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        // 結果をリストに追加
+        while (rs.next()) {
+            textList.add(rs.getString("ans_text"));
         }
 
-        return text;
+        // リソースをクローズ
+        rs.close();
+        stmt.close();
+        conn.close();
 
+        // リストを返却
+        return textList;
     }
+
 
 }
