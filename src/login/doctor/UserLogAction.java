@@ -30,10 +30,10 @@ public class UserLogAction extends Action{
 		List<List<Integer>>staff_log = new ArrayList<>();	//質問の履歴リスト
 
 		//リクエストパラメータ―の取得 2
-		String years = req.getParameter("year");
-		String months = req.getParameter("month");
-		String staff_id = req.getParameter("no");
-		String staff_pw = req.getParameter("pw");
+		String years = req.getParameter("year");	//年
+		String months = req.getParameter("month");	//月
+		String staff_id = req.getParameter("no");	//職員ID
+		String staff_pw = req.getParameter("pw");	//職員パスワード
 
 		//DBからデータ取得 3
 
