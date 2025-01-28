@@ -47,6 +47,8 @@ public class UserChatBotAction extends Action{
 
         String question_st = req.getParameter("qu_id");	//質問
         String answer_st = req.getParameter("answer");	//回答
+        System.out.println(question_st);
+        System.out.println(answer_st);
 
 		//DBからデータ取得 3
 
@@ -58,8 +60,6 @@ public class UserChatBotAction extends Action{
         String formattedDate = today.format(formatter);
 
 		//ビジネスロジック 4
-        System.out.println(answer_st);
-        System.out.println(question_st);
 
         //一覧テーブルが無かったら追加
         if (questionList == null && answerList == null){
@@ -70,18 +70,28 @@ public class UserChatBotAction extends Action{
         }
 
         //質問と回答内容の記録
-        if (answer_st != null && question_st != null){
+        if(answer_st != null && question_st != null && chatList == null){
+        	List<List<Integer>> chatListNew = new ArrayList<>();
         	question = Integer.parseInt(question_st);	//Int型に変換
             answer = Integer.parseInt(answer_st);		//Int型に変換
             chatSubList.add(question);
             chatSubList.add(answer);
+            chatListNew.add(chatSubList);
+            session.setAttribute("chatList", chatListNew);
+        }
+        else if (answer_st != null && question_st != null){
+        	question = Integer.parseInt(question_st);	//Int型に変換
+            answer = Integer.parseInt(answer_st);		//Int型に変換
+            chatSubList.add(question);
+            chatSubList.add(answer);
+            System.out.println(chatList);
             chatList.add(chatSubList);
             session.setAttribute("chatList", chatList);
         }
 
 
         //チャット履歴の取得
-        if (logList == null){
+        if (logList == null && answer != null && question != null){
         	logList = cDao.getChat(staff, formattedDate);
         	session.setAttribute("logList", logList);
         }
@@ -95,11 +105,10 @@ public class UserChatBotAction extends Action{
         	logList.add(chat);
         	session.setAttribute("logList", logList);
         }
+
         System.out.println(logList);
-        System.out.println(logList.size());
 
-
-        if(logList.size() < 8 && logList != null){	//質問の上限に達しているかどうか
+        if(logList != null && logList.size() < 8){	//質問の上限に達しているかどうか
 	        // que_textだけを抽出
 	        question_log = logList.stream()
 	                        .map(Chat::getQue_text) // getQue_textメソッドを使用して質問を取得
@@ -131,6 +140,7 @@ public class UserChatBotAction extends Action{
         	session.removeAttribute("logList"); //セッションの初期化
         	session.removeAttribute("chatList");
         	session.removeAttribute("questionList");
+        	session.removeAttribute("answerList");
 
         }
         else {	//初回だった場合
@@ -142,7 +152,7 @@ public class UserChatBotAction extends Action{
 		//なし
 
 		//レスポンス値をセット 6
-        System.out.print("Actionは大丈夫");
+        System.out.println("Actionは大丈夫");
         req.setAttribute("question_list", question_log);	//今までの質問
         req.setAttribute("answer_list", answer_log);		//今までの回答
         req.setAttribute("question", question_new);		//次に渡される質問

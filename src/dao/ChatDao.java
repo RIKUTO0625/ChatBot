@@ -186,65 +186,57 @@ public class ChatDao extends Dao {
 
 
 	// 質問別、履歴取得
-    public boolean setChat(Staff staff, List<List<Integer>> chat_list) throws Exception{
+	public boolean setChat(Staff staff, List<List<Integer>> chat_list) throws Exception {
+	    Connection conn = null;
+	    PreparedStatement stmt = null;
 
-    	Connection conn = null;
-    	PreparedStatement stmt = null;
+	    String sql = "INSERT INTO chat (que_no, ans_no, date, ad_cd, staff_id) VALUES (?, ?, now()::date, ?, ?);";
 
-    	String sql = "INSERT INTO chat (que_no, ans_no, date, ad_cd, staff_id)VALUES (?, ?, now()::date, ?, ?);";
-
-        conn = getConnection();
+	    conn = getConnection();
 	    stmt = conn.prepareStatement(sql);
 
-		// 実行件数
-		int count = 0;
+	    // 実行件数
+	    int count = 0;
 
-		try {
+	    try {
+	        // chat_list の各ペアをループで処理
+	        for (List<Integer> pair : chat_list) {
+	            if (pair.size() < 2) {
+	                // データが不正な場合はスキップ（必要に応じて例外を投げる処理も可能）
+	                continue;
+	            }
 
-			for(int i = 0; i < 8;i++){
+	            stmt.setInt(1, pair.get(0)); // que_no
+	            stmt.setInt(2, pair.get(1)); // ans_no
+	            stmt.setString(3, staff.getAdmin().getAd_cd()); // ad_cd
+	            stmt.setString(4, staff.getStaff_id()); // staff_id
 
-			    stmt.setInt(1, chat_list.get(0).get(i));
-			    stmt.setInt(2, chat_list.get(1).get(i));
-			    stmt.setString(3, staff.getAdmin().getAd_cd());
-			    stmt.setString(4, staff.getStaff_id());
+	            // プリペアードステートメントを実行
+	            count += stmt.executeUpdate();
+	        }
+	    } catch (Exception e) {
+	        throw e;
+	    } finally {
+	        // リソースのクローズ処理
+	        if (stmt != null) {
+	            try {
+	                stmt.close();
+	            } catch (SQLException sqle) {
+	                throw sqle;
+	            }
+	        }
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException sqle) {
+	                throw sqle;
+	            }
+	        }
+	    }
 
-				//プリペアードステートメントを実行
-				count = stmt.executeUpdate ();
+	    return count > 0; // 実行件数が1件以上の場合は true を返す
+	}
 
-			}
-
-		}catch(Exception e) {
-				throw e;
-		}finally {
-
-			// プリペアードステートメントを閉じる
-			if (stmt != null) {
-				try {
-					stmt. close ();
-				}catch (SQLException sqle) {
-					throw sqle;
-				}
-			}
-			//コネクションを閉じる
-			if (conn != null) {
-				try {
-					conn.close ();
-				}catch (SQLException sqle) {
-					throw sqle;
-				}
-			}
-		}
-
-		if (count > 0) {
-			//実行件数が1件以上ある場合
-			return true;
-		}else{
-		    //実行件数が0件の場合
-		    return false;
-		}
-
-
-    }
 
     public List<String> getQueTextList() throws Exception {
         // 返却用のリストを初期化
