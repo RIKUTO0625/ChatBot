@@ -230,16 +230,12 @@ flex-flow: column;
 	width :auto;
 	margin-right: 50px;
 }
-
-
-
 .anai{
 	margin-top:100px;
 	font-size: 20px;
 }
 
 .TEL img{
-
 	height: 100px; /* 高さを調整 */
     width: 100px;  /* 幅を高さと同じに */
     border-radius: 50%; /* 丸く表示 */
