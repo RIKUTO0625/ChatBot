@@ -183,6 +183,84 @@ public class ChatDao extends Dao {
 	    return sumList;
 	}
 
+	public List<List<Integer>> getHisMonth(Staff staff, int year, int month) throws Exception {
+
+	    // 質問ごとの回答数を格納するリスト
+	    List<List<Integer>> sumList = new ArrayList<>();
+
+
+    	Connection conn = null;
+    	PreparedStatement stmt = null;
+	    ResultSet rs = null;
+
+	    // 8つの質問を初期化（質問数が固定の場合）
+	    for (int i = 0; i < 8; i++) {
+	        List<Integer> queList = new ArrayList<>();
+	        // 5つの回答の初期値を0に設定
+	        for (int j = 0; j < 5; j++) {
+	            queList.add(0);
+	        }
+	        sumList.add(queList);
+	    }
+
+	    // SQLクエリ
+	    String sql =
+	        "SELECT " +
+	            "q.que_no, a.ans_no, COUNT(c.chat_no) AS total_answers " +
+	        "FROM " +
+	            "staff s " +
+	        "CROSS JOIN " +
+	            "question q " +
+	        "CROSS JOIN " +
+	            "answer a " +
+	        "LEFT JOIN " +
+	            "chat c ON s.staff_id = c.staff_id " +
+	            "AND q.que_no = c.que_no " +
+	            "AND a.ans_no = c.ans_no " +
+	        "WHERE s.staff_id = ? " +
+	        	"AND AND EXTRACT(YEAR FROM c.date) = ? " +
+	        	"AND EXTRACT(MONTH FROM c.date) = ? " +
+	        "GROUP BY q.que_no, a.ans_no " +
+	        "ORDER BY q.que_no, a.ans_no";
+
+	    try {
+
+	        conn = getConnection();
+	        stmt = conn.prepareStatement(sql);
+	        // プレースホルダーに値を設定
+	        stmt.setString(1, staff.getStaff_id());  // スタッフID
+	        stmt.setInt(2, year);  // 年
+	        stmt.setInt(2, month);  // 月
+	        // クエリを実行
+	        rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int queNo = rs.getInt("que_no");
+                int ansNo = rs.getInt("ans_no");
+                int totalAnswers = rs.getInt("total_answers");
+
+                // 質問番号と回答番号に対応するリスト要素を更新
+                if (queNo >= 1 && queNo <= 8 && ansNo >= 1 && ansNo <= 5) {
+                    sumList.get(queNo - 1).set(ansNo - 1, totalAnswers);
+                }
+            }
+
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new Exception("Error while retrieving chat data.", e);
+	    }finally {
+	        if (rs != null) {
+	            try {
+	                rs.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return sumList;
+	}
 
 
 	// 質問別、履歴取得

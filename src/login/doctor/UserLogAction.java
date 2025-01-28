@@ -24,13 +24,14 @@ public class UserLogAction extends Action{
 		HttpSession session = req.getSession();//セッション
 		StaffDao sDao = new StaffDao();
 		ChatDao cDao = new ChatDao();
-		Integer year;	//年
+		Integer year = null;	//年
+		Integer month = null;	//月
 		Staff staff;	//職員情報
 		List<List<Integer>>staff_log = new ArrayList<>();	//質問の履歴リスト
 
 		//リクエストパラメータ―の取得 2
 		String years = req.getParameter("year");
-		String month = req.getParameter("month");
+		String months = req.getParameter("month");
 		String staff_id = req.getParameter("no");
 		String staff_pw = req.getParameter("pw");
 
@@ -44,14 +45,23 @@ public class UserLogAction extends Action{
 			staff = (Staff)session.getAttribute("staff");// 職員情報を取得
 		}
 
-		if(years != null){
+		if(years != null){	//年をINT型に変更
 			year = Integer.parseInt(years);
 		}
 		else {
 			year = Year.now().getValue();
 		}
 
-		staff_log = cDao.getHis(staff, year);
+		if(months != null){	//月をINT型に変更
+			month = Integer.parseInt(months);
+		}
+
+		if(months == null){
+			staff_log = cDao.getHis(staff, year);
+		}
+		else{
+			staff_log = cDao.getHisMonth(staff, year, month);
+		}
 		System.out.println(staff_log);
 
 
