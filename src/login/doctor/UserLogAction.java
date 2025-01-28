@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -93,9 +94,26 @@ public class UserLogAction extends Action{
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6
-		req.setAttribute("staffLog", staff_log);
-        req.setAttribute("name", staff.getStaff_name());
+        // staff_log の内容をチェックしてエラーメッセージを設定
+     // Java 9以降の List.of を Java 8 以下の環境に対応させる
+        boolean isError = true;
+        for (List<Integer> sublist : staff_log) {
+            if (!sublist.equals(Arrays.asList(0, 0, 0, 0, 0))) {
+                isError = false; // 1つでも異なるサブリストがあればエラーではない
+                break;
+            }
+        }
+
+        // エラーメッセージの設定
+        if (isError) {
+            req.setAttribute("errorMessage", "データはまだありません");
+        } else {
+            req.setAttribute("staffLog", staff_log);
+            req.setAttribute("name", staff.getStaff_name());
+        }
+
 		//JSPへフォワード 7
+        System.out.println(staff_log);
 		req.getRequestDispatcher("user_log.jsp").forward(req, res);
 	}
 }

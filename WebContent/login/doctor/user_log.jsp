@@ -9,6 +9,11 @@
 
 <div class="content1">
     <h2 class="c-title">統計グラフ一覧</h2>
+    <c:if test="${not empty errorMessage}">
+	    <div class="error-message">
+	        <p>${errorMessage}<p>
+	    </div>
+	</c:if>
 
 	<div class="search">
 	    <form action="UserLog.action" method="post">
@@ -26,9 +31,10 @@
 		        %>
 		    </select>
 		    <button type="submit" class="custom-button">検索</button>
-
 		</form>
 	</div>
+
+	<c:if test="${empty errorMessage}">
 
    	    <div class="answer_box1">
         	<div class="answer_title" id="answer1">
@@ -263,6 +269,7 @@
 	    </div>
 
 	    </div>
+	    </c:if>
 	</div>
 </c:param>
 </c:import>

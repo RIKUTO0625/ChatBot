@@ -233,5 +233,14 @@
     text-align: center; /* タイトルを中央揃え */
 }
 
+.error-message{
+    font-size: 20px;        /* 文字の大きさ */
+    text-align: center;     /* 文字を中央揃え */
+    color: red;             /* 文字色を赤に設定 */
+    background-color: #f8d7da;  /* 背景色を薄い赤に設定（エラーメッセージ用） */
+    padding: 10px;          /* 少し余白を加える */
+    border-radius: 5px;     /* 角を丸くする */
+    font-weight: bold;      /* 太字にする */
+}
 
 
