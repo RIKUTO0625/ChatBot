@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -82,8 +83,21 @@ public class StaffLogAction extends Action{
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6
-		req.setAttribute("staffLog", staff_log);
-        req.setAttribute("name", staff.getStaff_name());
+        boolean isError = true;
+        for (List<Integer> sublist : staff_log) {
+            if (!sublist.equals(Arrays.asList(0, 0, 0, 0, 0))) {
+                isError = false; // 1つでも異なるサブリストがあればエラーではない
+                break;
+            }
+        }
+
+        // エラーメッセージの設定
+        if (isError) {
+            req.setAttribute("errorMessage", "データはまだありません");
+        } else {
+            req.setAttribute("staffLog", staff_log);
+            req.setAttribute("name", staff.getStaff_name());
+        }
 		//JSPへフォワード 7
 		req.getRequestDispatcher("staff_log.jsp").forward(req, res);
 	}
