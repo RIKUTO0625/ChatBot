@@ -230,7 +230,7 @@ public class ChatDao extends Dao {
 	        // プレースホルダーに値を設定
 	        stmt.setString(1, staff.getStaff_id());  // スタッフID
 	        stmt.setInt(2, year);  // 年
-	        stmt.setInt(2, month);  // 月
+	        stmt.setInt(3, month);  // 月
 	        // クエリを実行
 	        rs = stmt.executeQuery();
 
