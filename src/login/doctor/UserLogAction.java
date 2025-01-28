@@ -52,11 +52,11 @@ public class UserLogAction extends Action{
 			year = Year.now().getValue();
 		}
 
-		if(months != null || months != "0"){	//月をINT型に変更
+		if(months != null ){	//月をINT型に変更
 			month = Integer.parseInt(months);
 		}
 
-		if(months == null || months == "0"){
+		if(months == null ){
 			staff_log = cDao.getHis(staff, year);
 		}
 		else{
