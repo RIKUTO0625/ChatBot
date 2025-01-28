@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotheader.png?raw=true"
-    alt="chatbot" width=262.5 height=54  style="margin-right: 10px; margin-top: 20px;">
+    alt="chatbot" width=240 height=90  style="margin-right: 10px; margin-top: 20px;">
     <div style="display: flex; align-items: center;">
         <a href="homepage.jsp" class=image><img class=image
         src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"

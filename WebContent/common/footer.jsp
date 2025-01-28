@@ -6,8 +6,9 @@
 <div class = "footer">
 	<p>
 	<a href="http://localhost:8080/chatbot/login/homepage.jsp">
-	<img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotfooter.png?raw=true" alt="チャットボットのタイトル">
+	<img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotfooter.png?raw=true"
+	    alt="チャットボットのタイトル"width="190" height="75" style="margin-right: 10px;">
 	</a>
-	<br>Ⓒ2024 chatbot</p>
+	<br>Ⓒ2024 Mental Monitor</p>
 
 </div>

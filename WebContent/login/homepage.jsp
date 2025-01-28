@@ -16,7 +16,7 @@
 			<div class="tatecon">
 
 			<div class="chatbot">
-			<img src="../image/chatbot.png" alt="チャットボット" style="margin-right: 10px;">
+			<img src="../image/chatbot.png" alt="チャットボットのタイトル"width=360 height=75 style="margin-right: 10px;">
 			</div>
 			<div class="chatbun">
 			<h3>月額定期購入サービスで<br>社員のメンタルヘルスケアをこれ一つで</h3>

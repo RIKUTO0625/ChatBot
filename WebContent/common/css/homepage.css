@@ -13,6 +13,7 @@ text-align: center; /* テキストや画像を中央揃え */
 .chatbun{
 text-align: center; /* テキストや画像を中央揃え */
 font-size: 25px;
+margin-top: 30px;
 }
 
 .hoge-top{

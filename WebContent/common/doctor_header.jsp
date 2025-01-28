@@ -3,7 +3,7 @@
 <link href="css/style.css" rel="stylesheet">
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/chatbotheader.png?raw=true"
-    alt="chatbot" width=262.5 height=54  style="margin-right: 10px;">
+    alt="chatbot" width=240 height=90  style="margin-right: 10px;">
     <div style="display: flex; align-items: center;">
     	<h2><span>user:${dc_name}</span></h2>
     	<div class="images">
