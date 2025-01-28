@@ -218,7 +218,7 @@ public class ChatDao extends Dao {
 	            "AND q.que_no = c.que_no " +
 	            "AND a.ans_no = c.ans_no " +
 	        "WHERE s.staff_id = ? " +
-	        	"AND AND EXTRACT(YEAR FROM c.date) = ? " +
+	        	"AND EXTRACT(YEAR FROM c.date) = ? " +
 	        	"AND EXTRACT(MONTH FROM c.date) = ? " +
 	        "GROUP BY q.que_no, a.ans_no " +
 	        "ORDER BY q.que_no, a.ans_no";
