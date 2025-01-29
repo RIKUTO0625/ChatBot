@@ -150,9 +150,6 @@ haibutton{
 
 .inline-block2{
 	width: 23%;
-	white-space: nowrap; /* テキストの折り返しを防止 */
-    overflow: hidden; /* 内容がはみ出す場合に隠す */
-    text-overflow: ellipsis;  /*内容がはみ出す場合、末尾に「...」を表示 */
     margin-right:3px;
 
 }
