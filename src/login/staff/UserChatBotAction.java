@@ -91,7 +91,7 @@ public class UserChatBotAction extends Action{
 
 
         //チャット履歴の取得
-        if (logList == null && answer != null && question != null){
+        if (logList == null){
         	logList = cDao.getChat(staff, formattedDate);
         	session.setAttribute("logList", logList);
         }
@@ -107,46 +107,51 @@ public class UserChatBotAction extends Action{
         }
 
         System.out.println(logList);
+        if(logList != null){
+	        if(logList.size() != 0 && logList.size() < questionList.size()){	//質問の上限に達しているかどうか
+		        // que_textだけを抽出
+		        question_log = logList.stream()
+		                        .map(Chat::getQue_text) // getQue_textメソッドを使用して質問を取得
+		                        .collect(Collectors.toList()); // リストに収集
 
-        if(logList != null && logList.size() < 8){	//質問の上限に達しているかどうか
-	        // que_textだけを抽出
-	        question_log = logList.stream()
-	                        .map(Chat::getQue_text) // getQue_textメソッドを使用して質問を取得
-	                        .collect(Collectors.toList()); // リストに収集
+		        // ans_textだけを抽出
+		        answer_log = logList.stream()
+		                      .map(Chat::getAns_text) // getAns_textメソッドを使用して解答を取得
+		                      .collect(Collectors.toList()); // リストに収集
 
-	        // ans_textだけを抽出
-	        answer_log = logList.stream()
-	                      .map(Chat::getAns_text) // getAns_textメソッドを使用して解答を取得
-	                      .collect(Collectors.toList()); // リストに収集
+		        System.out.println("通過");
 
-	        System.out.println("通過");
+		        qu_id = logList.size()+1;
+		        question_new = questionList.get(qu_id-1);
+	        	}
+	        else if(logList.size() != 0){
+	            // que_noだけを抽出
+	  	        question_log = logList.stream()
+	   	                        .map(Chat::getQue_text) // getQue_noメソッドを使用して質問を取得
+	   	                        .collect(Collectors.toList()); // リストに収集
+	            // ans_noだけを抽出
+	   	        answer_log = logList.stream()
+	                         .map(Chat::getAns_text) // getAns_noメソッドを使用して解答を取得
+	   	                     .collect(Collectors.toList()); // リストに収集
 
-	        qu_id = logList.size()+1;
-	        question_new = questionList.get(qu_id-1);
-        	}
-        else if(logList != null){
-            // que_noだけを抽出
-  	        question_log = logList.stream()
-   	                        .map(Chat::getQue_text) // getQue_noメソッドを使用して質問を取得
-   	                        .collect(Collectors.toList()); // リストに収集
-            // ans_noだけを抽出
-   	        answer_log = logList.stream()
-                         .map(Chat::getAns_text) // getAns_noメソッドを使用して解答を取得
-   	                     .collect(Collectors.toList()); // リストに収集
+	        	qu_id = 9;
+	        	question_new = "以上で質問は終わりとなりますお疲れさまでした";
+	        	cDao.setChat(staff, chatList);		//チャットの記録
+	        	session.removeAttribute("logList"); //セッションの初期化
+	        	session.removeAttribute("chatList");
+	        	session.removeAttribute("questionList");
+	        	session.removeAttribute("answerList");
 
-        	qu_id = 9;
-        	question_new = "以上で質問は終わりとなりますお疲れさまでした";
-        	cDao.setChat(staff, chatList);		//チャットの記録
-        	session.removeAttribute("logList"); //セッションの初期化
-        	session.removeAttribute("chatList");
-        	session.removeAttribute("questionList");
-        	session.removeAttribute("answerList");
+	        }
+	        else {	//初回だった場合
+	        	qu_id = 1;
+	        	question_new = questionList.get(qu_id-1);
 
+	        }
         }
         else {	//初回だった場合
         	qu_id = 1;
         	question_new = questionList.get(qu_id-1);
-
         }
 		//DBへデータ保存 5
 		//なし
