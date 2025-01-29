@@ -3,9 +3,9 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="/common/doctor_base.jsp">
-<c:param name="title">
-利用者一覧
-</c:param>
+	<c:param name="title">
+	利用者一覧
+	</c:param>
 
 	<c:param name="scripts">
 		<link href="../../common/css/login.css" rel="stylesheet">
