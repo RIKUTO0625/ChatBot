@@ -22,25 +22,36 @@ public class StaffLogAction extends Action{
 		//ローカル変数の宣言 1
 		HttpSession session = req.getSession();//セッション
 		ChatDao cDao = new ChatDao();
-		Integer year;	//年
+		Integer year = null;	//年
+		Integer month = null;	//月
 		Staff staff = (Staff) session.getAttribute("user");
 		List<List<Integer>>staff_log = new ArrayList<>();	//質問の履歴リスト
 
 		//リクエストパラメータ―の取得 2
 		String years = req.getParameter("year");
-		String month = req.getParameter("month");
+		String months = req.getParameter("month");
 
 		//DBからデータ取得 3
 
-
-		if(years != null){
+		if(years != null){	//年をINT型に変更
 			year = Integer.parseInt(years);
 		}
 		else {
 			year = Year.now().getValue();
 		}
+		System.out.println(months);
+		if(months != null ){	//月をINT型に変更
+			if(!months.equals("なし")){
+				month = Integer.parseInt(months);
+			}
+		}
 
-		staff_log = cDao.getHis(staff, year);
+		if(months == null || months.equals("なし")){
+			staff_log = cDao.getHis(staff, year);
+		}
+		else{
+			staff_log = cDao.getHisMonth(staff, year, month);
+		}
 		System.out.println(staff_log);
 
 
@@ -83,6 +94,8 @@ public class StaffLogAction extends Action{
 		//DBへデータ保存 5
 		//なし
 		//レスポンス値をセット 6
+        // staff_log の内容をチェックしてエラーメッセージを設定
+     // Java 9以降の List.of を Java 8 以下の環境に対応させる
         boolean isError = true;
         for (List<Integer> sublist : staff_log) {
             if (!sublist.equals(Arrays.asList(0, 0, 0, 0, 0))) {
@@ -98,7 +111,9 @@ public class StaffLogAction extends Action{
             req.setAttribute("staffLog", staff_log);
             req.setAttribute("name", staff.getStaff_name());
         }
+
 		//JSPへフォワード 7
+        System.out.println(staff_log);
 		req.getRequestDispatcher("staff_log.jsp").forward(req, res);
 	}
 }
