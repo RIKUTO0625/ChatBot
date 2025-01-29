@@ -33,7 +33,7 @@
 
 		    <label for="monthSelect">月を選択してください:</label>
 	        <select name="month" id="monthSelect">
-	            <option>なし</option>  <!-- なしの選択肢 -->
+	            <option value="なし">なし</option>  <!-- なしの選択肢 -->
 	            <%
 	                // 1から12までの月を生成
 	                for (int i = 1; i <= 12; i++) {
