@@ -1,28 +1,26 @@
 <%-- 医者アカウント削除完了画面 jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<c:import url="/common/doctor_base.jsp">
+	<c:param name="title">
+	医者アカウント削除完了
+	</c:param>
 
-<title>医者アカウント削除完了</title>
-<link href="../../common/css/login.css" rel="stylesheet">
-</head>
+	<c:param name="scripts">
+		<link href="../../common/css/login.css" rel="stylesheet">
+	</c:param>
 
-<body>
-
+	<c:param name="content">
 		<div class="midasi">
-		<h2>医者アカウント削除完了</h2>
-		<p>${dc_name}を削除しました</p>
+			<h2>医者アカウント削除完了</h2>
+			<p>${dc_name}を削除しました</p>
 		</div>
 		<div class="button">
-		<font size="10">
-		<a href="ViewDoctor.action">HOME</a>
-		</font>
+			<font size="10">
+				<a href="ViewDoctor.action">HOME</a>
+			</font>
 		</div>
-
-</body>
-
-</html>
+	</c:param>
+</c:import>
