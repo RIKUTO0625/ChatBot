@@ -6,12 +6,16 @@
 <c:param name="title">
 利用者一覧
 </c:param>
-<c:param name="scripts"><link href="../../common/css/login.css" rel="stylesheet"></c:param>
-<c:param name="content">
-<div class="midasi">
-<h1>利用者一覧</h1>
-   <h2>User：${search_conditions}</h2>
-</div>
 
-</c:param>
+	<c:param name="scripts">
+		<link href="../../common/css/login.css" rel="stylesheet">
+	</c:param>
+
+	<c:param name="content">
+		<div class="midasi">
+		<h1>利用者一覧</h1>
+		   <h2>User：${search_conditions}</h2>
+		</div>
+	</c:param>
+
 </c:import>
