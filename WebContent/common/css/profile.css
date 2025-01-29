@@ -226,6 +226,5 @@
 }
 
 .content2 {
-
-
+    padding-bottom: 400px; /* フッターの高さ分の余白を確保 */
 }
