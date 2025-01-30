@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:import url="/common/admin_base.jsp">
-<c:param name="title">アカウント新規作成（医師）</c:param>
-<c:param name="scripts">
+<html>
+<head>
+<title>アカウント新規作成（医師）</title>
 <link href="../../common/css/create.css" rel="stylesheet">
-</c:param>
-<c:param name="content">
+</head>
+
+<body>
 <div class="midasi">
     <h2>アカウント新規作成（医師）</h2>
 </div>
@@ -66,5 +67,5 @@
     </div>
 </div>
 </form>
-</c:param>
-</c:import>
+</body>
+</html>

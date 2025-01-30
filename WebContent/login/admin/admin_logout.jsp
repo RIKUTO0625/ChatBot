@@ -19,7 +19,7 @@
         </div>
 
         <div class="iiebutton">
-        <a class="logout" href="" onclick="history.back()">いいえ</a>
+        <a class="logout" href="Member.action" >いいえ</a>
 		</div>
 		</div>
     </div>
