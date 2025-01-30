@@ -55,6 +55,8 @@ public class UserChatBotAction extends Action{
 
 		//DBからデータ取得 3
 
+
+
         // 今日の日付を取得
         LocalDate today = LocalDate.now();
         // 日付フォーマットの定義 (例: yyyy-MM-dd)
@@ -63,6 +65,13 @@ public class UserChatBotAction extends Action{
         String formattedDate = today.format(formatter);
 
 		//ビジネスロジック 4
+
+        if(answer_st == null && question_st == null){
+        	session.removeAttribute("logList"); //セッションの初期化
+        	session.removeAttribute("chatList");
+        	session.removeAttribute("questionList");
+        	session.removeAttribute("answerList");
+        }
 
         //一覧テーブルが無かったら追加
         if (questionList == null && answerList == null){
@@ -92,7 +101,6 @@ public class UserChatBotAction extends Action{
             session.setAttribute("chatList", chatList);
         }
 
-
         //チャット履歴の取得
         if (logList == null){
         	logList = cDao.getChat(staff, formattedDate);
@@ -111,7 +119,7 @@ public class UserChatBotAction extends Action{
 
         System.out.println(logList);
 
-        if(isTrue){
+        if(isTrue){	//終了ボタンを押された場合
 
         	cDao.setChat(staff, chatList);		//チャットの記録
         	session.removeAttribute("logList"); //セッションの初期化
