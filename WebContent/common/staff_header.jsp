@@ -26,7 +26,7 @@
 		  <nav class="nav">
 		    <ul>
 		      <li><a href="StaffProfile.action">マイページ</a></li>
-		      <li><a href="UserChatBot.action">チャットボット</a></li>
+		      <li><a href="UserChatBot.action">メンタルチェック</a></li>
 		      <li><a href="StaffLog.action">履歴</a></li>
 
 		      <li class=footer-menu>
