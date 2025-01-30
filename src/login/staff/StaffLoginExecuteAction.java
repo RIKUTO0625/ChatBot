@@ -34,6 +34,7 @@ public class StaffLoginExecuteAction extends Action{
 
 			//Sessionを有効にする
 			HttpSession session = req.getSession(true);
+			session.removeAttribute("user");
 			//セッションに"user"という変数名で値はStaff変数の中身
 			session.setAttribute("user", staff);
 			//リダイレクト

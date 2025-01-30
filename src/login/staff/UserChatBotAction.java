@@ -34,6 +34,8 @@ public class UserChatBotAction extends Action{
         Integer qu_id;		//次の質問のID
         Integer question = null;	//質問
         Integer answer = null;		//回答
+
+
         //チャットのリスト（session）
 		List<List<Integer>> chatList = (List<List<Integer>>) session.getAttribute("chatList");
 		List<String> questionList = (List<String>) session.getAttribute("questionList");	//質問の一覧テーブル(session)
@@ -44,7 +46,8 @@ public class UserChatBotAction extends Action{
         Staff staff = (Staff) session.getAttribute("user");
 
 		//リクエストパラメータ―の取得 2
-
+        String flag = req.getParameter("flag");
+        boolean isTrue = "true".equals(flag);
         String question_st = req.getParameter("qu_id");	//質問
         String answer_st = req.getParameter("answer");	//回答
         System.out.println(question_st);
@@ -107,6 +110,20 @@ public class UserChatBotAction extends Action{
         }
 
         System.out.println(logList);
+
+        if(isTrue){
+
+        	cDao.setChat(staff, chatList);		//チャットの記録
+        	session.removeAttribute("logList"); //セッションの初期化
+        	session.removeAttribute("chatList");
+        	session.removeAttribute("questionList");
+        	session.removeAttribute("answerList");
+        	req.getRequestDispatcher("StaffProfile.action").forward(req, res);
+
+        }
+
+
+
         if(logList != null){
 	        if(logList.size() != 0 && logList.size() < questionList.size()){	//質問の上限に達しているかどうか
 		        // que_textだけを抽出
