@@ -2,17 +2,11 @@
 	pageEncoding="UTF-8"%>
 <!-- 上記はJSPの基本設定です。ページの言語はJava、文字エンコーディングはUTF-8で設定し、
      JSTLのcoreライブラリ（cタグ）を使用できるようにしています -->
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:import url="/common/admin_base.jsp">
-	<c:param name="title">
-	アカウント新規作成(組織)
-	</c:param>
-
-	<c:param name="scripts">
-		<link href="../../common/css/create.css" rel="stylesheet">
-	</c:param>
-
-	<c:param name="content">
+<html>
+<head>
+	<title>アカウント新規作成(組織)</title>
+	<link href="../../common/css/login.css" rel="stylesheet">
+</head>
 
 		<div class="midasi">
 			<h2>アカウント新規作成（組織）</h2>
@@ -37,5 +31,5 @@
 				</a>
 			</div>
 		</form>
-	</c:param>
-</c:import>
+</body>
+</html>
