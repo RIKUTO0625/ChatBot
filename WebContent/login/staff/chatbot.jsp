@@ -59,7 +59,7 @@
                 </div>
             </form>
         </c:if>
-        <form action="UserChatBot.action" method="post">
+        <form action="UserChatBot.action" method="post"class="my-form-class">
 		    <input type="hidden" name="flag" value="true">
 		    <input type="submit" value="終了">
 		</form>

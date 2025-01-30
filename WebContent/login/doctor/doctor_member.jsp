@@ -12,51 +12,53 @@
 	</c:param>
 
 	<c:param name="content">
-		<div class="midasi">
-			<h2>医者アカウント管理</h2>
-		</div>
-		<form action="CreateDoctor.action" method="post">
-			<div class="button">
-				<div class="right">
-					<input type="submit" value="新規作成">
-				</div>
-			</div>
-		</form>
-
-		<c:choose>
-			<%-- 誰も登録していない(0人) --%>
-
-			<c:when test="${empty doctorList}">
+		<div class="content2">
 			<div class="midasi">
-				<p>誰も登録されていません！</p>
+				<h2>医者アカウント管理</h2>
+			</div>
+			<form action="CreateDoctor.action" method="post">
+				<div class="button">
+					<div class="right">
+						<input type="submit" value="新規作成">
+					</div>
 				</div>
-			</c:when>
+			</form>
 
-			<%-- 1人以上登録されている --%>
+			<c:choose>
+				<%-- 誰も登録していない(0人) --%>
 
-			<c:when test="${not empty doctorList}">
-				<c:forEach var="doctor" items="${doctorList}">
-					<form action="DeleteDoctor.action" method="post">
-						<div class="admen3">
-							<div class="inline-block2">
-								<p>病院：${doctor.dc_belong}</p>
-							</div>
-							<div class="inline-block2">
-								<p>診療科目:${doctor.dc_dept}</p>
-							</div>
-							<div class="inline-block2">
-								<p>名前：${doctor.dc_name}</p>
-							</div>
-							<input type="hidden" name="password" value="${doctor.dc_pw}">
+				<c:when test="${empty doctorList}">
+				<div class="midasi">
+					<p>誰も登録されていません！</p>
+					</div>
+				</c:when>
 
-							<div class="button">
-								<input type="submit" value="削除">
-							</div>
-						</div>
-					</form>
-				</c:forEach>
-			</c:when>
+				<%-- 1人以上登録されている --%>
 
-		</c:choose>
+				<c:when test="${not empty doctorList}">
+					<c:forEach var="doctor" items="${doctorList}">
+						<form action="DeleteDoctor.action" method="post">
+							<div class="admen3">
+								<div class="inline-block2">
+									<p>病院：${doctor.dc_belong}</p>
+								</div>
+								<div class="inline-block2">
+									<p>診療科目:${doctor.dc_dept}</p>
+								</div>
+								<div class="inline-block2">
+									<p>名前：${doctor.dc_name}</p>
+								</div>
+								<input type="hidden" name="password" value="${doctor.dc_pw}">
+
+								<div class="button">
+									<input type="submit" value="削除">
+								</div>
+							</div>
+						</form>
+					</c:forEach>
+				</c:when>
+
+			</c:choose>
+		</div>
 	</c:param>
 </c:import>

@@ -259,11 +259,11 @@ haibutton{
 }
 
 .content {
-    padding-bottom: 90px; /* フッターの高さ分の余白を確保 */
+    margin-bottom: 200px; /* フッターの高さ分の余白を確保 */
 }
 
 .content2 {
-    padding-bottom:600px; /* フッターの高さ分の余白を確保 */
+    padding-bottom:150px; /* フッターの高さ分の余白を確保 */
 }
 
 .pagenation li {
