@@ -110,8 +110,33 @@
 
 					<!-- 画像 -->
 					<div class="pf-graff">
-						<img src="../../image/garff.png" alt="Gear Icon">
+					    <c:choose>
+						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 0}">
+						        <img src="../../image/garff_0.png" alt="Answer 0">
+						    </c:when>
+						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 1}">
+						        <img src="../../image/garff_1.png" alt="Answer 1">
+						    </c:when>
+						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 2}">
+						        <img src="../../image/garff_2.png" alt="Answer 2">
+						    </c:when>
+						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 3}">
+						        <img src="../../image/garff_3.png" alt="Answer 3">
+						    </c:when>
+						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 4}">
+						        <img src="../../image/garff_4.png" alt="Answer 4">
+						    </c:when>
+						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 5}">
+						        <img src="../../image/garff_5.png" alt="Answer 5">
+						    </c:when>
+						    <c:otherwise>
+						        <img src="../../image/garff_default.png" alt="Default Answer">
+						    </c:otherwise>
+						</c:choose>
+
 					</div>
+
+
 				</div>
 
 				<!-- 備考詳細 -->

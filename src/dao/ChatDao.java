@@ -262,6 +262,74 @@ public class ChatDao extends Dao {
 	    return sumList;
 	}
 
+	//当日の回答1
+	public List<Integer> getHisDayQue1(Staff staff, int year, int month, int day) throws Exception {
+	    List<Integer> selectedAnswers = new ArrayList<>(); // 選ばれたANS_NOを格納するリスト
+
+	    Connection conn = null;
+	    PreparedStatement stmt = null;
+	    ResultSet rs = null;
+
+	    // SQLクエリ：CHATテーブルからQUE_NO=1のデータを取得
+	    String sql =
+	        "SELECT ans_no " +
+	        "FROM chat " +
+	        "WHERE staff_id = ? " +
+	        "AND EXTRACT(YEAR FROM date) = ? " +
+	        "AND EXTRACT(MONTH FROM date) = ? " +
+	        "AND EXTRACT(DAY FROM date) = ? " +
+	        "AND que_no = 1";  // QUE_NO = 1に限定
+
+	    try {
+	        conn = getConnection();
+	        stmt = conn.prepareStatement(sql);
+	        // プレースホルダーに値を設定
+	        stmt.setString(1, staff.getStaff_id()); // スタッフID
+	        stmt.setInt(2, year);  // 年
+	        stmt.setInt(3, month);  // 月
+	        stmt.setInt(4, day);  // 日
+	        // クエリを実行
+	        rs = stmt.executeQuery();
+
+	        // 結果セットからANS_NOを取得
+	        while (rs.next()) {
+	            int ansNo = rs.getInt("ans_no");
+	            selectedAnswers.add(ansNo); // 選ばれたANS_NOをリストに追加
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new Exception("Error while retrieving chat data.", e);
+	    } finally {
+	        if (rs != null) {
+	            try {
+	                rs.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (stmt != null) {
+	            try {
+	                stmt.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return selectedAnswers;  // 選ばれたANS_NOのリストを返す
+	}
+
+
+
+
 
 	// 質問別、履歴取得
 	public boolean setChat(Staff staff, List<List<Integer>> chat_list) throws Exception {
