@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="iiebutton">
-        <a class="logout" href="" onclick="history.back()">いいえ</a>
+        <a class="logout" href="User.action">いいえ</a>
 		</div>
 		</div>
 
