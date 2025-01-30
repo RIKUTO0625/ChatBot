@@ -202,10 +202,11 @@
 
 .pf-graff {
   display: flex; /* 子要素をフレックスボックスで配置 */
-  justify-content: center; /* 水平方向に中央寄せ */
+  flex-direction: column;  /* 縦方向にアイテムを並べる */
+  align-items: center;     /* 水平方向の中央揃え */
   overflow: hidden; /* 拡大時にはみ出さないように隠す */
-  height: 100%;
-  width: 50%;
+
+
 }
 
 .pf-graff img {
@@ -229,4 +230,58 @@
     padding-bottom: 400px; /* フッターの高さ分の余白を確保 */
 }
 
+.kibun p {
+	margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+    font-size: 30px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+}
+
+#kibun0 {
+    font-size: 20px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+    margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+}
+}
+
+#kibun1 {
+    color: green; /* 緑 */
+    font-size: 35px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+    margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+}
+
+#kibun2 {
+    color: limegreen; /* 黄緑 */
+    font-size: 35px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+    margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+}
+
+#kibun3 {
+    color: yellow; /* 黄色 */
+    font-size: 35px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+    margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+}
+
+#kibun4 {
+    color: orange; /* オレンジ */
+    font-size: 35px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+    margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+}
+
+#kibun5 {
+    color: red; /* 赤 */
+    font-size: 35px; /* フォントサイズを設定 */
+    font-weight: bold; /* フォントを太字にする */
+    margin-top: 0;  /* 上のマージンをなくす */
+	margin-bottom: 0;  /* 下のマージンをなくす */
+}
 

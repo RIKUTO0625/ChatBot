@@ -110,24 +110,33 @@
 
 					<!-- 画像 -->
 					<div class="pf-graff">
+					<div class="kibun">
+					<p>今日の気分</p>
+					</div>
 					    <c:choose>
 						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 0}">
-						        <img src="../../image/garff_0.png" alt="Answer 0">
+						        <img src="../../image/garff_0.png" alt="Answer 0" style="width: 300px; height: 300px;">
+						    	<p id="kibun0">今日はまだメンタルチェックを行っていません</p>
 						    </c:when>
 						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 1}">
-						        <img src="../../image/garff_1.png" alt="Answer 1">
-						    </c:when>
+							    <img src="../../image/garff_1.png" alt="Answer 1" style="width: 300px; height: 300px;">
+							    <p id="kibun1">最高!!</p>
+							</c:when>
 						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 2}">
-						        <img src="../../image/garff_2.png" alt="Answer 2">
+						        <img src="../../image/garff_2.png" alt="Answer 2" style="width: 300px; height: 300px;">
+						        <p id="kibun2">良好</p>
 						    </c:when>
 						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 3}">
-						        <img src="../../image/garff_3.png" alt="Answer 3">
+						        <img src="../../image/garff_3.png" alt="Answer 3" style="width: 300px; height: 300px;">
+						        <p id="kibun3">ふつう</p>
 						    </c:when>
 						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 4}">
-						        <img src="../../image/garff_4.png" alt="Answer 4">
+						        <img src="../../image/garff_4.png" alt="Answer 4" style="width: 300px; height: 300px;">
+						        <p id="kibun4">ダメかも</p>
 						    </c:when>
 						    <c:when test="${not empty selectedAnswers && selectedAnswers[0] == 5}">
-						        <img src="../../image/garff_5.png" alt="Answer 5">
+						        <img src="../../image/garff_5.png" alt="Answer 5" style="width: 300px; height: 300px;">
+						        <p id="kibun5">危険!!</p>
 						    </c:when>
 						    <c:otherwise>
 						        <img src="../../image/garff_default.png" alt="Default Answer">
