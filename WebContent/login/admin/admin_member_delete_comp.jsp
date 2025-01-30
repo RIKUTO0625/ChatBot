@@ -2,27 +2,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>組織メンバー削除完了</title>
-<link href="../../common/css/login.css" rel="stylesheet">
-</head>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:import url="/common/admin_base.jsp">
+	<c:param name="title">
+		組織メンバー削除完了
+	</c:param>
 
-<body>
-	<div>
-	<div class="midasi">
-		<h2>組織メンバー削除完了</h2>
-		<p>${staff_name}を削除しました</p>
-		</div>
+	<c:param name="scripts">
+		<link href="../../common/css/login.css" rel="stylesheet">
+	</c:param>
 
-		<!-- 組織メンバー一覧へ -->
-		<form action="Member.action" method="get">
-		<div class="button">
-			<input type="submit" value="一覧へ戻る">
+	<c:param name="content">
+		<div>
+			<div class="midasi">
+				<h2>組織メンバー削除完了</h2>
+				<p>${staff_name}を削除しました</p>
 			</div>
-		</form>
-	</div>
-</body>
 
-</html>
+			<!-- 組織メンバー一覧へ -->
+			<form action="Member.action" method="get">
+				<div class="button">
+					<input type="submit" value="一覧へ戻る">
+				</div>
+			</form>
+		</div>
+	</c:param>
+</c:import>

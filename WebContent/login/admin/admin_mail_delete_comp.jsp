@@ -2,26 +2,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>通知用メールアドレス削除完了</title>
-<link href="../../common/css/login.css" rel="stylesheet">
-</head>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:import url="/common/admin_base.jsp">
+	<c:param name="title">
+	メールアドレス削除完了
+	</c:param>
 
-<body>
-	<div>
-		<!-- メールアドレス一覧へ -->
-		<form action="./ViewSendMail.action" method="get">
-		<div class="midasi">
-			<h2>メールアドレス削除完了</h2>
-			</div>
+	<c:param name="scripts">
+		<link href="../../common/css/login.css" rel="stylesheet">
+	</c:param>
 
-			<div class="button">
-			<input type="submit" value="一覧へ戻る">
-			</div>
-		</form>
-	</div>
-</body>
+	<c:param name="content">
+		<div>
+			<!-- メールアドレス一覧へ -->
+			<form action="./ViewSendMail.action" method="get">
+				<div class="midasi">
+					<h2>メールアドレス削除完了</h2>
+				</div>
 
-</html>
+				<div class="button">
+					<input type="submit" value="一覧へ戻る">
+				</div>
+			</form>
+		</div>
+	</c:param>
+</c:import>
