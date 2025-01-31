@@ -61,7 +61,8 @@
         </c:if>
         <form action="UserChatBot.action" method="post"class="my-form-class">
 		    <input type="hidden" name="flag" value="true">
-		    <input type="submit" value="終了">
+		    <input type="submit" class="choice-button2" value="終了">
+
 		</form>
     </div>
 </div>
