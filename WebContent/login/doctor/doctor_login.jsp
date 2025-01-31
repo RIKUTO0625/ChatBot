@@ -43,7 +43,7 @@
 		<div class="button">
 
         <a href="../staff/StaffLogin.action" class="button-link">職員ログイン画面</a>
-        <a href="../admin/AdminLogin.action" class="button-link">組織ログイン画面</a>
+        <a href="../adm/AdmLogin.action" class="button-link">組織ログイン画面</a>
         </div>
     </div>
 </body>

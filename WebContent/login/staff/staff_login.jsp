@@ -44,7 +44,7 @@
         <hr size="1" width="70%">
         <div class="button">
 			<div class="hokalogin">
-	        <a href="../admin/AdminLogin.action" class="button-link">組織ログインはこちら</a>
+	        <a href="../adm/AdmLogin.action" class="button-link">組織ログインはこちら</a>
 	        </div>
 
 	        <div class="hokalogin2">
