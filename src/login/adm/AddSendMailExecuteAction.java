@@ -44,11 +44,11 @@ public class AddSendMailExecuteAction extends Action {
         Boolean success = smDao.createMail(sendmail);
 
         if (success) {
-            res.sendRedirect("admin_mail_create_comp.jsp"); // 登録完了ページへ遷移
+            res.sendRedirect("adm_mail_create_comp.jsp"); // 登録完了ページへ遷移
         } else {
             errors.put("database", "データベースエラーが発生しました。");
             session.setAttribute("errors", errors);
-            res.sendRedirect("admin_mail_create.jsp"); // 入力フォームページへ戻る
+            res.sendRedirect("adm_mail_create.jsp"); // 入力フォームページへ戻る
         }
 	}
 }

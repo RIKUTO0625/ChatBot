@@ -32,7 +32,7 @@ public class DeleteSendMailAction  extends Action {
 //		sendmail = smDao.loginMail(mail_id);
 
 		//JSPへフォワード
-		req.getRequestDispatcher("admin_mail_delete.jsp").forward(req, res);
+		req.getRequestDispatcher("adm_mail_delete.jsp").forward(req, res);
 	}
 
 }

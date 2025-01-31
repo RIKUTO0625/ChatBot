@@ -22,7 +22,7 @@ public class AddSendMailAction extends Action {
 		//レスポンス値をセット 6
 		//なし
 		//JSPへフォワード 7
-		req.getRequestDispatcher("admin_mail_create.jsp").forward(req, res);
+		req.getRequestDispatcher("adm_mail_create.jsp").forward(req, res);
 	}
 
 }
