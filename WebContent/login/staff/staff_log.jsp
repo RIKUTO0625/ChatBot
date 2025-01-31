@@ -280,7 +280,6 @@
 	        <div class="bar-graph-wrap2">
 	        </div>
 	    </div>
-
 	    </div>
 	    </c:if>
 	</div>
