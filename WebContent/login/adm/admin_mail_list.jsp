@@ -9,45 +9,43 @@
 </c:param>
 <c:param name="content">
 	<div>
-	<div class="content2">
-		<div class="midasi">
-		<h2>通知用メールアドレス一覧</h2>
-		</div>
-
-		<form action="AddSendMail.action" method="post">
-			<div class="button">
-			<div class="right">
-			<input type="submit" value="新規作成">
+		<div class="content2">
+			<div class="midasi">
+				<h2>通知用メールアドレス一覧</h2>
 			</div>
-			</div>
-		</form>
 
-		<!-- 1通もない(0通) -->
-		<c:if test="${empty mailList}">
-			<p>誰も登録されていません！</p>
-		</c:if>
+			<form action="AddSendMail.action" method="post">
+				<div class="button">
+					<div class="right">
+						<input type="submit" value="新規作成">
+					</div>
+				</div>
+			</form>
 
-		<!-- 登録されているメールアドレスがある -->
-		<c:if test="${not empty mailList}">
-			<c:forEach var="sendmail" items="${mailList}">
-				<form action="DeleteSendMail.action" method="post">
-				<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
-				<input type="hidden" name="mail_address" value="${sendmail.mail_address}"/>
-				<input type="hidden" name="ad_cd" value="${sendmail.ad_cd}"/>
-					<div class="admen2">
-						<div class="inline-block">
-							<p>${sendmail.mail_address}</p>
-						</div>
+			<!-- 1通もない(0通) -->
+			<c:if test="${empty mailList}">
+				<p>誰も登録されていません！</p>
+			</c:if>
+
+			<!-- 登録されているメールアドレスがある -->
+			<c:if test="${not empty mailList}">
+				<c:forEach var="sendmail" items="${mailList}">
+					<form action="DeleteSendMail.action" method="post">
+						<input type="hidden" name="mail_id" value="${sendmail.mail_id}"/>
+						<input type="hidden" name="mail_address" value="${sendmail.mail_address}"/>
+						<input type="hidden" name="ad_cd" value="${sendmail.ad_cd}"/>
+						<div class="admen2">
+							<div class="inline-block">
+								<p>${sendmail.mail_address}</p>
+							</div>
 							<div class="ookisahaibutton">
 								<input type="submit"value="削除">
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
 				</c:forEach>
-				</c:if>
-
-
-	</div>
+			</c:if>
+		</div>
 	</div>
 </c:param>
 </c:import>
