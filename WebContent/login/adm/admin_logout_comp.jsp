@@ -8,8 +8,6 @@
 
 <body class="logout_body">
 
-    <div>
-
     	<div class="midasi">
         <h2>ログアウトしました</h2>
         </div>
