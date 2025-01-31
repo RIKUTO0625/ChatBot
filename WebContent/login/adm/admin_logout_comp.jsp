@@ -16,7 +16,7 @@
 
         <div class="button">
     	<div class="haibutton">
-        <a class="logout" href="AdminLogin.action">ログイン</a>
+        <a class="logout" href="AdmLogin.action">ログイン</a>
         </div>
         <div class="iiebutton">
         <a class="logout" href="../Home.action">HOME</a>
