@@ -37,6 +37,8 @@ public class DeleteDoctorExecuteAction extends Action{
 
 			dDao.doctor_delete(doctor);
 
+			req.setAttribute("doctor", doctor);
+
 			session.removeAttribute("doctor");
 			//JSPへフォワード
 			req.getRequestDispatcher("doctor_delete_comp.jsp").forward(req, res);

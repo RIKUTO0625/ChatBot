@@ -15,7 +15,7 @@
 	<c:param name="content">
 		<div class="midasi">
 			<h2>医者アカウント削除完了</h2>
-			<p>${dc_name}を削除しました</p>
+			<p>${doctor.dc_name}を削除しました</p>
 		</div>
 		<div class="button">
 			<font size="10">
