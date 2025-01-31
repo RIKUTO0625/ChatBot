@@ -10,7 +10,6 @@
 <c:param name="content">
 <div class=content>
 	<div class="sosikimei">
-	<div>${ad_name}</div>
 	</div>
 
 	<div class="midasi">

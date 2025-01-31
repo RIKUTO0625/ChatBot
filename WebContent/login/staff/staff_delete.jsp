@@ -15,7 +15,7 @@
 	<div>
 		<div class="midasi">
 		<h2>アカウント削除</h2>
-		<p>本当にアカウントを削除しますか？</p>
+		<p>${staff.staff_name}を削除しますか？</p>
 		</div>
 
 		<div class="button">

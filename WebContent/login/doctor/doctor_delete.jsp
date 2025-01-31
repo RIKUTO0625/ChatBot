@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="midasi">
-			<p>本当に削除しますか？</p>
+			<p>${doctor.dc_name}を削除しますか？</p>
 		</div>
 
 		<div class="button">
