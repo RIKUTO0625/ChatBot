@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.Staff;
 import dao.ChatDao;
+import dao.StaffDao;
 import tool.Action;
 
 public class StaffLogAction extends Action{
@@ -21,17 +22,28 @@ public class StaffLogAction extends Action{
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//ローカル変数の宣言 1
 		HttpSession session = req.getSession();//セッション
+		StaffDao sDao = new StaffDao();
 		ChatDao cDao = new ChatDao();
 		Integer year = null;	//年
 		Integer month = null;	//月
-		Staff staff = (Staff) session.getAttribute("user");
+		Staff staff;	//職員情報
 		List<List<Integer>>staff_log = new ArrayList<>();	//質問の履歴リスト
 
 		//リクエストパラメータ―の取得 2
-		String years = req.getParameter("year");
-		String months = req.getParameter("month");
+		String years = req.getParameter("year");	//年
+		String months = req.getParameter("month");	//月
+		String staff_id = req.getParameter("no");	//職員ID
+		String staff_pw = req.getParameter("pw");	//職員パスワード
 
 		//DBからデータ取得 3
+
+		if(staff_id != null && staff_pw != null){
+			staff = sDao.loginStaff(staff_id, staff_pw);
+			session.setAttribute("staff", staff);
+		}
+		else{
+			staff = (Staff)session.getAttribute("staff");// 職員情報を取得
+		}
 
 		if(years != null){	//年をINT型に変更
 			year = Integer.parseInt(years);

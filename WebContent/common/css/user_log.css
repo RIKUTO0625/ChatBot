@@ -38,6 +38,13 @@
 	font-size: 15px; /* テキストのフォントサイズを設定 */
 }
 
+#monthSelect{
+	padding: 7px;
+	border-radius: 8px;
+	font-size: 15px; /* テキストのフォントサイズを設定 */
+	margin-right: 15px; /* 左側に20pxのマージンを追加 */
+}
+
 .custom-button {
     padding: 5px 25px;
     background-color: #000000; /* 黒色 */

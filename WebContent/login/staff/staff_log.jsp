@@ -21,18 +21,30 @@
 		    <label for="yearSelect">年を選択してください:</label>
 		    <select name="year" id="yearSelect">
 		        <%
-		            // 現在の年を取得して、選択肢を動的に生成する
-		            java.util.Calendar calendar = java.util.Calendar.getInstance();
-		            int currentYear = calendar.get(java.util.Calendar.YEAR);
-		            for (int i = currentYear; i >= 2000; i--) { // 2000年から現在までを表示
-		        %>
-		            <option value="<%= i %>"><%= i %></option>
-		        <%
-		            }
-		        %>
+				    // 現在の年を取得して、選択肢を動的に生成する
+				    java.util.Calendar calendar = java.util.Calendar.getInstance();
+				    int currentYear = calendar.get(java.util.Calendar.YEAR);  // 現在の年を取得
+				    for (int i = currentYear; i >= 2000; i--) { // 2000年から現在までを表示
+				%>
+				    <option value="<%= i %>"><%= i %></option>  <!-- 年を表示 -->
+				<%
+				    }
+				%>
 		    </select>
-		    <button type="submit" class="custom-button">検索</button>
 
+		    <label for="monthSelect">月を選択してください:</label>
+	        <select name="month" id="monthSelect">
+	            <option value="なし">なし</option>  <!-- なしの選択肢 -->
+	            <%
+	                // 1から12までの月を生成
+	                for (int i = 1; i <= 12; i++) {
+	            %>
+	                <option value="<%= i %>"><%= i %>月</option> <!-- 月を表示 -->
+	            <%
+	                }
+	            %>
+	        </select>
+		    <button type="submit" class="custom-button">検索</button>
 		</form>
 	</div>
 
