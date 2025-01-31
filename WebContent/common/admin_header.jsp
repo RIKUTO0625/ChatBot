@@ -7,10 +7,10 @@
     <div style="display: flex; align-items: center;">
         <h2><span>user:${ad_name}</span></h2>
         <div class=images>
-	        <a href="../admin/Member.action">
+	        <a href="../adm/Member.action">
 	        <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/HOME.drawio.png?raw=true"
 	        alt="HOME" width=150 height=30></a>
-	        <a href="../admin/AdminLogout.action">
+	        <a href="../adm/AdmLogout.action">
 	        <img src="https://github.com/RIKUTO0625/ChatBot/blob/master/WebContent/image/logout.png?raw=true"
 	        alt="ログアウト" width=150 height=30></a>
 	    </div>
