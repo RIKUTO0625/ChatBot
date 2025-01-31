@@ -34,11 +34,11 @@ public class DeleteSendMailExecuteAction  extends Action {
 
 			session.removeAttribute("sendmail");
 
-            res.sendRedirect("admin_mail_delete_comp.jsp"); // 削除完了ページへ遷移
+            res.sendRedirect("adm_mail_delete_comp.jsp"); // 削除完了ページへ遷移
         } else {
             errors.put("database", "データベースエラーが発生しました。");
             session.setAttribute("errors", errors);
-            res.sendRedirect("admin_mail_list.jsp"); // メール一覧画面へ戻る
+            res.sendRedirect("adm_mail_list.jsp"); // メール一覧画面へ戻る
         }
 	}
 }
