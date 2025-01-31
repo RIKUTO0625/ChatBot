@@ -44,6 +44,9 @@ public class UserChatBotAction extends Action{
 
         // セッションから"staff"という名前でStaffオブジェクトを取得
         Staff staff = (Staff) session.getAttribute("user");
+		String staffName = staff.getStaff_name();
+		System.out.println("名前"+staffName);
+		req.setAttribute("staff_name", staff.getStaff_name()); // 名前
 
 		//リクエストパラメータ―の取得 2
         String flag = req.getParameter("flag");
