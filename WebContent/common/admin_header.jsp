@@ -17,12 +17,12 @@
 		<header>
 		  <nav class="nav">
 		    <ul>
-		      <li><a href="../admin/Member.action">職員アカウント管理</a></li>
+		      <li><a href="../adm/Member.action">職員アカウント管理</a></li>
 		      <li><a href="../doctor/ViewDoctor.action">医者アカウント管理</a></li>
-		      <li><a href="../admin/ViewSendMail.action">通知用メールアドレス管理</a></li>
+		      <li><a href="../adm/ViewSendMail.action">通知用メールアドレス管理</a></li>
 		      <li class=footer-menu>
-		      <a href="../admin/Member.action">HOME</a>
-		      <a href="../admin/AdminLogout.action">Logout</a>
+		      <a href="../adm/Member.action">HOME</a>
+		      <a href="../adm/AdmLogout.action">Logout</a>
 		      </li>
 		    </ul>
 		  </nav>

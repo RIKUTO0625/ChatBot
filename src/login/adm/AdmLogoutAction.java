@@ -1,11 +1,11 @@
-package login.admin;
+package login.adm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class AdminLogoutAction extends Action{
+public class AdmLogoutAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {

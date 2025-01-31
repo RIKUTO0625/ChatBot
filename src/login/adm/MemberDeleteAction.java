@@ -1,4 +1,4 @@
-package login.admin;
+package login.adm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

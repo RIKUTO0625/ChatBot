@@ -1,11 +1,11 @@
-package login.admin;
+package login.adm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class CreateAdminAction extends Action{
+public class CreateAdminCompAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -22,6 +22,12 @@ public class CreateAdminAction extends Action{
 		//レスポンス値をセット 6
 		//なし
 		//JSPへフォワード 7
-		req.getRequestDispatcher("admin_create.jsp").forward(req, res);
+
+//		エラーがあった場合、プロフィール登録画面へ戻る
+//		if(){
+//			req.getRequestDispatcher("admin_create_pf.jsp").forward(req, res);
+//		}
+
+		req.getRequestDispatcher("admin_create_comp.jsp").forward(req, res);
 	}
 }

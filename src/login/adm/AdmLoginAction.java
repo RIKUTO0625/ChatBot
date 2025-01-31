@@ -1,11 +1,11 @@
-package login.admin;
+package login.adm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class AddSendMailAction extends Action {
+public class AdmLoginAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -22,7 +22,6 @@ public class AddSendMailAction extends Action {
 		//レスポンス値をセット 6
 		//なし
 		//JSPへフォワード 7
-		req.getRequestDispatcher("admin_mail_create.jsp").forward(req, res);
+		req.getRequestDispatcher("admin_login.jsp").forward(req, res);
 	}
-
 }

@@ -15,7 +15,7 @@
 
         <div class="button">
         <div class="haibutton">
-        <a class="logout" href="AdminLogoutExecute.action">はい</a>
+        <a class="logout" href="AdmLogoutExecute.action">はい</a>
         </div>
 
         <div class="iiebutton">

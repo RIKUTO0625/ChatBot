@@ -18,7 +18,7 @@
     	<div class="midasi">
         <h2>組織ログイン</h2>
         </div>
-        <form action="AdminLoginExecute.action" method="post">
+        <form action="AdmLoginExecute.action" method="post">
 
         	<div class="input_box">
         	<label>組織コード</label>

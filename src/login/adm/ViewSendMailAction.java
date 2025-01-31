@@ -1,4 +1,4 @@
-package login.admin;
+package login.adm;
 
 import java.util.List;
 

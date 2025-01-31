@@ -13,7 +13,7 @@
 		    <ul>
 		      <li><a href="staff/StaffLogin.action">職員ログイン</a></li>
 		      <li><a href="doctor/DoctorLogin.action">医者ログイン</a></li>
-		      <li><a href="admin/AdminLogin.action">組織ログイン</a></li>
+		      <li><a href="adm/AdmLogin.action">組織ログイン</a></li>
 
 		    </ul>
 		  </nav>

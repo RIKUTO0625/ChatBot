@@ -1,4 +1,4 @@
-package login.admin;
+package login.adm;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import bean.Admin;
 import dao.AdminDao;
 import tool.Action;
 
-public class AdminLoginExecuteAction extends Action{
+public class AdmLoginExecuteAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
