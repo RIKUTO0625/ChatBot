@@ -26,9 +26,8 @@ public class StaffLogAction extends Action{
 		ChatDao cDao = new ChatDao();
 		Integer year = null;	//年
 		Integer month = null;	//月
+
 		Staff staff = (Staff)session.getAttribute("user");	//職員情報
-		String staffName = staff.getStaff_name();
-		System.out.println("名前"+staffName);
 		req.setAttribute("staff_name", staff.getStaff_name()); // 名前
 
 		List<List<Integer>>staff_log = new ArrayList<>();	//質問の履歴リスト

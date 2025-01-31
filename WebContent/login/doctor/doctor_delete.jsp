@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:import url="/common/doctor_base.jsp">
+<c:import url="/common/admin_base.jsp">
 	<c:param name="title">
 	医者アカウント削除
 	</c:param>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Doctor;
 import bean.Staff;
 import dao.ChatDao;
 import dao.StaffDao;
@@ -28,6 +29,11 @@ public class UserLogAction extends Action{
 		Integer month = null;	//月
 		Staff staff;	//職員情報
 		List<List<Integer>>staff_log = new ArrayList<>();	//質問の履歴リスト
+
+		//ヘッダーの名前
+		Doctor doctor = (Doctor)session.getAttribute("user");
+		req.setAttribute("dc_name", doctor.getDc_name()); // 名前
+
 
 		//リクエストパラメータ―の取得 2
 		String years = req.getParameter("year");	//年

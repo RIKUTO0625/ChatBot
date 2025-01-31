@@ -16,6 +16,7 @@ public class DeleteDoctorAction extends Action {
 		//ローカル変数の宣言 1
 		HttpSession session = req.getSession(); // セッション
 		Admin admin = (Admin)session.getAttribute("user");// ログインユーザーを取得
+		req.setAttribute("ad_name", admin.getAd_name()); // 名前
 	    DoctorDao dDao = new DoctorDao();
 	    Doctor doctor = null; //医者
 		//リクエストパラメータ―の取得 2
