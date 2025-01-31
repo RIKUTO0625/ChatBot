@@ -10,7 +10,6 @@
 <c:param name="content">
 	<div>
 	<div class="content2">
-		<div>${ad_name}</div>
 		<div class="midasi">
 		<h2>通知用メールアドレス一覧</h2>
 		</div>
