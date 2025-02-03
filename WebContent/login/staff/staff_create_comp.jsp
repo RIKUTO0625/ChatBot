@@ -14,7 +14,7 @@
 </div>
 
 <div class="button">
-    <a href="StaffProfile.action">戻る</a>
+    <a href="StaffLogin.action">戻る</a>
 	</div>
 </body>
 </html>
