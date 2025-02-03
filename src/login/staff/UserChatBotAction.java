@@ -123,8 +123,9 @@ public class UserChatBotAction extends Action{
         System.out.println(logList);
 
         if(isTrue){	//終了ボタンを押された場合
-
-        	cDao.setChat(staff, chatList);		//チャットの記録
+        	if(chatList != null){
+        		cDao.setChat(staff, chatList);		//チャットの記録
+        	}
         	session.removeAttribute("logList"); //セッションの初期化
         	session.removeAttribute("chatList");
         	session.removeAttribute("questionList");
@@ -164,7 +165,9 @@ public class UserChatBotAction extends Action{
 
 	        	qu_id = 9;
 	        	question_new = "以上で質問は終わりとなりますお疲れさまでした";
-	        	cDao.setChat(staff, chatList);		//チャットの記録
+	        	if(chatList != null){
+	        		cDao.setChat(staff, chatList);		//チャットの記録
+	        	}
 	        	session.removeAttribute("logList"); //セッションの初期化
 	        	session.removeAttribute("chatList");
 	        	session.removeAttribute("questionList");
