@@ -23,9 +23,10 @@ public class ViewDoctorAction extends Action{
 		doctor = dDao.viewDoctor(admin.getAd_cd());
 
 		req.setAttribute("doctorList", doctor);
-
+		req.setAttribute("ad_name", admin.getAd_name());
 
 		//JSPへフォワード 7
+
 		req.getRequestDispatcher("doctor_member.jsp").forward(req, res);
 	}
 }
