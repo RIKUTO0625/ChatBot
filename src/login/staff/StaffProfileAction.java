@@ -61,7 +61,6 @@ public class StaffProfileAction extends Action {
         }
         req.setAttribute("selectedAnswers", selectedAnswers);
         // 結果をコンソールに表示
-        System.out.println("当日の質問1の回答" + currentYear + "年" + currentMonth + "月" + currentDay + "日__回答: " + selectedAnswers);
 
         // JSPへフォワード
         req.getRequestDispatcher("staff_profile.jsp").forward(req, res);

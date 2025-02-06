@@ -45,7 +45,6 @@ public class UserChatBotAction extends Action{
         // セッションから"staff"という名前でStaffオブジェクトを取得
         Staff staff = (Staff) session.getAttribute("user");
 		String staffName = staff.getStaff_name();
-		System.out.println("名前"+staffName);
 		req.setAttribute("staff_name", staff.getStaff_name()); // 名前
 
 		//リクエストパラメータ―の取得 2
@@ -53,8 +52,6 @@ public class UserChatBotAction extends Action{
         boolean isTrue = "true".equals(flag);
         String question_st = req.getParameter("qu_id");	//質問
         String answer_st = req.getParameter("answer");	//回答
-        System.out.println(question_st);
-        System.out.println(answer_st);
 
 		//DBからデータ取得 3
 
@@ -99,7 +96,6 @@ public class UserChatBotAction extends Action{
             answer = Integer.parseInt(answer_st);		//Int型に変換
             chatSubList.add(question);
             chatSubList.add(answer);
-            System.out.println(chatList);
             chatList.add(chatSubList);
             session.setAttribute("chatList", chatList);
         }
@@ -148,8 +144,6 @@ public class UserChatBotAction extends Action{
 		                      .map(Chat::getAns_text) // getAns_textメソッドを使用して解答を取得
 		                      .collect(Collectors.toList()); // リストに収集
 
-		        System.out.println("通過");
-
 		        qu_id = logList.size()+1;
 		        question_new = questionList.get(qu_id-1);
 	        	}
@@ -188,7 +182,6 @@ public class UserChatBotAction extends Action{
 		//なし
 
 		//レスポンス値をセット 6
-        System.out.println("Actionは大丈夫");
         req.setAttribute("question_list", question_log);	//今までの質問
         req.setAttribute("answer_list", answer_log);		//今までの回答
         req.setAttribute("question", question_new);		//次に渡される質問
