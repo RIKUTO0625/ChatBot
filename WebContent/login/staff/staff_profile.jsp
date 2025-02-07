@@ -163,7 +163,16 @@
 
 			<!-- 編集ボタン -->
 			<div class="button">
-				<a href="staff_profile_update.jsp" class="up-button">編集</a>
+			    <form action="staff_profile_update.jsp" method="post">
+			        <input type="hidden" name="staff_name" value="${staff_name}">
+			        <input type="hidden" name="staff_age" value="${staff_age}">
+			        <input type="hidden" name="staff_belong" value="${staff_belong}">
+			        <input type="hidden" name="staff_mail" value="${staff_mail}">
+			        <input type="hidden" name="gender_cd" value="${gender_cd}">
+			        <input type="hidden" name="favorite" value="${favorite}">
+			        <input type="hidden" name="detail" value="${detail}">
+			        <button type="submit" class="up-button">編集</button>
+			    </form>
 			</div>
 		</div>
 	</form>
