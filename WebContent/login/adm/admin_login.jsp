@@ -36,13 +36,6 @@
             </div>
         </form>
 
-        <div class="kotira">
-		<p>
-		アカウントをお持ちでない方は
-		<a href="CreateAdmin.action">こちら</a>
-		</p>
-		</div>
-
         <hr size="1" width="70%">
 
 		 <div class="button">
