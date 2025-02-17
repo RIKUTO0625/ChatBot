@@ -166,7 +166,7 @@ public class StaffDao extends Dao {
 
 			String sql = "update staff set "
 			+ "staff_name = ?, staff_age = ?, staff_belong = ?, "
-			+ "staff_mail = ?, favorite = ?, detail = ?, staff_pw = ? "
+			+ "staff_mail = ?, favorite = ?, gender_cd = ?, detail = ?, staff_pw = ? "
 			+ "where staff_id = ? and is_deleted = false ";
 
 			//プリペアードステートメントにUPDATE文をセット
@@ -177,10 +177,11 @@ public class StaffDao extends Dao {
 			statement.setInt(2,staff.getStaff_age());
 			statement.setString(3,staff.getStaff_belong());
 			statement.setString(4,staff.getStaff_mail());
-			statement.setString(5,staff.getFavorite());
-			statement.setString(6,staff.getDetail());
-			statement.setString(7,staff.getStaff_pw());
-			statement.setString(8,staff.getStaff_id());
+			statement.setString(5,staff.getGender_cd());
+			statement.setString(6,staff.getFavorite());
+			statement.setString(7,staff.getDetail());
+			statement.setString(8,staff.getStaff_pw());
+			statement.setString(9,staff.getStaff_id());
 
 			//プリペアードステートメントを実行
 			count = statement.executeUpdate ();
@@ -213,6 +214,8 @@ public class StaffDao extends Dao {
 		    return false;
 		}
 	}
+
+
 
 	private List<Staff> changeList(ResultSet rSet) throws Exception {
 
